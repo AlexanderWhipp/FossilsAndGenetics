@@ -40,20 +40,19 @@ import java.util.stream.IntStream;
 
 public class DnaSequencerBlockEntity extends BlockEntity implements MenuProvider {
 
+/*
+    private static int dnaChainPos;
+private static int dnaSegment = 10;
 
-    private record DnaSegment(int start, int end){}
+    private static final List<dnaChainPos> VALID_SEGMENTS = List.of(
+            new dnaSegment(10)
 
-    private static final List<DnaSegment> VALID_SEGMENTS = List.of(
-            new DnaSegment(0,19),
-            new DnaSegment(21,29),
-            new DnaSegment(31,39),
-            new DnaSegment(41,49),
-            new DnaSegment(51,100)
     );
+
     private static final Random randomSegment = new Random();
+Feature is W.I.P facing many technical challenges implementing at the moment, this is a future shadow problem
 
-
-
+*/
 
 
     public final ItemStackHandler itemHandler = new ItemStackHandler(4){
@@ -171,13 +170,13 @@ public class DnaSequencerBlockEntity extends BlockEntity implements MenuProvider
         this.maxProgress = 72;
     }
     private static final List<String> POSSIBLE_DNA_SPECIES = List.of(
-            "fossilgencraft:trex",
-            "fossilgencraft:triceratops",
-            "fossilgencraft:Brachiosaurus"
+            "fossilgencraft:trex"
+          //  "fossilgencraft:triceratops", Temporarily disabled to allow for easier early dev
+          //  "fossilgencraft:Brachiosaurus"
     );
     private static final List<String> POSSIBLE_INTEGRITY_VALUES = List.of(
-            "Low_Integrity",
-            "Medium_Integrity",
+         //   "Low_Integrity", Temporarily disabled as does nothing
+         //   "Medium_Integrity",
             "High_Integrity"
     );
 
@@ -194,9 +193,9 @@ public class DnaSequencerBlockEntity extends BlockEntity implements MenuProvider
         Boolean isContaminated = random.nextBoolean();
         // Optional: Add weighted RNG logic here
 
-        DnaSegment chosenSegment = VALID_SEGMENTS.get(random.nextInt(VALID_SEGMENTS.size()));
-        int startPos = chosenSegment.start();
-        int endPos = chosenSegment.end();
+      // DnaSegment chosenSegment = VALID_SEGMENTS.get(random.nextInt(VALID_SEGMENTS.size()));
+        int startPos = 10;
+       // int endPos = chosenSegment.end();
 
 
         // --- 2. Get Output Prototypes from the Recipe ---
@@ -214,7 +213,7 @@ public class DnaSequencerBlockEntity extends BlockEntity implements MenuProvider
         sequencedDnaOutput.set(ModDataComponents.IS_CONTAMINATED.get(), isContaminated);
         sequencedDnaOutput.set(ModDataComponents.DNA_INTEGRITY_ID.get(), selectedIntegrityId);
         sequencedDnaOutput.set(ModDataComponents.DNA_CHAIN_START_POS.get(), startPos);
-        sequencedDnaOutput.set(ModDataComponents.DNA_CHAIN_END_POS.get(), endPos);
+        // sequencedDnaOutput.set(ModDataComponents.DNA_CHAIN_END_POS.get(), endPos);
         // --- END OF MODIFIED PART ---
 
         // --- 4. Create the Residue Stack ---

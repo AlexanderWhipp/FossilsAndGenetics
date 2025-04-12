@@ -24,6 +24,7 @@ public class ModTags {
 
 
         public static final TagKey<Item> SMELTABLE_TO_ASH = createTag("smeltable_to_ash");
+        public static final TagKey<Item> TREX_DNA_ITEM = createTag("trex_dna_item");
 
 
         private static TagKey<Item> createTag(String name) {

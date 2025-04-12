@@ -11,7 +11,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.shadowtek.fossilgencraft.FossilGenCraft;
 import net.shadowtek.fossilgencraft.screen.custom.*;
-import net.shadowtek.fossilgencraft.screen.custom.genesplicer.GeneSplicerComputerMenu;
+
 public class ModMenuTypes {
     public static final DeferredRegister<MenuType<?>> MENUS =
             DeferredRegister.create(Registries.MENU, FossilGenCraft.MOD_ID);
@@ -29,9 +29,8 @@ public class ModMenuTypes {
     public static final RegistryObject<MenuType<DnaSequencerMenu>> DNA_SEQUENCER_MENU =
             MENUS.register("dna_sequencer_name", () -> IForgeMenuType.create(DnaSequencerMenu::new));
 
-    public static final RegistryObject<MenuType<GeneSplicerComputerMenu>> GENE_SPLICER_MENU =
-            MENUS.register("gene_splicer_computer_menu", () -> IForgeMenuType.create(GeneSplicerComputerMenu::new));
-
+    public static final RegistryObject<MenuType<GeneSplicerMenu>> GENE_SPLICER_MENU =
+            MENUS.register("gene_splicer_computer_menu", () -> IForgeMenuType.create(GeneSplicerMenu::new));
     public static void register(IEventBus eventBus){
         MENUS.register(eventBus);
     }

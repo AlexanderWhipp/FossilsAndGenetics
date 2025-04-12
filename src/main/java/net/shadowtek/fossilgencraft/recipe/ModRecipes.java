@@ -1,5 +1,6 @@
 package net.shadowtek.fossilgencraft.recipe;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -7,6 +8,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.shadowtek.fossilgencraft.FossilGenCraft;
+
 
 public class ModRecipes {
     public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS =
@@ -53,6 +55,8 @@ public class ModRecipes {
                 }
 
             });
+
+
 
 
     public static void register(IEventBus eventBus) {

@@ -29,8 +29,6 @@ import net.shadowtek.fossilgencraft.item.ModItems;
 import net.shadowtek.fossilgencraft.recipe.ModRecipes;
 import net.shadowtek.fossilgencraft.screen.ModMenuTypes;
 import net.shadowtek.fossilgencraft.screen.custom.*;
-import net.minecraft.server.level.ServerPlayer;
-import net.shadowtek.fossilgencraft.screen.custom.genesplicer.GeneSplicerComputerScreen;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -76,7 +74,7 @@ public class FossilGenCraft {
 
     private void commonSetup(final FMLCommonSetupEvent event){
 
-        ModItemCapabilities.register();
+
 
     }
 
@@ -112,7 +110,8 @@ public class FossilGenCraft {
             MenuScreens.register(ModMenuTypes.CENTRIFUGE_MENU.get(), CentrifugeScreen::new);
             MenuScreens.register(ModMenuTypes.FREEZEDRYER_MENU.get(), FreezeDryerScreen::new);
             MenuScreens.register(ModMenuTypes.DNA_SEQUENCER_MENU.get(), DnaSequencerScreen::new);
-            MenuScreens.register(ModMenuTypes.GENE_SPLICER_MENU.get(), GeneSplicerComputerScreen::new);
+            MenuScreens.register(ModMenuTypes.GENE_SPLICER_MENU.get(), GeneSplicerScreen::new);
+
             System.err.println("Registered GeneSplicerScreen for client");
 
 

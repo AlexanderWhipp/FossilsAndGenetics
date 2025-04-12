@@ -11,7 +11,7 @@ import net.minecraftforge.items.SlotItemHandler;
 import net.shadowtek.fossilgencraft.block.ModBlocks;
 import net.shadowtek.fossilgencraft.block.entity.custom.CentrifugeBlockEntity;
 import net.shadowtek.fossilgencraft.block.entity.custom.FreezeDryerBlockEntity;
-import net.shadowtek.fossilgencraft.block.entity.custom.GeneSplicerComputerBlockEntity;
+//import net.shadowtek.fossilgencraft.block.entity.custom.GeneSplicerComputerBlockEntity;
 import net.shadowtek.fossilgencraft.screen.ModMenuTypes;
 
 public class FreezeDryerMenu extends AbstractContainerMenu {

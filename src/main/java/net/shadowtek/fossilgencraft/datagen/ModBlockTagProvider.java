@@ -3,6 +3,7 @@ package net.shadowtek.fossilgencraft.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.shadowtek.fossilgencraft.FossilGenCraft;
@@ -34,6 +35,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.FOSSIL_ORE.get());
+
+
 
     }
 }
