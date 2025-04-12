@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fossilgencraft:mortar_and_pestle"
+    },
+    {
+      "item": "fossilgencraft:enzyme_residue_dried"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "fossilgencraft:enzyme_powder"
+  }
+}

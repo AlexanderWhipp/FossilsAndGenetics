@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_syringe_contaminated": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fossilgencraft:syringe_contaminated"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fossilgencraft:ash_smelting_recipe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_syringe_contaminated"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fossilgencraft:ash_smelting_recipe"
+    ]
+  }
+}

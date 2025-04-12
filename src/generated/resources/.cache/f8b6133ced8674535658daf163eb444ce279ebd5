@@ -1,0 +1,4 @@
+// 1.21.1	2025-04-06T12:04:41.9175744	Tags for minecraft:block mod id fossilgencraft
+8f0e894a2890ed28a3f7b911d9ca2d03c4cb682b data/minecraft/tags/block/mineable/pickaxe.json
+00f1cd73812945de9096cdd3ea0bdd6d0bda3da2 data/minecraft/tags/block/needs_iron_tool.json
+f1c8817d1efeeb150fb55a02e95799c3a98e5ddd data/minecraft/tags/block/needs_stone_tool.json

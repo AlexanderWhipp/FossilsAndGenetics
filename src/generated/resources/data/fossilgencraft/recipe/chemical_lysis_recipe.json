@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fossilgencraft:detergent"
+    },
+    {
+      "item": "fossilgencraft:enzyme_powder"
+    },
+    {
+      "item": "minecraft:redstone"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "fossilgencraft:chemical_lysis_buffer"
+  }
+}

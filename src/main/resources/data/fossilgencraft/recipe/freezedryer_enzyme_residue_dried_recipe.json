@@ -1,0 +1,10 @@
+{
+  "type": "fossilgencraft:freezedryer",
+  "ingredient": {
+    "item": "fossilgencraft:enzyme_residue"
+  },
+  "result": {
+    "id": "fossilgencraft:enzyme_residue_dried",
+    "count": 1
+  }
+}

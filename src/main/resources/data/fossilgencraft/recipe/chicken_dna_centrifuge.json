@@ -1,0 +1,19 @@
+{
+  "type": "fossilgencraft:centrifuge",
+
+  "ingredient1": {
+
+    "item": "fossilgencraft:test_tube_blood_chicken"
+  },
+  "ingredient2": {
+    "item": "fossilgencraft:chemical_lysis_buffer"
+  },
+  "result1": {
+    "id": "fossilgencraft:dna_sample_chicken",
+    "count": 1
+  },
+  "result2": {
+    "id": "fossilgencraft:contaminant_residue",
+    "count": 1
+  }
+}

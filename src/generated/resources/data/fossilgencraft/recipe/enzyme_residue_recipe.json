@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:slime_ball"
+    },
+    {
+      "item": "fossilgencraft:fungal_enzyme_sample"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "fossilgencraft:enzyme_residue"
+  }
+}

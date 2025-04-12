@@ -1,0 +1,62 @@
+{
+  "item.fossilgencraft.amber": "Amber_OLD_MARKED_FOR_REMOVAL",
+  "item.fossilgencraft.fossil_imprint": "Fossil Imprint",
+
+  "item.fossilgencraft.test_tube_empty": "Test Tube",
+  "item.fossilgencraft.test_tube_water": "Test Tube (Water)",
+  "item.fossilgencraft.test_tube_blood_pig": "Pig Blood Sample",
+  "item.fossilgencraft.test_tube_blood_chicken": "Chicken Blood Sample",
+
+  "item.fossilgencraft.syringe_empty": "Empty Syringe",
+  "item.fossilgencraft.syringe_blood_chicken": "Syringe (Chicken Blood)",
+  "item.fossilgencraft.syringe_blood_pig": "Syringe (Pig Blood)",
+  "item.fossilgencraft.syringe_contaminated": "Contaminated Syringe",
+
+  "item.fossilgencraft.amber_shard": "Amber Shards",
+
+  "item.fossilgencraft.trex_spawn_egg": "Tyrannosaurus Rex Spawn Egg",
+
+  "item.fossilgencraft.dna_sample_chicken": "Chicken DNA",
+  "item.fossilgencraft.dna_sample_pig": "Pig DNA",
+  "item.fossilgencraft.unsequenced_dna_concentrate": "Unsequenced DNA Concentrate",
+  "item.fossilgencraft.near_complete_genome": "Near Completed Genome",
+  "item.fossilgencraft.contaminated_mosquito_sample": "Contaminated Mosquito Sample",
+  "item.fossilgencraft.purified_mosquito_sample": "Purified Mosquito Sample",
+  "item.fossilgencraft.embryo": "Dinosaur Embryo",
+  "item.fossilgencraft.egg_cell": "Egg Cell",
+
+  "tooltip.fossilgencraft.sequenced_dna_base_chain.species": "Species ID: %s",
+  "tooltip.fossilgencraft.sequenced_dna_base_chain.integrity_level": "Integrity: %s",
+  "tooltip.fossilgencraft.sequenced_dna_base_chain.contamination": "Contamination: %s",
+  "tooltip.fossilgencraft.sequenced_dna_base_chain.base_chain_start": "Starting Base: %s",
+  "tooltip.fossilgencraft.sequenced_dna_base_chain.base_chain_end": "Ending Base: %s",
+
+
+  "tooltip.fossilgencraft.sequenced_dna_base_chain.unknown": "Species: Unknown",
+
+
+  "item.fossilgencraft.sequenced_dna_base_chain": "Sequenced Base Chain",
+
+
+
+  "block.fossilgencraft.amber_ore": "Amber Ore",
+  "block.fossilgencraft.deepslate_amber_ore": "Deepslate Amber Ore",
+  "block.fossilgencraft.fossil_ore": "Fossilized Stone",
+
+  "block.fossilgencraft.amber_extractor": "Amber DNA Extractor",
+  "block.fossilgencraft.centrifuge": "DNA Centrifuge",
+  "block.fossilgencraft.dna_sequencer": "DNA Sequencing Machine",
+
+  "block.fossilgencraft.gene_splicing_computer": "Gene Splicer",
+  "block.fossilgencraft.dna_storage_module": "SuperComputer DNA storage",
+
+  "block.fossilgencraft.amber_gem_insect": "Amber (Contains Mosquito)",
+
+  "block.fossilgencraft.amber_gem_flawless": "Flawless Amber",
+  "block.fossilgencraft.amber_lamp": "Amber Glow Lamp",
+
+  "creativetab.fossilgencraft.fossilgencraft_items": "Fossils and Genetics Items",
+  "creativetab.fossilgencraft.fossilgencraft_blocks": "Fossils and Genetics Blocks",
+
+  "entity.fossilgencraft.trexentity": "Tyrannosaurus Rex"
+}

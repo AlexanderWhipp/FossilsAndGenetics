@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.2,
+  "ingredient": {
+    "item": "fossilgencraft:syringe_contaminated"
+  },
+  "result": {
+    "id": "fossilgencraft:syringe_empty"
+  }
+}

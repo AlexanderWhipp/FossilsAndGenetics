@@ -1,0 +1,19 @@
+{
+  "type": "fossilgencraft:dna_sequencer",
+
+  "ingredient1": {
+
+    "item": "fossilgencraft:unsequenced_dna_concentrate"
+  },
+  "ingredient2": {
+    "item": "fossilgencraft:sequencing_reagent"
+  },
+  "result1": {
+    "id": "fossilgencraft:sequenced_dna_base_chain",
+    "count": 1
+  },
+  "result2": {
+    "id": "fossilgencraft:test_tube_empty",
+    "count": 1
+  }
+}

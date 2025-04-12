@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "clicked=false": {
+      "model": "fossilgencraft:block/amber_lamp_off"
+    },
+    "clicked=true": {
+      "model": "fossilgencraft:block/amber_lamp_on"
+    }
+  }
+}

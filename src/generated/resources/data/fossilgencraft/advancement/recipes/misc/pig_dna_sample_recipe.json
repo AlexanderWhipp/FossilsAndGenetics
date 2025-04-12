@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_syringe_blood_pig": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fossilgencraft:syringe_blood_pig"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fossilgencraft:pig_dna_sample_recipe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_syringe_blood_pig"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fossilgencraft:pig_dna_sample_recipe"
+    ]
+  }
+}

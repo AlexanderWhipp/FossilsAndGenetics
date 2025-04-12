@@ -1,0 +1,34 @@
+{
+  "type": "fossilgencraft:amber_extractor",
+
+  "ingredient1": {
+
+    "item": "fossilgencraft:amber_gem_insect"
+  },
+  "ingredient2": {
+    "item": "fossilgencraft:syringe_empty"
+  },
+  "ingredient3": {
+    "item": "fossilgencraft:test_tube_water"
+  },
+  "ingredient4": {
+    "item": "minecraft:coal"
+  },
+
+  "result1": {
+    "id": "fossilgencraft:contaminated_mosquito_sample",
+    "count": 1
+  },
+  "result2": {
+    "id": "fossilgencraft:amber_shard",
+    "count": 1
+  },
+  "result3": {
+    "id": "fossilgencraft:amber_gem_flawless",
+    "count": 1
+  },
+  "result4": {
+    "id": "fossilgencraft:syringe_contaminated",
+    "count": 1
+  }
+}

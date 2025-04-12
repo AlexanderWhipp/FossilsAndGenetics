@@ -1,0 +1,16 @@
+{
+  "replace" : false,
+  "values": [
+    "#minecraft:leaves",
+    "#minecraft:saplings",
+    "#minecraft:planks",
+    "#minecraft:wooden_stairs",
+    "#minecraft:wooden_slabs",
+    "#minecraft:wooden_fences",
+    "minecraft:ladder",
+    "minecraft:stick",
+    "minecraft:coal",
+    "minecraft:charcoal"
+
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_enzyme_residue_dried": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fossilgencraft:enzyme_residue_dried"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fossilgencraft:enzyme_powder_recipe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_enzyme_residue_dried"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fossilgencraft:enzyme_powder_recipe"
+    ]
+  }
+}

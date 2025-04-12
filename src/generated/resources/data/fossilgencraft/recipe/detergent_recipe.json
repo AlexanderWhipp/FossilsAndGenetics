@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fossilgencraft:sulfur"
+    },
+    {
+      "item": "fossilgencraft:pig_fat"
+    },
+    {
+      "item": "fossilgencraft:ash"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "fossilgencraft:detergent"
+  }
+}
