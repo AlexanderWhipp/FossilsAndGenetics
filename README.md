@@ -1,7 +1,9 @@
 🧬 Fossils And Genetics Craft 🧬
+
 A Minecraft Forge 1.21.1 Mod About Dinosaurs, DNA, and Advanced Genetics
 
 🔬 About the Mod
+
 Fossils and Genetics Craft is a science-focused Minecraft mod centered around advanced genetics, prehistoric life, and the construction and manipulation of DNA. 
 
 Whether you're splicing genomes, reviving extinct species, or building a cutting-edge genetics lab in your survival world, 
