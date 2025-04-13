@@ -1,8 +1,9 @@
-// 1.21.1	2025-04-07T13:32:21.1783988	Item Models: fossilgencraft
+// 1.21.1	2025-04-13T20:12:18.16184	Item Models: fossilgencraft
 3785bed8d7de00e52f5c4854ee1e3d7d2cb51e23 assets/fossilgencraft/models/item/amber.json
 2cf909d1273e958e57b10dca74bb3624f4687127 assets/fossilgencraft/models/item/amber_shard.json
 d82c3d7b75973e222f2e647b825e3fe891e26e56 assets/fossilgencraft/models/item/ash.json
 c79788f7f2c2f92f597102acf04053a9231ae89c assets/fossilgencraft/models/item/chemical_lysis_buffer.json
+b9cc43d905ce490be6664373def9dd7f4a0b2a5a assets/fossilgencraft/models/item/completed_genome.json
 69f5fdd068551eff675fc04c8b09020b65b69959 assets/fossilgencraft/models/item/contaminant_residue.json
 df700925e0bf7aa9871e4906beb7ec0a738bdb14 assets/fossilgencraft/models/item/contaminated_mosquito_sample.json
 21169a136e66569399be1397d65f060bf77b7854 assets/fossilgencraft/models/item/detergent.json
@@ -17,7 +18,6 @@ e7a9df76f3ee93d7995f2ebd4795fd7c597fcb86 assets/fossilgencraft/models/item/enzym
 796a48bb0e56923adb020d3db5a5dd0edffe6987 assets/fossilgencraft/models/item/fossil_imprint.json
 08be8cb65a73f5d3d08c5f3c7f0e4156849505d3 assets/fossilgencraft/models/item/fungal_enzyme_sample.json
 6ab1c22cfee3853f44ec9930fdb90d4270580769 assets/fossilgencraft/models/item/mortar_and_pestle.json
-7a4f83cca5c21e96924df6f84e9747be81833c84 assets/fossilgencraft/models/item/near_complete_genome.json
 9f0d0bb899d56a0b6b30953ef6f49b728d9bf3e6 assets/fossilgencraft/models/item/pig_fat.json
 0aa94bc3a2f07a9dc2a45fc9ae1960059cab840f assets/fossilgencraft/models/item/purified_mosquito_sample.json
 ff11eb8434dc57a7afa91d55d151566f182b3966 assets/fossilgencraft/models/item/sequenced_dna_base_chain.json
@@ -32,5 +32,4 @@ ff11eb8434dc57a7afa91d55d151566f182b3966 assets/fossilgencraft/models/item/seque
 dd96b3cb9c099b174c6dec5bfc97f4fd705865e0 assets/fossilgencraft/models/item/test_tube_empty.json
 f1ca9f0328a7906e3132003a503ba022580f0486 assets/fossilgencraft/models/item/test_tube_water.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/fossilgencraft/models/item/trex_spawn_egg.json
-65b335c87d8e2c271fb58a9e6823a360ba72a325 assets/fossilgencraft/models/item/unidentified_dna_sample.json
 086b476c6d8ad60dd0321d804e1d524c9a99dfd2 assets/fossilgencraft/models/item/unsequenced_dna_concentrate.json
