@@ -60,6 +60,7 @@ public record DnaSequencerRecipe(Ingredient inputItem1, Ingredient inputItem2, I
     public RecipeType<?> getType() {
         return ModRecipes.DNA_SEQUENCER_TYPE.get();
     }
+
     public static class Serializer implements RecipeSerializer<DnaSequencerRecipe> {
         public static final MapCodec<DnaSequencerRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
                 Ingredient.CODEC_NONEMPTY.fieldOf("ingredient1").forGetter(DnaSequencerRecipe::inputItem1),

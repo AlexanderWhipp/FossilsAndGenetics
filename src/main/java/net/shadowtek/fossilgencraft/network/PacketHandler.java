@@ -5,7 +5,8 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.*;
 import net.shadowtek.fossilgencraft.FossilGenCraft;
 import net.shadowtek.fossilgencraft.network.to_server.SActivateGeneSlotButtonPacket;
-
+//this has been setup ready for use in the lategame multiblock DNA processing - serves no current purpose, consider commenting out
+//needed
 public class PacketHandler {
     private static final SimpleChannel INSTANCE = ChannelBuilder.named(
             ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, "main"))

@@ -20,6 +20,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.shadowtek.fossilgencraft.block.ModBlocks;
 import net.shadowtek.fossilgencraft.block.entity.ModBlockEntities;
 import net.shadowtek.fossilgencraft.block.entity.renderer.AmberExtractorBlockEntityRenderer;
+import net.shadowtek.fossilgencraft.core.registries.ModDinosaurSpecies;
 import net.shadowtek.fossilgencraft.entity.ModEntities;
 import net.shadowtek.fossilgencraft.entity.client.TRex001Renderer;
 import net.shadowtek.fossilgencraft.event.ModDataComponents;
@@ -49,6 +50,7 @@ public class FossilGenCraft {
 
         ModCreativeModeTabs.register(modEventBus);
         ModEntities.register(modEventBus);
+        ModDinosaurSpecies.register(modEventBus);
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);

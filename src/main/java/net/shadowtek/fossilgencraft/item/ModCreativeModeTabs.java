@@ -29,7 +29,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.DNA_SAMPLE_PIG.get());
                   //Dino-DNA
                         output.accept(ModItems.SEQUENCED_DNA_BASE_CHAIN.get());
-                        output.accept(ModItems.NEAR_COMPLETE_GENOME.get());
+                        output.accept(ModItems.COMPLETED_GENOME.get());
                         output.accept(ModItems.UNSEQUENCED_DNA_CONCENTRATE.get());
                         output.accept(ModItems.CONTAMINATED_MOSQUITO_SAMPLE.get());
                         output.accept(ModItems.PURIFIED_MOSQUITO_SAMPLE.get());

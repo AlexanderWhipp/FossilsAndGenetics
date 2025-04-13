@@ -27,12 +27,12 @@ public class SequencedDnaBaseChainItem extends Item {
         // Use getOrDefault to handle cases where component might be missing (though it shouldn't be if Sequencer always adds it)
         // Provide "" or null as the default, then check it.
         String speciesId = pStack.get(ModDataComponents.DNA_SPECIES_ID.get());
-        Boolean isContaminated = pStack.get(ModDataComponents.IS_CONTAMINATED.get());
-        String integrityLevelId = pStack.get(ModDataComponents.DNA_INTEGRITY_ID.get());
+        int isContaminated = pStack.getOrDefault(ModDataComponents.CONTAMINATED_SCORE.get(),0);
+        Number integrityLevelId = pStack.getOrDefault(ModDataComponents.DNA_INTEGRITY_ID.get(), 10);
         int baseChainStartPos = pStack.getOrDefault(ModDataComponents.DNA_CHAIN_START_POS.get(), -1);
         int baseChainEndPos = pStack.getOrDefault(ModDataComponents.DNA_CHAIN_END_POS.get(), 0);// Returns null if not present
 
-        if (speciesId != null && isContaminated != null && integrityLevelId != null && !speciesId.isEmpty() && !integrityLevelId.isEmpty()) {
+        if (speciesId != null && !speciesId.isEmpty() ){
             pTooltipComponents.add(
                     Component.translatable("tooltip.fossilgencraft.sequenced_dna_base_chain.species", speciesId)
                             .withStyle(ChatFormatting.RED));

@@ -26,18 +26,18 @@ public class ModDataComponents {
                             // Optional: .cacheEncoding() for performance reasons
                             .build()
             );
-    public static final RegistryObject<DataComponentType<String>> DNA_INTEGRITY_ID =
+    public static final RegistryObject<DataComponentType<Float>> DNA_INTEGRITY_ID =
             DATA_COMPONENT_TYPES.register("dna_integrity_id", () ->
-                    DataComponentType.<String>builder()
-                            .persistent(Codec.STRING)
-                            .networkSynchronized(ByteBufCodecs.STRING_UTF8)
+                    DataComponentType.<Float>builder()
+                            .persistent(Codec.FLOAT)
+                            .networkSynchronized(ByteBufCodecs.FLOAT)
                             .build()
             );
-    public static final RegistryObject<DataComponentType<Boolean>> IS_CONTAMINATED =
-            DATA_COMPONENT_TYPES.register("is_contaminated", () ->
-                    DataComponentType.<Boolean>builder()
-                            .persistent(Codec.BOOL)
-                            .networkSynchronized(ByteBufCodecs.BOOL)
+    public static final RegistryObject<DataComponentType<Integer>> CONTAMINATED_SCORE =
+            DATA_COMPONENT_TYPES.register("contamination_score", () ->
+                    DataComponentType.<Integer>builder()
+                            .persistent(Codec.INT)
+                            .networkSynchronized(ByteBufCodecs.INT)
                             .build()
             );
     public static final RegistryObject<DataComponentType<Integer>> DNA_CHAIN_START_POS =

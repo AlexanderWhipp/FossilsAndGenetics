@@ -33,9 +33,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.DNA_SAMPLE_PIG.get());
         basicItem(ModItems.CONTAMINATED_MOSQUITO_SAMPLE.get());
         basicItem(ModItems.PURIFIED_MOSQUITO_SAMPLE.get());
-        basicItem(ModItems.NEAR_COMPLETE_GENOME.get());
+        basicItem(ModItems.COMPLETED_GENOME.get());
         basicItem(ModItems.UNSEQUENCED_DNA_CONCENTRATE.get());
-        basicItem(ModItems.NEAR_COMPLETE_GENOME.get());
         basicItem(ModItems.EGG_CELL.get());
         basicItem(ModItems.EMBRYO.get());
         basicItem(ModItems.FUNGAL_ENZYME_SAMPLE.get());

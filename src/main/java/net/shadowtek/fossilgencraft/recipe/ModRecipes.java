@@ -8,6 +8,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.shadowtek.fossilgencraft.FossilGenCraft;
+import net.shadowtek.fossilgencraft.recipe.splicing.dinosaurs.DinosaurSplicingRecipe;
 
 
 public class ModRecipes {
@@ -41,7 +42,7 @@ public class ModRecipes {
             TYPES.register("dna_sequencer", () -> new RecipeType<DnaSequencerRecipe>() {
                 @Override
                 public String toString(){
-                    return "dnasequencer";
+                    return "dna_sequencer";
                 }
             });
 
@@ -56,6 +57,17 @@ public class ModRecipes {
 
             });
 
+
+    public static final RegistryObject<RecipeSerializer<DinosaurSplicingRecipe>> DINO_DNA_SERIALIZER =
+            SERIALIZERS.register("dino_splicing", DinosaurSplicingRecipe.Serializer::new);
+    public static final RegistryObject<RecipeType<DinosaurSplicingRecipe>> DINO_DNA_TYPE =
+            TYPES.register("dino_splicing", () -> new RecipeType<DinosaurSplicingRecipe>() {
+                @Override
+                public String toString(){
+                    return "dino_splicing";
+                }
+
+            });
 
 
 

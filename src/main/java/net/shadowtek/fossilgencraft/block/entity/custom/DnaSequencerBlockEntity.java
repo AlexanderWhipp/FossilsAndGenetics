@@ -23,7 +23,12 @@ import net.minecraft.world.level.storage.loot.IntRange;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.registries.RegistryObject;
+import net.shadowtek.fossilgencraft.FossilGenCraft;
 import net.shadowtek.fossilgencraft.block.entity.ModBlockEntities;
+import net.shadowtek.fossilgencraft.core.registries.ModDinosaurSpecies;
+import net.shadowtek.fossilgencraft.data.species.dinosaurs.DinosaurSpecies;
+import net.shadowtek.fossilgencraft.data.species.dinosaurs.fixedtraits.DinosaurPeriod;
 import net.shadowtek.fossilgencraft.event.ModDataComponents;
 import net.shadowtek.fossilgencraft.item.ModItems;
 import net.shadowtek.fossilgencraft.recipe.*;
@@ -37,6 +42,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 import java.util.stream.IntStream;
+
+import static net.shadowtek.fossilgencraft.data.species.dinosaurs.fixedtraits.DinosaurPeriod.JURASSIC;
 
 public class DnaSequencerBlockEntity extends BlockEntity implements MenuProvider {
 
@@ -188,14 +195,42 @@ Feature is W.I.P facing many technical challenges implementing at the moment, th
         // --- 1. Perform RNG to select output species ---
         if (this.level == null) return; // Safety check
         RandomSource random = this.level.random;
-        String selectedSpeciesId = POSSIBLE_DNA_SPECIES.get(random.nextInt(POSSIBLE_DNA_SPECIES.size()));
-        String selectedIntegrityId = POSSIBLE_INTEGRITY_VALUES.get(random.nextInt(POSSIBLE_INTEGRITY_VALUES.size()));
-        Boolean isContaminated = random.nextBoolean();
-        // Optional: Add weighted RNG logic here
 
-      // DnaSegment chosenSegment = VALID_SEGMENTS.get(random.nextInt(VALID_SEGMENTS.size()));
+       var registeredDinosaurSpeciesEntries = ModDinosaurSpecies.DINOSAUR_SPECIES_DEFERRED_REGISTER.getEntries();
+
+       if (registeredDinosaurSpeciesEntries.isEmpty()) { //Checks for registered dinosaurs before generating output, THIS SHOULD NEVER HAPPEN. If this error occurs the mod is broken
+           System.err.println("NO DINOSAURS SPECIES REGISTERED! Cannot assign species to output!");
+           resetProgress();
+       }
+        List<RegistryObject<DinosaurSpecies>> speciesList = List.copyOf(registeredDinosaurSpeciesEntries);
+       RegistryObject<DinosaurSpecies> chosenSpeciesRO = speciesList.get(random.nextInt(speciesList.size()));
+       String speciesIdString = chosenSpeciesRO.getId().getPath();
+       System.err.println("Sequencer Randomly Selected Species: " + speciesIdString);
+       // DnaSegment chosenSegment = VALID_SEGMENTS.get(random.nextInt(VALID_SEGMENTS.size()));
         int startPos = 10;
        // int endPos = chosenSegment.end();
+        DinosaurSpecies species = chosenSpeciesRO.get();
+        DinosaurPeriod period =  species.getDinosaurPeriod();
+// Checks Origin Date of Selected Species and Assigns Associated Extraction integrity values, Only cretacious Fossils can have a chance of maximum integrity in a tier 1 sequencer
+        //consider dropping these values, in favour of the tier 1 sequencer being maximised for Modern/Ice-Age Dna sources. Dinosaurs are the endgame of this mod!
+
+        //Integrity defaults to 50 if Dinosaur is missing a time period (which it shouldnt! the setup does not allow for this!)
+        float integrity = 100;
+
+        switch (period) {
+            case JURASSIC:
+                integrity = 40F + random.nextFloat() * (60f-40f);
+                break;
+            case TRIASSIC:
+                integrity = 1f + random.nextFloat() * (30f-1f);
+                break;
+            case CRETACIOUS:
+                integrity = 50f + random.nextFloat() * (100f-50f);
+                break;
+        }
+        integrity = Math.round(integrity * 10f) / 10f;
+        int isContaminated = random.nextInt(11);
+
 
 
         // --- 2. Get Output Prototypes from the Recipe ---
@@ -209,9 +244,9 @@ Feature is W.I.P facing many technical challenges implementing at the moment, th
         // Instead of getOrCreateTag().putString():
 
 
-        sequencedDnaOutput.set(ModDataComponents.DNA_SPECIES_ID.get(), selectedSpeciesId);
-        sequencedDnaOutput.set(ModDataComponents.IS_CONTAMINATED.get(), isContaminated);
-        sequencedDnaOutput.set(ModDataComponents.DNA_INTEGRITY_ID.get(), selectedIntegrityId);
+        sequencedDnaOutput.set(ModDataComponents.DNA_SPECIES_ID.get(), speciesIdString);
+        sequencedDnaOutput.set(ModDataComponents.CONTAMINATED_SCORE.get(), isContaminated);
+        sequencedDnaOutput.set(ModDataComponents.DNA_INTEGRITY_ID.get(), integrity);
         sequencedDnaOutput.set(ModDataComponents.DNA_CHAIN_START_POS.get(), startPos);
         // sequencedDnaOutput.set(ModDataComponents.DNA_CHAIN_END_POS.get(), endPos);
         // --- END OF MODIFIED PART ---

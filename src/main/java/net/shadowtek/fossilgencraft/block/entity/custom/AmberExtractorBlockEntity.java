@@ -127,9 +127,9 @@ public class AmberExtractorBlockEntity extends BlockEntity implements MenuProvid
         return rotation;
     }
 
-    public void clearContents(){
+   /* public void clearContents(){
         inventory.setStackInSlot(0, ItemStack.EMPTY);
-    }
+    }  part of old hardcoded recipe */
     public void drops() {
         SimpleContainer inv = new SimpleContainer(inventory.getSlots());
         for(int i = 0; i < inventory.getSlots(); i++) {
@@ -268,7 +268,8 @@ public class AmberExtractorBlockEntity extends BlockEntity implements MenuProvid
     }
     private Optional <RecipeHolder<AmberExtractorRecipe>> getCurrentRecipe(){
         return this.level.getRecipeManager()
-                .getRecipeFor(ModRecipes.AMBER_EXTRACTOR_TYPE.get(), new AmberExtractorRecipeInput(inventory.getStackInSlot(INPUT_SLOT_1),inventory.getStackInSlot(INPUT_SLOT_2),inventory.getStackInSlot(INPUT_SLOT_3),inventory.getStackInSlot(INPUT_SLOT_4)), level);
+                .getRecipeFor(ModRecipes.AMBER_EXTRACTOR_TYPE.get(), new AmberExtractorRecipeInput(inventory.getStackInSlot(INPUT_SLOT_1),
+                        inventory.getStackInSlot(INPUT_SLOT_2),inventory.getStackInSlot(INPUT_SLOT_3),inventory.getStackInSlot(INPUT_SLOT_4)), level);
     }
     private boolean canInsertItemIntoOutputSlot(ItemStack output_1,ItemStack output_2, ItemStack output_3, ItemStack output_4){
         return inventory.getStackInSlot(OUTPUT_SLOT_1).isEmpty() || this.inventory.getStackInSlot(OUTPUT_SLOT_1).getItem() == output_1.getItem() &&

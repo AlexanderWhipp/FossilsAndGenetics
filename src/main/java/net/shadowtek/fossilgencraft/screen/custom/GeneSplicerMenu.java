@@ -21,7 +21,7 @@ public class GeneSplicerMenu extends AbstractContainerMenu {
     private final ContainerData data;
 
     public GeneSplicerMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
+        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(16));
     }
     public GeneSplicerMenu(int pContainerId, Inventory inv, BlockEntity blockEntity, ContainerData data) {
         super(ModMenuTypes.GENE_SPLICER_MENU.get(), pContainerId);
@@ -32,10 +32,22 @@ public class GeneSplicerMenu extends AbstractContainerMenu {
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 0,54,34));
-        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 1,104,34));
-        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler,2,50,50));
-        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 3,60,60));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 0,20,30));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 1,40,30));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler,2,60,30));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 3,80,30));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 4,100,30));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 5,120,30));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 6,140,30));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 7,20,50));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 8,40,50));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 9,60,50));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 10,80,50));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 11,100,50));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 12,120,50));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 13,140,90));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 14,160,90));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 15,100,150));
 
     }
     public boolean isCrafting(){return data.get(0) > 0;}
@@ -62,7 +74,7 @@ public class GeneSplicerMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 4;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 16;  // must be the number of slots you have!
     @Override
     public ItemStack quickMoveStack(Player playerIn, int pIndex) {
         Slot sourceSlot = slots.get(pIndex);

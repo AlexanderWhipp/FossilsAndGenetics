@@ -99,8 +99,10 @@ public class ModItems {
     public static final RegistryObject<Item> DNA_SAMPLE_CHICKEN = ITEMS.register( "dna_sample_chicken",
             () -> new Item(new Item.Properties().stacksTo(1)));
 
-    public  static final RegistryObject<Item> NEAR_COMPLETE_GENOME = ITEMS.register("near_complete_genome",
-            () ->new Item(new Item.Properties().stacksTo(1)));
+    public  static final RegistryObject<Item> COMPLETED_GENOME = ITEMS.register("completed_genome",
+            () ->new CompletedDinosaurGenomeItem(new Item.Properties().stacksTo(1)));
+
+
     public  static final RegistryObject<Item> EGG_CELL = ITEMS.register("egg_cell",
             () ->new Item(new Item.Properties().stacksTo(64)));
     public  static final RegistryObject<Item> EMBRYO = ITEMS.register("embryo",
