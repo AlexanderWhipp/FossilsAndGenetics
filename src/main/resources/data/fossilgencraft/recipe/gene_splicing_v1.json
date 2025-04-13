@@ -1,0 +1,54 @@
+{
+  "type": "fossilgencraft:dino_splicing",
+
+  "dna1": {
+
+    "item": "fossilgencraft:sequenced_dna_base_chain"
+  },
+  "dna2": {
+    "item": "fossilgencraft:sequenced_dna_base_chain"
+  },
+  "dna3": {
+    "item": "fossilgencraft:dna_sample_chicken"
+  },
+  "dna4": {
+    "item": "fossilgencraft:sequenced_dna_base_chain"
+  },
+  "dna5": {
+    "item": "fossilgencraft:sequenced_dna_base_chain"
+  },
+  "dna6": {
+    "item": "fossilgencraft:dna_sample_chicken"
+  },
+  "dna7": {
+    "item": "fossilgencraft:sequenced_dna_base_chain"
+  },
+  "dna8": {
+    "item": "fossilgencraft:sequenced_dna_base_chain"
+  },
+  "dna9": {
+    "item": "fossilgencraft:dna_sample_chicken"
+  },
+  "dna10": {
+    "item": "fossilgencraft:sequenced_dna_base_chain"
+  },
+  "dna11": {
+    "item": "fossilgencraft:dna_sample_chicken"
+  },
+  "dna12": {
+    "item": "fossilgencraft:dna_sample_chicken"
+  },
+  "dna13": {
+  "item": "fossilgencraft:sequenced_dna_base_chain"
+},"reagent": {
+  "item": "fossilgencraft:sequencing_reagent"
+},
+  "buffer": {
+    "item": "fossilgencraft:chemical_lysis_buffer"
+  },
+
+  "genomecompleted": {
+    "id": "fossilgencraft:completed_genome",
+    "count": 1
+  }
+}
