@@ -43,23 +43,35 @@ public class ModDataComponents {
     public static final RegistryObject<DataComponentType<Integer>> DNA_CHAIN_START_POS =
             DATA_COMPONENT_TYPES.register("dna_chain_start_pos", () ->
                     DataComponentType.<Integer>builder()
-                            // Codec for saving/loading (disk)
                             .persistent(Codec.INT)
-                            // StreamCodec for networking
                             .networkSynchronized(ByteBufCodecs.INT)
-                            // Optional: .cacheEncoding() for performance reasons
                             .build()
             );
     public static final RegistryObject<DataComponentType<Integer>> DNA_CHAIN_END_POS =
             DATA_COMPONENT_TYPES.register("dna_chain_end_pos", () ->
                     DataComponentType.<Integer>builder()
-                            // Codec for saving/loading (disk)
                             .persistent(Codec.INT)
-                            // StreamCodec for networking
                             .networkSynchronized(ByteBufCodecs.INT)
+                            .build()
+            );
+    public static final RegistryObject<DataComponentType<String>> DNA_SLOT_BONUS =
+            DATA_COMPONENT_TYPES.register("dna_slot_bonus", () ->
+                    DataComponentType.<String>builder()
+                            .persistent(Codec.STRING)
+                            .networkSynchronized(ByteBufCodecs.STRING_UTF8)
+                            .build()
+            );
+    public static final RegistryObject<DataComponentType<String>> DNA_TYPE_ID =
+            DATA_COMPONENT_TYPES.register("dna_type_id", () ->
+                    DataComponentType.<String>builder()
+                            // Codec for saving/loading (disk)
+                            .persistent(Codec.STRING)
+                            // StreamCodec for networking
+                            .networkSynchronized(ByteBufCodecs.STRING_UTF8)
                             // Optional: .cacheEncoding() for performance reasons
                             .build()
             );
+
     // Register the DeferredRegister to the event bus
     public static void register(IEventBus eventBus) {
         DATA_COMPONENT_TYPES.register(eventBus);

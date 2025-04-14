@@ -44,12 +44,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pRecipeOutput, ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID,"syringe_blast_cleaning_recipe_custom"));
 
 //test tubes
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TEST_TUBE_BLOOD_CHICKEN.get())
-                .requires(ModItems.SYRINGE_BLOOD_CHICKEN.get())
+    /*    ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TEST_TUBE_BLOOD_CHICKEN.get())
+                .requires(ModItems.SYRINGE_FILLED_BLOOD.get())
                 .requires(ModItems.TEST_TUBE_EMPTY.get())
                 .unlockedBy("has_syringe_blood_chicken", has(ModItems.SYRINGE_BLOOD_CHICKEN.get()))
                 .save(pRecipeOutput,ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, "chicken_dna_sample_recipe"));
-
+*/
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TEST_TUBE_BLOOD_PIG.get())
                 .requires(ModItems.SYRINGE_BLOOD_PIG.get())
                 .requires(ModItems.TEST_TUBE_EMPTY.get())

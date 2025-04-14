@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-13T20:12:18.16184	Item Models: fossilgencraft
+// 1.21.1	2025-04-14T04:34:40.5549628	Item Models: fossilgencraft
 3785bed8d7de00e52f5c4854ee1e3d7d2cb51e23 assets/fossilgencraft/models/item/amber.json
 2cf909d1273e958e57b10dca74bb3624f4687127 assets/fossilgencraft/models/item/amber_shard.json
 d82c3d7b75973e222f2e647b825e3fe891e26e56 assets/fossilgencraft/models/item/ash.json
@@ -23,10 +23,10 @@ e7a9df76f3ee93d7995f2ebd4795fd7c597fcb86 assets/fossilgencraft/models/item/enzym
 ff11eb8434dc57a7afa91d55d151566f182b3966 assets/fossilgencraft/models/item/sequenced_dna_base_chain.json
 6294bc7979518f9ae10676d180b633575ac51ee5 assets/fossilgencraft/models/item/sequencing_reagent.json
 6db5ead1ca962a683a0b143d4f5d3b8f93e8dfa5 assets/fossilgencraft/models/item/sulfur.json
-7ce1656e8c779e17407af7b6dee3a6ae8f725940 assets/fossilgencraft/models/item/syringe_blood_chicken.json
 01eb4bc8f5e7757f00f21ce17b1dd2c7fe9e7e48 assets/fossilgencraft/models/item/syringe_blood_pig.json
 6dc83cd86c3f2c65b7c8322140a42573172b1f74 assets/fossilgencraft/models/item/syringe_contaminated.json
 7b0bf1502a15992ce55d3aaea7e4b739d5418c1f assets/fossilgencraft/models/item/syringe_empty.json
+178ea929b1d390d80e1baf55c513c317c02b534a assets/fossilgencraft/models/item/syringe_filled_blood.json
 5c38c06393976c2e208b7a953670a7d27f53a8b0 assets/fossilgencraft/models/item/test_tube_blood_chicken.json
 531698022cf0a90f06a378b49a2d4c1446a11277 assets/fossilgencraft/models/item/test_tube_blood_pig.json
 dd96b3cb9c099b174c6dec5bfc97f4fd705865e0 assets/fossilgencraft/models/item/test_tube_empty.json

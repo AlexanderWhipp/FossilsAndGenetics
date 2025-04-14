@@ -1,30 +1,30 @@
-[13Apr2025 21:42:54.952] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forge_userdev_data, --assetIndex, 17, --assetsDir, C:\Users\alexw\.gradle\caches\forge_gradle\assets, --gameDir, ., --mod, fossilgencraft, --all, --output, D:\MinecraftMods\FossilCrafterMod\src\generated\resources, --existing, D:\MinecraftMods\FossilCrafterMod\src\main\resources]
-[13Apr2025 21:42:54.956] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.6+8-LTS-188
-[13Apr2025 21:42:54.956] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.2.4 starting: java version 21.0.6 by Oracle Corporation; OS Windows 11 arch amd64 version 10.0
-[13Apr2025 21:42:55.062] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_data
-[13Apr2025 21:42:55.174] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=jar:file:///C:/Users/alexw/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.7/8ab114ac385e6dbdad5efafe28aba4df8120915f/mixin-0.8.7.jar!/ Service=ModLauncher Env=UNKNOWN
-[13Apr2025 21:42:56.142] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[13Apr2025 21:42:56.891] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_data' with arguments [--gameDir, ., --assetsDir, C:\Users\alexw\.gradle\caches\forge_gradle\assets, --assetIndex, 17, --mod, fossilgencraft, --all, --output, D:\MinecraftMods\FossilCrafterMod\src\generated\resources, --existing, D:\MinecraftMods\FossilCrafterMod\src\main\resources]
-[13Apr2025 21:43:02.102] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 52.1.0, for MC 1.21.1 with MCP 20240808.132146
-[13Apr2025 21:43:02.102] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v52.1.0 Initialized
-[13Apr2025 21:43:02.120] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Opening jdk.naming.dns/com.sun.jndi.dns to java.naming
-[13Apr2025 21:43:02.158] [modloading-worker-0/INFO] [net.shadowtek.fossilgencraft.FossilGenCraft/]: fossilgencraft Setup Complete!
-[13Apr2025 21:43:02.387] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [fossilgencraft]
-[13Apr2025 21:43:02.463] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/alexw/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21.1-52.1.0_mapped_parchment_2024.11.17-1.21.1/forge-1.21.1-52.1.0_mapped_parchment_2024.11.17-1.21.1-recomp.jar%230!/assets/.mcassetsroot' uses unexpected schema
-[13Apr2025 21:43:02.463] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/alexw/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21.1-52.1.0_mapped_parchment_2024.11.17-1.21.1/forge-1.21.1-52.1.0_mapped_parchment_2024.11.17-1.21.1-recomp.jar%230!/data/.mcassetsroot' uses unexpected schema
-[13Apr2025 21:43:02.625] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[13Apr2025 21:43:02.900] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 274 ms
-[13Apr2025 21:43:02.901] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[13Apr2025 21:43:02.958] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 56 ms
-[13Apr2025 21:43:02.958] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id fossilgencraft
-[13Apr2025 21:43:02.971] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id fossilgencraft finished after 12 ms
-[13Apr2025 21:43:02.971] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id fossilgencraft
-[13Apr2025 21:43:02.972] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id fossilgencraft finished after 0 ms
-[13Apr2025 21:43:02.972] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: fossilgencraft
-[13Apr2025 21:43:02.988] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: fossilgencraft finished after 15 ms
-[13Apr2025 21:43:02.988] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: fossilgencraft
-[13Apr2025 21:43:03.146] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: fossilgencraft finished after 156 ms
-[13Apr2025 21:43:03.146] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
-[13Apr2025 21:43:03.151] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 4 ms
-[13Apr2025 21:43:03.152] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 526 ms
-[13Apr2025 21:43:03.158] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 104, old count: 104, new count: 105, removed stale: 0, written: 0
+[14Apr2025 04:34:32.573] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forge_userdev_data, --assetIndex, 17, --assetsDir, C:\Users\alexw\.gradle\caches\forge_gradle\assets, --gameDir, ., --mod, fossilgencraft, --all, --output, D:\MinecraftMods\FossilCrafterMod\src\generated\resources, --existing, D:\MinecraftMods\FossilCrafterMod\src\main\resources]
+[14Apr2025 04:34:32.577] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.6+8-LTS-188
+[14Apr2025 04:34:32.577] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.2.4 starting: java version 21.0.6 by Oracle Corporation; OS Windows 11 arch amd64 version 10.0
+[14Apr2025 04:34:32.683] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_data
+[14Apr2025 04:34:32.789] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=jar:file:///C:/Users/alexw/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.7/8ab114ac385e6dbdad5efafe28aba4df8120915f/mixin-0.8.7.jar!/ Service=ModLauncher Env=UNKNOWN
+[14Apr2025 04:34:33.816] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[14Apr2025 04:34:34.592] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_data' with arguments [--gameDir, ., --assetsDir, C:\Users\alexw\.gradle\caches\forge_gradle\assets, --assetIndex, 17, --mod, fossilgencraft, --all, --output, D:\MinecraftMods\FossilCrafterMod\src\generated\resources, --existing, D:\MinecraftMods\FossilCrafterMod\src\main\resources]
+[14Apr2025 04:34:39.525] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 52.1.0, for MC 1.21.1 with MCP 20240808.132146
+[14Apr2025 04:34:39.525] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v52.1.0 Initialized
+[14Apr2025 04:34:39.542] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Opening jdk.naming.dns/com.sun.jndi.dns to java.naming
+[14Apr2025 04:34:39.593] [modloading-worker-0/INFO] [net.shadowtek.fossilgencraft.FossilGenCraft/]: fossilgencraft Setup Complete!
+[14Apr2025 04:34:39.892] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [fossilgencraft]
+[14Apr2025 04:34:39.978] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/alexw/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21.1-52.1.0_mapped_parchment_2024.11.17-1.21.1/forge-1.21.1-52.1.0_mapped_parchment_2024.11.17-1.21.1-recomp.jar%230!/assets/.mcassetsroot' uses unexpected schema
+[14Apr2025 04:34:39.978] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/alexw/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21.1-52.1.0_mapped_parchment_2024.11.17-1.21.1/forge-1.21.1-52.1.0_mapped_parchment_2024.11.17-1.21.1-recomp.jar%230!/data/.mcassetsroot' uses unexpected schema
+[14Apr2025 04:34:40.115] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[14Apr2025 04:34:40.340] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 223 ms
+[14Apr2025 04:34:40.341] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[14Apr2025 04:34:40.393] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 53 ms
+[14Apr2025 04:34:40.393] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id fossilgencraft
+[14Apr2025 04:34:40.404] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id fossilgencraft finished after 9 ms
+[14Apr2025 04:34:40.404] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id fossilgencraft
+[14Apr2025 04:34:40.405] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id fossilgencraft finished after 0 ms
+[14Apr2025 04:34:40.405] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: fossilgencraft
+[14Apr2025 04:34:40.417] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: fossilgencraft finished after 12 ms
+[14Apr2025 04:34:40.418] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: fossilgencraft
+[14Apr2025 04:34:40.547] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: fossilgencraft finished after 128 ms
+[14Apr2025 04:34:40.547] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
+[14Apr2025 04:34:40.551] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 4 ms
+[14Apr2025 04:34:40.551] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 437 ms
+[14Apr2025 04:34:40.560] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 105, old count: 104, new count: 103, removed stale: 3, written: 1

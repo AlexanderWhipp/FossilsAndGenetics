@@ -52,7 +52,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.OSTRICH_EGG.get());
 //Syringes
                         output.accept(ModItems.SYRINGE_EMPTY.get());
-                        output.accept(ModItems.SYRINGE_BLOOD_CHICKEN.get());
+                        output.accept(ModItems.SYRINGE_FILLED_BLOOD.get());
                         output.accept(ModItems.SYRINGE_BLOOD_PIG.get());
                         output.accept(ModItems.SYRINGE_CONTAMINATED.get());
 //Junk Items

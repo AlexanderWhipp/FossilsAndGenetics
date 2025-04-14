@@ -4,8 +4,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.shadowtek.fossilgencraft.item.ModItems;
 
-public class SyringeBloodPigItem extends Item {
-    public SyringeBloodPigItem(Properties properties) {
+public class SyringeFilledBlood extends Item {
+    public SyringeFilledBlood(Properties properties) {
         super(properties);
     }
 

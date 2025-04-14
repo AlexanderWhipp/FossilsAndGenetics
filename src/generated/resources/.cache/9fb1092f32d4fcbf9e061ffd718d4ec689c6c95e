@@ -1,7 +1,6 @@
-// 1.21.1	2025-04-13T20:12:18.1591395	Recipes
+// 1.21.1	2025-04-14T04:34:40.5528086	Recipes
 00b138dde456663af0642534c6d6dcbb257163cc data/fossilgencraft/advancement/recipes/misc/ash_smelting_recipe.json
 fba72dd4ce0073522ffbbb077cc9ec4b7e9186a3 data/fossilgencraft/advancement/recipes/misc/chemical_lysis_recipe.json
-00487e5dc6dba1db5aa32dd2f81b6fd19c43f175 data/fossilgencraft/advancement/recipes/misc/chicken_dna_sample_recipe.json
 f33ae6b5c0de221f2d2e89b96b5a84ebb59d3408 data/fossilgencraft/advancement/recipes/misc/detergent_recipe.json
 d3aa3b72ccfd53c77f3a1bc46fc08ab42441e5ca data/fossilgencraft/advancement/recipes/misc/enzyme_powder_recipe.json
 1e25eac398fa8f20e5d878a92857792b71b9056c data/fossilgencraft/advancement/recipes/misc/enzyme_residue_recipe.json
@@ -12,7 +11,6 @@ e060550cd1d90b6fb23c9deef5a378eeeebdf38b data/fossilgencraft/advancement/recipes
 2fa43a9516ae2976ab8c9f29646874dafa5fd6eb data/fossilgencraft/advancement/recipes/misc/test_tube_empty.json
 d2b2cd9c9af2143f76dac42db539217f996435aa data/fossilgencraft/recipe/ash_smelting_recipe.json
 4276ffc34ed7a1c1eb78b4fe3fbf57f04f7c1aca data/fossilgencraft/recipe/chemical_lysis_recipe.json
-da4c5d5d91cfb0c9fb9384e4673082d525e4998f data/fossilgencraft/recipe/chicken_dna_sample_recipe.json
 1889718fcae15c261fe16d06e041d49e843dc93b data/fossilgencraft/recipe/detergent_recipe.json
 3bfc52019bfa7a4526efa81b6b96ba30f4661cc0 data/fossilgencraft/recipe/enzyme_powder_recipe.json
 43041ff626f33908dd1b9a46d6b4e04a74afd776 data/fossilgencraft/recipe/enzyme_residue_recipe.json

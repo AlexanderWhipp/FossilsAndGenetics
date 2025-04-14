@@ -176,17 +176,6 @@ Feature is W.I.P facing many technical challenges implementing at the moment, th
         this.progress = 0;
         this.maxProgress = 72;
     }
-    private static final List<String> POSSIBLE_DNA_SPECIES = List.of(
-            "fossilgencraft:trex"
-          //  "fossilgencraft:triceratops", Temporarily disabled to allow for easier early dev
-          //  "fossilgencraft:Brachiosaurus"
-    );
-    private static final List<String> POSSIBLE_INTEGRITY_VALUES = List.of(
-         //   "Low_Integrity", Temporarily disabled as does nothing
-         //   "Medium_Integrity",
-            "High_Integrity"
-    );
-
     private void craftItem() {
         Optional<RecipeHolder<DnaSequencerRecipe>> recipeOpt = getCurrentRecipe();
         if (recipeOpt.isEmpty()) { return; }

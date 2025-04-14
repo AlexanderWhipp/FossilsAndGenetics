@@ -35,10 +35,10 @@ public class ModItems {
     public static final RegistryObject<Item> SYRINGE_EMPTY = ITEMS.register("syringe_empty",
            () -> new SyringeItem(new Item.Properties().stacksTo(16)));
     //Syringes--USED
-    public static final RegistryObject<Item> SYRINGE_BLOOD_CHICKEN = ITEMS.register("syringe_blood_chicken",
+    public static final RegistryObject<Item> SYRINGE_FILLED_BLOOD = ITEMS.register("syringe_filled_blood",
             () -> new SyringeBloodChickenItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> SYRINGE_BLOOD_PIG = ITEMS.register("syringe_blood_pig",
-            () -> new SyringeBloodPigItem(new Item.Properties().stacksTo(1)));
+            () -> new SyringeFilledBlood(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> SYRINGE_CONTAMINATED = ITEMS.register("syringe_contaminated",
             () -> new Item(new Item.Properties().stacksTo(16)));
 

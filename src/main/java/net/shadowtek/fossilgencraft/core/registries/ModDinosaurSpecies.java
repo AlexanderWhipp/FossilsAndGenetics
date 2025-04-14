@@ -18,7 +18,7 @@ import java.util.function.Supplier;
 public class ModDinosaurSpecies {
 
     public static final ResourceKey<Registry<DinosaurSpecies>> DINOSAUR_SPECIES_REGISTRY_KEY =
-            ResourceKey.createRegistryKey(ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, "species"));
+            ResourceKey.createRegistryKey(ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, "dinosaur_species"));
 
     public static final DeferredRegister<DinosaurSpecies> DINOSAUR_SPECIES_DEFERRED_REGISTER =
             DeferredRegister.create(DINOSAUR_SPECIES_REGISTRY_KEY, FossilGenCraft.MOD_ID);

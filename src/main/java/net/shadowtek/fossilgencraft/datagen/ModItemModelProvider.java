@@ -26,7 +26,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         basicItem(ModItems.SYRINGE_EMPTY.get());
         basicItem(ModItems.SYRINGE_CONTAMINATED.get());
-        basicItem(ModItems.SYRINGE_BLOOD_CHICKEN.get());
+        basicItem(ModItems.SYRINGE_FILLED_BLOOD.get());
         basicItem(ModItems.SYRINGE_BLOOD_PIG.get());
 
         basicItem(ModItems.DNA_SAMPLE_CHICKEN.get());
