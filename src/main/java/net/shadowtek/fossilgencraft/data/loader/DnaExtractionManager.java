@@ -20,7 +20,7 @@ import java.util.Map;
 public class DnaExtractionManager extends SimpleJsonResourceReloadListener {
 
    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
-   private static final String FOLDER_NAME = "dnaextractionvanilla";
+   private static final String FOLDER_NAME = "dnaextractionvanilla/syringable";
 
    private static Map<EntityType<?>, DnaExtractionInfo> extractionDataMap = Collections.emptyMap();
 

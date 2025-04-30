@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-10T10:18:14.5762945	Block States: fossilgencraft
+// 1.21.1	2025-04-16T14:05:16.5606226	Block States: fossilgencraft
 66fa850167e2f7a645351b97b50a9a5223b566f7 assets/fossilgencraft/blockstates/amber_ore.json
 7ad65edc720724b02916c216395ba6c25f1e5df8 assets/fossilgencraft/blockstates/centrifuge.json
 1d5d8a8f97c375c30d6b888c649646c8dc92509f assets/fossilgencraft/blockstates/deepslate_amber_ore.json
@@ -7,6 +7,7 @@ cc230dc8b3c3c4bd684c279f8aca1da6fb831a68 assets/fossilgencraft/blockstates/fossi
 2d6763046cd82fa4a6da01031f068a0434a933d7 assets/fossilgencraft/blockstates/freezedryer.json
 f9a054bb4e6d2bb8567f4b6554b1198a4453c43b assets/fossilgencraft/blockstates/gene_splicer_computer.json
 2f45be39529c5ba2439cf9e36a10f5da146b4559 assets/fossilgencraft/blockstates/nether_sulfur_ore.json
+97e7b36631aa725b65ff25528b50a5675f5b5148 assets/fossilgencraft/blockstates/super_computer_terminal.json
 1ac12e7dd8f142ded8bf0b825299b6d497fc26a7 assets/fossilgencraft/models/block/amber_ore.json
 8d52b9d6c7868eb51b1cdb485e262804164d582e assets/fossilgencraft/models/block/centrifuge.json
 dc21abba89053d7559e13f1cf640e6b32818bf43 assets/fossilgencraft/models/block/deepslate_amber_ore.json
@@ -15,6 +16,7 @@ dc21abba89053d7559e13f1cf640e6b32818bf43 assets/fossilgencraft/models/block/deep
 b5800945d355a5a48b601f9a61c6f8385fc32085 assets/fossilgencraft/models/block/freezedryer.json
 1fc20313d6e1fcc495cfa10cd56fdd4e89560b20 assets/fossilgencraft/models/block/gene_splicer_computer.json
 a40fead2a3eeb54c487cd1481c62f270ffdeb05c assets/fossilgencraft/models/block/nether_sulfur_ore.json
+94ffea7db6c1b13759c571b8b608a74c3ec081f9 assets/fossilgencraft/models/block/super_computer_terminal.json
 452c12e7eb38e812ca8ab76f26dced29255a25ee assets/fossilgencraft/models/item/amber_ore.json
 64c4ada215051ed12b60602c06aa130a3e8bbd31 assets/fossilgencraft/models/item/centrifuge.json
 dcc1b4ff2d9345c81c4373567bab60a68367f8ba assets/fossilgencraft/models/item/deepslate_amber_ore.json
@@ -23,3 +25,4 @@ cfa1a332fccae2b5c03242906dcf021563edf9ff assets/fossilgencraft/models/item/fossi
 adb7c813621e7bc9be33c09158acf75ca4830a59 assets/fossilgencraft/models/item/freezedryer.json
 661ac1f7acb76624291de0eb1acee7fc28a77fef assets/fossilgencraft/models/item/gene_splicer_computer.json
 7d5bcdb6dba70c04f845f2b303e548e325323d5d assets/fossilgencraft/models/item/nether_sulfur_ore.json
+ff59e0994f041ce63f07bb2b330950577f44e956 assets/fossilgencraft/models/item/super_computer_terminal.json

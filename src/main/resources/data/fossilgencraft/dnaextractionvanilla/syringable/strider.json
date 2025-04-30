@@ -1,0 +1,13 @@
+{
+  "entity_id": "minecraft:strider",
+  "sample_item": "fossilgencraft:syringe_filled_blood",
+  "components_on_sample": {
+    "fossilgencraft:dna_species_id": "minecraft:strider",
+    "fossilgencraft:dna_type_id": "mystical",
+    "fossilgencraft:dna_integrity_id": 100.0,
+    "fossilgencraft:contamination_score": 0,
+    "fossilgencraft:dna_slot_bonus":"lava_walking"
+  },
+  "cooldown": 100
+
+}

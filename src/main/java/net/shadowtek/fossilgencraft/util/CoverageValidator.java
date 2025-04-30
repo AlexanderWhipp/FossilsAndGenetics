@@ -8,7 +8,6 @@ import net.shadowtek.fossilgencraft.event.ModDataComponents;
 import java.util.HashSet;
 import java.util.Set;
 
-import static java.awt.SystemColor.menu;
 
 public class CoverageValidator {
 

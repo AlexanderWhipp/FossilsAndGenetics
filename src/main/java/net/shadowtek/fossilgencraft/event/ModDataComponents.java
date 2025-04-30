@@ -3,19 +3,28 @@ package net.shadowtek.fossilgencraft.event;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
-import net.minecraft.world.level.storage.loot.IntRange;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.shadowtek.fossilgencraft.FossilGenCraft;
 
+import java.util.Set;
+import java.util.HashSet;
+import java.util.ArrayList;
+
 public class ModDataComponents {
+    private static final Codec<Set<String>> SET_OF_STRINGS_CODEC =
+            Codec.STRING.listOf().xmap(HashSet::new, ArrayList::new);
+    private static final StreamCodec<FriendlyByteBuf, Set<String>> SET_OF_STRINGS_STREAM_CODEC =
+            ByteBufCodecs.collection(HashSet::new, ByteBufCodecs.STRING_UTF8);
     // Create DeferredRegister for DataComponentType registry
     public static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPES =
             DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, FossilGenCraft.MOD_ID);
 
-    // Define your custom component type for the DNA Species ID (String)
+    // DNA Components
     public static final RegistryObject<DataComponentType<String>> DNA_SPECIES_ID =
             DATA_COMPONENT_TYPES.register("dna_species_id", () ->
                     DataComponentType.<String>builder()
@@ -71,6 +80,15 @@ public class ModDataComponents {
                             // Optional: .cacheEncoding() for performance reasons
                             .build()
             );
+
+    public static final RegistryObject<DataComponentType<Set<String>>> COMPLETED_RESEARCH =
+            DATA_COMPONENT_TYPES.register("completed_research", () ->
+                    DataComponentType.<Set<String>>builder()
+                            .persistent(SET_OF_STRINGS_CODEC)
+                            .networkSynchronized(SET_OF_STRINGS_STREAM_CODEC)
+                            .build()
+            );
+
 
     // Register the DeferredRegister to the event bus
     public static void register(IEventBus eventBus) {

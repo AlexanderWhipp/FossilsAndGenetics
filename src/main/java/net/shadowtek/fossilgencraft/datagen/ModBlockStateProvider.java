@@ -34,6 +34,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         //Gensplicer Multiblock
         blockWithItem(ModBlocks.GENE_SPLICER_COMPUTER);
 
+        blockWithItem(ModBlocks.SUPER_COMPUTER_TERMINAL);
+
 
 
 

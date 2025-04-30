@@ -1,0 +1,13 @@
+{
+  "entity_id": "minecraft:donkey",
+  "sample_item": "fossilgencraft:syringe_filled_blood",
+  "components_on_sample": {
+    "fossilgencraft:dna_species_id": "minecraft:donkey",
+    "fossilgencraft:dna_type_id": "mammal",
+    "fossilgencraft:dna_integrity_id": 100.0,
+    "fossilgencraft:contamination_score": 0,
+    "fossilgencraft:dna_slot_bonus":"stamina"
+  },
+  "cooldown": 100
+
+}

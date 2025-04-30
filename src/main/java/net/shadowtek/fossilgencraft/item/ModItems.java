@@ -111,6 +111,9 @@ public class ModItems {
     public  static final RegistryObject<Item> SEQUENCED_DNA_BASE_CHAIN = ITEMS.register("sequenced_dna_base_chain",
             () ->new SequencedDnaBaseChainItem(new Item.Properties().stacksTo(1)));
 
+    public static final RegistryObject<Item> SUPER_COMPUTER_HARD_DRIVE = ITEMS.register("super_computer_hard_drive",
+    () -> new SuperComputerHardDrive(new Item.Properties().stacksTo(1)));
+
 
 
 

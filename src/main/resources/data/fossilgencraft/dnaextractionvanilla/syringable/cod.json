@@ -1,0 +1,13 @@
+{
+  "entity_id": "minecraft:cod",
+  "sample_item": "fossilgencraft:syringe_filled_blood",
+  "components_on_sample": {
+    "fossilgencraft:dna_species_id": "minecraft:cod",
+    "fossilgencraft:dna_type_id": "fish",
+    "fossilgencraft:dna_integrity_id": 100.0,
+    "fossilgencraft:contamination_score": 0,
+    "fossilgencraft:dna_slot_bonus":"gills"
+  },
+  "cooldown": 100
+
+}

@@ -1,30 +1,52 @@
-[14Apr2025 04:34:32.573] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forge_userdev_data, --assetIndex, 17, --assetsDir, C:\Users\alexw\.gradle\caches\forge_gradle\assets, --gameDir, ., --mod, fossilgencraft, --all, --output, D:\MinecraftMods\FossilCrafterMod\src\generated\resources, --existing, D:\MinecraftMods\FossilCrafterMod\src\main\resources]
-[14Apr2025 04:34:32.577] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.6+8-LTS-188
-[14Apr2025 04:34:32.577] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.2.4 starting: java version 21.0.6 by Oracle Corporation; OS Windows 11 arch amd64 version 10.0
-[14Apr2025 04:34:32.683] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_data
-[14Apr2025 04:34:32.789] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=jar:file:///C:/Users/alexw/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.7/8ab114ac385e6dbdad5efafe28aba4df8120915f/mixin-0.8.7.jar!/ Service=ModLauncher Env=UNKNOWN
-[14Apr2025 04:34:33.816] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[14Apr2025 04:34:34.592] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_data' with arguments [--gameDir, ., --assetsDir, C:\Users\alexw\.gradle\caches\forge_gradle\assets, --assetIndex, 17, --mod, fossilgencraft, --all, --output, D:\MinecraftMods\FossilCrafterMod\src\generated\resources, --existing, D:\MinecraftMods\FossilCrafterMod\src\main\resources]
-[14Apr2025 04:34:39.525] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 52.1.0, for MC 1.21.1 with MCP 20240808.132146
-[14Apr2025 04:34:39.525] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v52.1.0 Initialized
-[14Apr2025 04:34:39.542] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Opening jdk.naming.dns/com.sun.jndi.dns to java.naming
-[14Apr2025 04:34:39.593] [modloading-worker-0/INFO] [net.shadowtek.fossilgencraft.FossilGenCraft/]: fossilgencraft Setup Complete!
-[14Apr2025 04:34:39.892] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [fossilgencraft]
-[14Apr2025 04:34:39.978] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/alexw/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21.1-52.1.0_mapped_parchment_2024.11.17-1.21.1/forge-1.21.1-52.1.0_mapped_parchment_2024.11.17-1.21.1-recomp.jar%230!/assets/.mcassetsroot' uses unexpected schema
-[14Apr2025 04:34:39.978] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/alexw/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21.1-52.1.0_mapped_parchment_2024.11.17-1.21.1/forge-1.21.1-52.1.0_mapped_parchment_2024.11.17-1.21.1-recomp.jar%230!/data/.mcassetsroot' uses unexpected schema
-[14Apr2025 04:34:40.115] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[14Apr2025 04:34:40.340] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 223 ms
-[14Apr2025 04:34:40.341] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[14Apr2025 04:34:40.393] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 53 ms
-[14Apr2025 04:34:40.393] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id fossilgencraft
-[14Apr2025 04:34:40.404] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id fossilgencraft finished after 9 ms
-[14Apr2025 04:34:40.404] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id fossilgencraft
-[14Apr2025 04:34:40.405] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id fossilgencraft finished after 0 ms
-[14Apr2025 04:34:40.405] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: fossilgencraft
-[14Apr2025 04:34:40.417] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: fossilgencraft finished after 12 ms
-[14Apr2025 04:34:40.418] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: fossilgencraft
-[14Apr2025 04:34:40.547] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: fossilgencraft finished after 128 ms
-[14Apr2025 04:34:40.547] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
-[14Apr2025 04:34:40.551] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 4 ms
-[14Apr2025 04:34:40.551] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 437 ms
-[14Apr2025 04:34:40.560] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 105, old count: 104, new count: 103, removed stale: 3, written: 1
+[24Apr2025 13:22:53.538] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forge_userdev_data, --assetIndex, 17, --assetsDir, C:\Users\alexw\.gradle\caches\forge_gradle\assets, --gameDir, ., --mod, fossilgencraft, --all, --output, D:\MinecraftMods\FossilCrafterMod\src\generated\resources, --existing, D:\MinecraftMods\FossilCrafterMod\src\main\resources]
+[24Apr2025 13:22:53.542] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.6+8-LTS-188
+[24Apr2025 13:22:53.543] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.2.4 starting: java version 21.0.6 by Oracle Corporation; OS Windows 11 arch amd64 version 10.0
+[24Apr2025 13:22:53.672] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_data
+[24Apr2025 13:22:53.797] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=jar:file:///C:/Users/alexw/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.7/8ab114ac385e6dbdad5efafe28aba4df8120915f/mixin-0.8.7.jar!/ Service=ModLauncher Env=UNKNOWN
+[24Apr2025 13:22:54.770] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[24Apr2025 13:22:55.566] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_data' with arguments [--gameDir, ., --assetsDir, C:\Users\alexw\.gradle\caches\forge_gradle\assets, --assetIndex, 17, --mod, fossilgencraft, --all, --output, D:\MinecraftMods\FossilCrafterMod\src\generated\resources, --existing, D:\MinecraftMods\FossilCrafterMod\src\main\resources]
+[24Apr2025 13:23:00.930] [main/FATAL] [net.minecraftforge.fml.ModLoader/LOADING]: File D:\MinecraftMods\FossilCrafterMod\build\sourcesSets\main constructed 2 mods: [BROKEN, fossilgencraft], but had 1 mods specified: [fossilgencraft]
+[24Apr2025 13:23:00.930] [main/FATAL] [net.minecraftforge.fml.ModLoader/LOADING]: The following classes are missing, but are reported in the mods.toml: []
+[24Apr2025 13:23:00.931] [main/FATAL] [net.minecraftforge.fml.ModLoader/LOADING]: The following mods are missing, but have classes in the jar: [BROKEN]
+[24Apr2025 13:23:00.931] [main/FATAL] [net.minecraftforge.fml.ModLoader/CORE]: Failed to initialize mod containers
+net.minecraftforge.fml.ModLoadingException: fml.modloading.missingmetadata
+	at LAYER PLUGIN/net.minecraftforge.fmlcore@1.21.1-52.1.0/net.minecraftforge.fml.ModLoader.buildModContainerFromTOML(ModLoader.java:315) ~[fmlcore-1.21.1-52.1.0.jar:1.0]
+	at LAYER PLUGIN/net.minecraftforge.fmlcore@1.21.1-52.1.0/net.minecraftforge.fml.ModLoader.lambda$buildMods$17(ModLoader.java:281) ~[fmlcore-1.21.1-52.1.0.jar:1.0]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[?:?]
+	at java.base/java.util.HashMap$EntrySpliterator.forEachRemaining(HashMap.java:1858) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:575) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(AbstractPipeline.java:260) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:616) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:622) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline.toList(ReferencePipeline.java:627) ~[?:?]
+	at LAYER PLUGIN/net.minecraftforge.fmlcore@1.21.1-52.1.0/net.minecraftforge.fml.ModLoader.buildMods(ModLoader.java:283) ~[fmlcore-1.21.1-52.1.0.jar:1.0]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[?:?]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:575) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(AbstractPipeline.java:260) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:616) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:622) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline.toList(ReferencePipeline.java:627) ~[?:?]
+	at LAYER PLUGIN/net.minecraftforge.fmlcore@1.21.1-52.1.0/net.minecraftforge.fml.ModLoader.gatherAndInitializeMods(ModLoader.java:184) ~[fmlcore-1.21.1-52.1.0.jar:1.0]
+	at TRANSFORMER/net.minecraftforge.forge@52.1.0/net.minecraftforge.data.loading.DatagenModLoader.begin(DatagenModLoader.java:46) ~[forge-1.21.1-52.1.0_mapped_parchment_2024.11.17-1.21.1-recomp.jar:?]
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.data.Main.main(Main.java:101) ~[forge-1.21.1-52.1.0_mapped_parchment_2024.11.17-1.21.1-recomp.jar:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at SECURE-BOOTSTRAP/net.minecraftforge.fmlloader@1.21.1-52.1.0/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:85) ~[fmlloader-1.21.1-52.1.0.jar!/:?]
+	at SECURE-BOOTSTRAP/net.minecraftforge.fmlloader@1.21.1-52.1.0/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.lambda$makeService$0(CommonLaunchHandler.java:69) ~[fmlloader-1.21.1-52.1.0.jar!/:?]
+	at SECURE-BOOTSTRAP/cpw.mods.modlauncher@10.2.4/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:77) [modlauncher-10.2.4.jar!/:?]
+	at SECURE-BOOTSTRAP/cpw.mods.modlauncher@10.2.4/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:97) [modlauncher-10.2.4.jar!/:?]
+	at SECURE-BOOTSTRAP/cpw.mods.modlauncher@10.2.4/cpw.mods.modlauncher.Launcher.run(Launcher.java:116) [modlauncher-10.2.4.jar!/:?]
+	at SECURE-BOOTSTRAP/cpw.mods.modlauncher@10.2.4/cpw.mods.modlauncher.Launcher.main(Launcher.java:75) [modlauncher-10.2.4.jar!/:?]
+	at SECURE-BOOTSTRAP/cpw.mods.modlauncher@10.2.4/cpw.mods.modlauncher.BootstrapEntry.main(BootstrapEntry.java:17) [modlauncher-10.2.4.jar!/:?]
+	at net.minecraftforge.bootstrap@2.1.7/net.minecraftforge.bootstrap.Bootstrap.moduleMain(Bootstrap.java:188) [bootstrap-2.1.8.jar!/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at net.minecraftforge.bootstrap.Bootstrap.bootstrapMain(Bootstrap.java:133) [bootstrap-2.1.8.jar:2.1.8]
+	at net.minecraftforge.bootstrap.Bootstrap.start(Bootstrap.java:53) [bootstrap-2.1.8.jar:2.1.8]
+	at net.minecraftforge.bootstrap.ForgeBootstrap.main(ForgeBootstrap.java:19) [bootstrap-2.1.8.jar:2.1.8]

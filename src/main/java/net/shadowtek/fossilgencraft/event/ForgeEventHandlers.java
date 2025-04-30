@@ -1,10 +1,13 @@
 package net.shadowtek.fossilgencraft.event;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.shadowtek.fossilgencraft.FossilGenCraft;
 import net.shadowtek.fossilgencraft.data.loader.DnaExtractionManager;
+import net.shadowtek.fossilgencraft.network.NetworkHandler;
 
 @Mod.EventBusSubscriber(modid = FossilGenCraft.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ForgeEventHandlers {

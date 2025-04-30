@@ -63,6 +63,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> GENE_SPLICER_COMPUTER = registerBlock("gene_splicer_computer",
             () -> new GeneSplicerComputerBlock(BlockBehaviour.Properties.of().strength( 3f).sound(SoundType.METAL)));
 
+    public static final RegistryObject<Block> SUPER_COMPUTER_TERMINAL = registerBlock("super_computer_terminal",
+            () -> new SuperComputerTerminal(BlockBehaviour.Properties.of().strength( 3f).sound(SoundType.METAL)));
+
 
 
 

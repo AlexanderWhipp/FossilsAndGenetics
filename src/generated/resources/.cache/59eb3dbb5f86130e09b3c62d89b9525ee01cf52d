@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-10T10:18:14.5794509	Loot Tables
+// 1.21.1	2025-04-16T14:05:16.5629817	Loot Tables
 6de90447d8a30000410c9415ad79047d8c5ef163 data/fossilgencraft/loot_table/blocks/amber_extractor.json
 ab0500b770a0ee529326cf7456961e9460d5db21 data/fossilgencraft/loot_table/blocks/amber_gem_flawless.json
 ebdb3b961cb6438ea43783330e4fef73c5cbd0c8 data/fossilgencraft/loot_table/blocks/amber_gem_insect.json
@@ -11,3 +11,4 @@ ebdb3b961cb6438ea43783330e4fef73c5cbd0c8 data/fossilgencraft/loot_table/blocks/a
 959b6dd887154e0ce2edb8f7b89a9ae728acaec5 data/fossilgencraft/loot_table/blocks/freezedryer.json
 aa9e0d5e2ee731471c6b0fc4a1a4c51c0da15194 data/fossilgencraft/loot_table/blocks/gene_splicer_computer.json
 c29812048083532535637fe5d17d6b42dbe21ade data/fossilgencraft/loot_table/blocks/nether_sulfur_ore.json
+4ec8b38399d33f01277f911e5c6c0a0e0b82528d data/fossilgencraft/loot_table/blocks/super_computer_terminal.json

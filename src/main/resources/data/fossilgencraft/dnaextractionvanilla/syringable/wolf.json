@@ -1,0 +1,19 @@
+{
+  "entity_id": "minecraft:wolf",
+  "sample_item": "fossilgencraft:syringe_filled_blood",
+  "components_on_sample": {
+    "fossilgencraft:dna_species_id": "minecraft:wolf",
+    "fossilgencraft:dna_type_id": "mammal",
+    "fossilgencraft:dna_integrity_id": 100.0,
+    "fossilgencraft:contamination_score": 0,
+    "fossilgencraft:dna_slot_bonus":"pack_hunting",
+    "fossilgencraft:leap": true,
+    "fossilgencraft:swim_speed": true,
+    "fossilgencraft:knockback_resist": true,
+    "fossilgencraft:cold_resistance": true,
+    "fossilgencraft:social": true,
+    "fossilgencraft:tameable": true
+  },
+  "cooldown": 100
+
+}

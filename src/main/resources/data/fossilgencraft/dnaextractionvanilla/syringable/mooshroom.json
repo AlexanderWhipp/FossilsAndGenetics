@@ -1,0 +1,13 @@
+{
+  "entity_id": "minecraft:mooshroom",
+  "sample_item": "fossilgencraft:syringe_filled_blood",
+  "components_on_sample": {
+    "fossilgencraft:dna_species_id": "minecraft:mooshroom",
+    "fossilgencraft:dna_type_id": "mycofauna",
+    "fossilgencraft:dna_integrity_id": 100.0,
+    "fossilgencraft:contamination_score": 0,
+    "fossilgencraft:dna_slot_bonus":"fungal_growth"
+  },
+  "cooldown": 100
+
+}

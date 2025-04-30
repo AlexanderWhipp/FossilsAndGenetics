@@ -10,12 +10,11 @@ public record DnaExtractionInfo (
     String dnaSpecies,
     String dnaType,
     float dnaIntegrity,
-    int dnaContaminationScore, // Using score component name
+    int dnaContaminationScore,
     String dnaSlotBonus,
     int cooldown
 ) {
-        // Records automatically generate fields, constructor, getters, equals, etc.
-        // The body can usually be empty for simple data holders like this.
+
     }
 
 

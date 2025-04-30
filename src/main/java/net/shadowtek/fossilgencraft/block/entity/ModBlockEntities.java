@@ -8,6 +8,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.shadowtek.fossilgencraft.FossilGenCraft;
 import net.shadowtek.fossilgencraft.block.ModBlocks;
 import net.shadowtek.fossilgencraft.block.entity.custom.*;
+import net.shadowtek.fossilgencraft.block.entity.custom.supercomputer.SuperComputerTerminalBlockEntity;
 
 public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
@@ -28,6 +29,10 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<SplicerBlockEntity>> GENE_SPLICER_COMPUTER_BE =
             BLOCK_ENTITIES.register("gene_splicer_computer_be", () -> BlockEntityType.Builder.of(
                    SplicerBlockEntity::new, ModBlocks.GENE_SPLICER_COMPUTER.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<SuperComputerTerminalBlockEntity>> SUPER_COMPUTER_TERMINAL_BE =
+            BLOCK_ENTITIES.register("super_computer_terminal_be", () -> BlockEntityType.Builder.of(
+                    SuperComputerTerminalBlockEntity::new, ModBlocks.SUPER_COMPUTER_TERMINAL.get()).build(null));
 
 
     public static void register(IEventBus eventBus) {

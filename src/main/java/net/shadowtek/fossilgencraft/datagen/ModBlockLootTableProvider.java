@@ -44,6 +44,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.FREEZEDRYER.get());
         dropSelf(ModBlocks.DNA_SEQUENCER.get());
         dropSelf(ModBlocks.GENE_SPLICER_COMPUTER.get());
+        dropSelf(ModBlocks.SUPER_COMPUTER_TERMINAL.get());
 
 
 
