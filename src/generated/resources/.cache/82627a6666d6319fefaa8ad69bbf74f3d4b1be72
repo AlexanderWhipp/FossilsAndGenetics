@@ -1,6 +1,5 @@
-// 1.21.1	2025-04-16T14:05:16.5606226	Block States: fossilgencraft
+// 1.21.1	2025-05-03T11:25:09.6901911	Block States: fossilgencraft
 66fa850167e2f7a645351b97b50a9a5223b566f7 assets/fossilgencraft/blockstates/amber_ore.json
-7ad65edc720724b02916c216395ba6c25f1e5df8 assets/fossilgencraft/blockstates/centrifuge.json
 1d5d8a8f97c375c30d6b888c649646c8dc92509f assets/fossilgencraft/blockstates/deepslate_amber_ore.json
 e423d41e411d860e97b42f5e7f0083ecb283bdd3 assets/fossilgencraft/blockstates/dna_sequencer.json
 cc230dc8b3c3c4bd684c279f8aca1da6fb831a68 assets/fossilgencraft/blockstates/fossil_ore.json
@@ -9,7 +8,6 @@ f9a054bb4e6d2bb8567f4b6554b1198a4453c43b assets/fossilgencraft/blockstates/gene_
 2f45be39529c5ba2439cf9e36a10f5da146b4559 assets/fossilgencraft/blockstates/nether_sulfur_ore.json
 97e7b36631aa725b65ff25528b50a5675f5b5148 assets/fossilgencraft/blockstates/super_computer_terminal.json
 1ac12e7dd8f142ded8bf0b825299b6d497fc26a7 assets/fossilgencraft/models/block/amber_ore.json
-8d52b9d6c7868eb51b1cdb485e262804164d582e assets/fossilgencraft/models/block/centrifuge.json
 dc21abba89053d7559e13f1cf640e6b32818bf43 assets/fossilgencraft/models/block/deepslate_amber_ore.json
 15ca8880209ce23c521086716091a4e41af797ef assets/fossilgencraft/models/block/dna_sequencer.json
 4b9aed96f59fe238578db301f72e20a61551acf3 assets/fossilgencraft/models/block/fossil_ore.json
@@ -18,7 +16,6 @@ b5800945d355a5a48b601f9a61c6f8385fc32085 assets/fossilgencraft/models/block/free
 a40fead2a3eeb54c487cd1481c62f270ffdeb05c assets/fossilgencraft/models/block/nether_sulfur_ore.json
 94ffea7db6c1b13759c571b8b608a74c3ec081f9 assets/fossilgencraft/models/block/super_computer_terminal.json
 452c12e7eb38e812ca8ab76f26dced29255a25ee assets/fossilgencraft/models/item/amber_ore.json
-64c4ada215051ed12b60602c06aa130a3e8bbd31 assets/fossilgencraft/models/item/centrifuge.json
 dcc1b4ff2d9345c81c4373567bab60a68367f8ba assets/fossilgencraft/models/item/deepslate_amber_ore.json
 f55854f9766e55e852ead8835b4f61f29931d9c2 assets/fossilgencraft/models/item/dna_sequencer.json
 cfa1a332fccae2b5c03242906dcf021563edf9ff assets/fossilgencraft/models/item/fossil_ore.json

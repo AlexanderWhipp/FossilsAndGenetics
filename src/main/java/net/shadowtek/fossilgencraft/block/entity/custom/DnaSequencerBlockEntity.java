@@ -164,8 +164,11 @@ Feature is W.I.P facing many technical challenges implementing at the moment, th
             increaseCraftingProgress();
             setChanged(level, blockPos, blockState);
 
-            if (hasCraftingFinished()) {
+            if (hasCraftingFinished() && itemHandler.getStackInSlot(INPUT_SLOT1).is(ModItems.CONTAMINATED_MOSQUITO_SAMPLE.get())) {
                 craftItem();
+                resetProgress();
+            } else if (hasCraftingFinished() && itemHandler.getStackInSlot(INPUT_SLOT1).is(ModItems.SYRINGE_FILLED_BLOOD.get())){
+                craftModerndna();
                 resetProgress();
             }
         } else {
@@ -264,6 +267,47 @@ Feature is W.I.P facing many technical challenges implementing at the moment, th
         }
         resetProgress();
     }
+    private void craftModerndna(){
+        Optional<RecipeHolder<DnaSequencerRecipe>> recipeOpt = getCurrentRecipe();
+        if (recipeOpt.isEmpty()) { return; }
+        DnaSequencerRecipe recipe = recipeOpt.get().value();
+
+        ItemStack dnaResultProto = recipe.output1();
+        ItemStack residueResultProto = recipe.output2();
+
+        String speciesIdString = itemHandler.getStackInSlot(INPUT_SLOT1).getOrDefault(ModDataComponents.DNA_SPECIES_ID.get(), "Unidentifiable Species");
+        String speciesEraString = itemHandler.getStackInSlot(INPUT_SLOT1).getOrDefault(ModDataComponents.DNA_ERA_ID.get(), "modern");
+        String speciesGeneticCodeString = itemHandler.getStackInSlot(INPUT_SLOT1).getOrDefault(ModDataComponents.DNA_FULL_GENOME_CODE.get(),"Unreadable");
+
+        ItemStack residueOutput = residueResultProto.copy();
+
+        ItemStack sequencedDnaOutput = new ItemStack(ModItems.COMPLETED_GENOME.get(), dnaResultProto.getCount());
+
+        // --- 5. Consume Inputs ---
+        this.itemHandler.extractItem(INPUT_SLOT1, 1, false);
+        this.itemHandler.extractItem(INPUT_SLOT2, 1, false);
+
+        sequencedDnaOutput.set(ModDataComponents.DNA_SPECIES_ID.get(), speciesIdString);
+        sequencedDnaOutput.set(ModDataComponents.DNA_ERA_ID.get(), speciesEraString);
+        sequencedDnaOutput.set(ModDataComponents.DNA_FULL_GENOME_CODE.get(), speciesGeneticCodeString);
+
+        ItemStack existingOutput1 = this.itemHandler.getStackInSlot(OUTPUT_SLOT1);
+        if (existingOutput1.isEmpty()) {
+            this.itemHandler.setStackInSlot(OUTPUT_SLOT1, sequencedDnaOutput);
+        } else {
+            existingOutput1.grow(sequencedDnaOutput.getCount());
+        }
+
+        ItemStack existingOutput2 = this.itemHandler.getStackInSlot(OUTPUT_SLOT2);
+        if (existingOutput2.isEmpty()) {
+            this.itemHandler.setStackInSlot(OUTPUT_SLOT2, residueOutput);
+        } else {
+            existingOutput2.grow(residueOutput.getCount());
+        }
+        resetProgress();
+    }
+
+
     private boolean hasCraftingFinished() {
         return this.progress >= this.maxProgress;
     }

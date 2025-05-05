@@ -4,9 +4,11 @@
   "components_on_sample": {
     "fossilgencraft:dna_species_id": "minecraft:chicken",
     "fossilgencraft:dna_type_id": "avian",
+    "fossilgencraft:dna_era_id": "modern",
     "fossilgencraft:dna_integrity_id": 100.0,
     "fossilgencraft:contamination_score": 0,
-    "fossilgencraft:dna_slot_bonus":"hunting"
+    "fossilgencraft:dna_slot_bonus": "random",
+    "fossilgencraft:dna_full_genome_code": "TTGTGGTGCTTTCCATGGTCCTGCAGTTGGCCAAACGAGCCAGCAGGTCCTCATGAAAGAAAAATGACTTGCATTCAAATGTCACATCAGCCCCAACTCCCCGCTGTAATATGTGCCAATAAGCGGCAAGCGATACCGGTCTTGTCTCCAGAATTGCTTC"
   },
   "cooldown": 100
 

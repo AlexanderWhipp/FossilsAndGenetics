@@ -52,12 +52,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.FLOURESCENT_GEL.get());
 
 
+
         basicItem(ModItems.SEQUENCED_DNA_BASE_CHAIN.get());
+        basicItem(ModItems.SEQUENCED_DNA_CHAIN.get());
 
 
 
         withExistingParent(ModItems.TREX_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
-
+        withExistingParent(ModItems.CUSTOM_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
     }
 }

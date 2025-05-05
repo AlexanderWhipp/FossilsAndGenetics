@@ -15,6 +15,7 @@
   "item.fossilgencraft.amber_shard": "Amber Shards",
 
   "item.fossilgencraft.trex_spawn_egg": "Tyrannosaurus Rex Spawn Egg",
+  "item.fossilgencraft.custom_spawn_egg": "Genetically Modified Spawn Egg",
 
   "item.fossilgencraft.dna_sample_chicken": "Chicken DNA",
   "item.fossilgencraft.dna_sample_pig": "Pig DNA",
@@ -26,17 +27,33 @@
   "item.fossilgencraft.egg_cell": "Egg Cell",
 
   "tooltip.fossilgencraft.sequenced_dna_base_chain.species": "Species ID: %s",
+  "tooltip.fossilgencraft.dna.eraid": "Era Id: %s",
   "tooltip.fossilgencraft.sequenced_dna_base_chain.integrity_level": "Integrity: %s",
   "tooltip.fossilgencraft.sequenced_dna_base_chain.contamination": "Contamination: %s",
+  "tooltip.fossilgencraft.dna.full_genome": "Genetic Code: %s",
+  "tooltip.fossilgencraft.dna.individual_gene_code": "Genetic Code: %s",
+
+
   "tooltip.fossilgencraft.sequenced_dna_base_chain.base_chain_start": "Starting Base: %s",
   "tooltip.fossilgencraft.sequenced_dna_base_chain.base_chain_end": "Ending Base: %s",
 
 
   "tooltip.fossilgencraft.sequenced_dna_base_chain.unknown": "Species: Unknown",
+  "tooltip.fossilgencraft.dna.unknown_era": "Era: Unknown",
+  "tooltip.fossilgencraft.dna.gene_slot_number": "Slot Number: %s",
 
 
   "item.fossilgencraft.sequenced_dna_base_chain": "Sequenced Base Chain",
-
+  "tooltip.fossilgencraft.dna.gene_label_1": "Slot 1 Modifier: %s",
+  "tooltip.fossilgencraft.dna.gene_label_2": "Slot 2 Modifier: %s",
+  "tooltip.fossilgencraft.dna.gene_label_3": "Slot 3 Modifier: %s",
+  "tooltip.fossilgencraft.dna.gene_label_4": "Slot 4 Modifier: %s",
+  "tooltip.fossilgencraft.dna.gene_label_5": "Slot 5 Modifier: %s",
+  "tooltip.fossilgencraft.dna.gene_label_6": "Slot 6 Modifier: %s",
+  "tooltip.fossilgencraft.dna.gene_label_7": "Slot 7 Modifier: %s",
+  "tooltip.fossilgencraft.dna.gene_label_8": "Slot 8 Modifier: %s",
+  "tooltip.fossilgencraft.dna.gene_label_9": "Slot 9 Modifier: %s",
+  "tooltip.fossilgencraft.dna.gene_label_10": "Slot 10 Modifier: %s",
 
 
   "block.fossilgencraft.amber_ore": "Amber Ore",

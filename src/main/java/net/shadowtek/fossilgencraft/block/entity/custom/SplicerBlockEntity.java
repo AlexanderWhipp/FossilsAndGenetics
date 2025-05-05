@@ -37,7 +37,7 @@ import javax.annotation.Nullable;
 import java.util.Optional;
 
 public class SplicerBlockEntity extends BlockEntity implements MenuProvider {
-    public final ItemStackHandler itemHandler = new ItemStackHandler(16) {
+    public final ItemStackHandler itemHandler = new ItemStackHandler(13) {
         @Override
         protected int getStackLimit(int slot, @NotNull ItemStack stack) {
             return 1;
@@ -64,14 +64,12 @@ public class SplicerBlockEntity extends BlockEntity implements MenuProvider {
 
     private static final int INPUT_SLOT_9 = 8;
     private static final int INPUT_SLOT_10 = 9;
+
     private static final int INPUT_SLOT_11 = 10;
     private static final int INPUT_SLOT_12 = 11;
-    private static final int INPUT_SLOT_13 = 12;
 
-    private static final int INPUT_SLOT_14 = 13;
-    private static final int INPUT_SLOT_15 = 14;
 
-    private static final int OUTPUT_SLOT = 15;
+    private static final int OUTPUT_SLOT = 12;
 
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
@@ -189,51 +187,84 @@ public class SplicerBlockEntity extends BlockEntity implements MenuProvider {
         if (recipeOpt.isEmpty()) {return;}
         DinosaurSplicingRecipe recipe = recipeOpt.get().value();
 
+
         float totalIntegrity = 0f;
         float integScore1 = itemHandler.getStackInSlot(0).getOrDefault(ModDataComponents.DNA_INTEGRITY_ID.get(), 100f);
         float integScore2 = itemHandler.getStackInSlot(1).getOrDefault(ModDataComponents.DNA_INTEGRITY_ID.get(), 100f);
-        float integScore3 = itemHandler.getStackInSlot(3).getOrDefault(ModDataComponents.DNA_INTEGRITY_ID.get(), 100f);
-        float integScore4 = itemHandler.getStackInSlot(4).getOrDefault(ModDataComponents.DNA_INTEGRITY_ID.get(), 100f);
-        float integScore5 = itemHandler.getStackInSlot(6).getOrDefault(ModDataComponents.DNA_INTEGRITY_ID.get(), 100f);
-        float integScore6 = itemHandler.getStackInSlot(7).getOrDefault(ModDataComponents.DNA_INTEGRITY_ID.get(), 100f);
-        float integScore7 = itemHandler.getStackInSlot(9).getOrDefault(ModDataComponents.DNA_INTEGRITY_ID.get(), 100f);
-        float integScore8 = itemHandler.getStackInSlot(12).getOrDefault(ModDataComponents.DNA_INTEGRITY_ID.get(), 100f);
+        float integScore3 = itemHandler.getStackInSlot(2).getOrDefault(ModDataComponents.DNA_INTEGRITY_ID.get(), 100f);
+        float integScore4 = itemHandler.getStackInSlot(3).getOrDefault(ModDataComponents.DNA_INTEGRITY_ID.get(), 100f);
+        float integScore5 = itemHandler.getStackInSlot(4).getOrDefault(ModDataComponents.DNA_INTEGRITY_ID.get(), 100f);
+        float integScore6 = itemHandler.getStackInSlot(5).getOrDefault(ModDataComponents.DNA_INTEGRITY_ID.get(), 100f);
+        float integScore7 = itemHandler.getStackInSlot(6).getOrDefault(ModDataComponents.DNA_INTEGRITY_ID.get(), 100f);
+        float integScore8 = itemHandler.getStackInSlot(7).getOrDefault(ModDataComponents.DNA_INTEGRITY_ID.get(), 100f);
+        float integScore9 = itemHandler.getStackInSlot(8).getOrDefault(ModDataComponents.DNA_INTEGRITY_ID.get(), 100f);
+        float integScore10 = itemHandler.getStackInSlot(9).getOrDefault(ModDataComponents.DNA_INTEGRITY_ID.get(), 100f);
 
-        totalIntegrity = integScore1 + integScore2 + integScore3 + integScore4 + integScore5 + integScore6 + integScore7 + integScore8;
+        totalIntegrity = integScore1 + integScore2 + integScore3 + integScore4 + integScore5 + integScore6 + integScore7 + integScore8 + integScore9 + integScore10;
 
-        float avareageQuality = totalIntegrity / 8;
+        float avareageQuality = totalIntegrity / 10;
+
+
 
         int totalContamination = itemHandler.getStackInSlot(0).getOrDefault(ModDataComponents.CONTAMINATED_SCORE.get(), 0) +
                 itemHandler.getStackInSlot(1).getOrDefault(ModDataComponents.CONTAMINATED_SCORE.get(), 0) +
+                itemHandler.getStackInSlot(2).getOrDefault(ModDataComponents.CONTAMINATED_SCORE.get(), 0) +
                 itemHandler.getStackInSlot(3).getOrDefault(ModDataComponents.CONTAMINATED_SCORE.get(), 0) +
                 itemHandler.getStackInSlot(4).getOrDefault(ModDataComponents.CONTAMINATED_SCORE.get(), 0) +
+                itemHandler.getStackInSlot(5).getOrDefault(ModDataComponents.CONTAMINATED_SCORE.get(), 0) +
                 itemHandler.getStackInSlot(6).getOrDefault(ModDataComponents.CONTAMINATED_SCORE.get(), 0) +
                 itemHandler.getStackInSlot(7).getOrDefault(ModDataComponents.CONTAMINATED_SCORE.get(), 0) +
-                itemHandler.getStackInSlot(9).getOrDefault(ModDataComponents.CONTAMINATED_SCORE.get(), 0) +
-                itemHandler.getStackInSlot(12).getOrDefault(ModDataComponents.CONTAMINATED_SCORE.get(), 0);
+                itemHandler.getStackInSlot(8).getOrDefault(ModDataComponents.CONTAMINATED_SCORE.get(), 0) +
+                itemHandler.getStackInSlot(9).getOrDefault(ModDataComponents.CONTAMINATED_SCORE.get(), 0);
+
+
 
         String speciesIdString = itemHandler.getStackInSlot(0).getOrDefault(ModDataComponents.DNA_SPECIES_ID.get(), "Unidentifiable DNA");
         String speciesIdString2 = itemHandler.getStackInSlot(1).getOrDefault(ModDataComponents.DNA_SPECIES_ID.get(), "Unidentifiable DNA");
-        String speciesIdString3 = itemHandler.getStackInSlot(3).getOrDefault(ModDataComponents.DNA_SPECIES_ID.get(), "Unidentifiable DNA");
-        String speciesIdString4 = itemHandler.getStackInSlot(4).getOrDefault(ModDataComponents.DNA_SPECIES_ID.get(), "Unidentifiable DNA");
-        String speciesIdString5 = itemHandler.getStackInSlot(6).getOrDefault(ModDataComponents.DNA_SPECIES_ID.get(), "Unidentifiable DNA");
-        String speciesIdString6 = itemHandler.getStackInSlot(7).getOrDefault(ModDataComponents.DNA_SPECIES_ID.get(), "Unidentifiable DNA");
-        String speciesIdString7 = itemHandler.getStackInSlot(9).getOrDefault(ModDataComponents.DNA_SPECIES_ID.get(), "Unidentifiable DNA");
-        String speciesIdString8 = itemHandler.getStackInSlot(12).getOrDefault(ModDataComponents.DNA_SPECIES_ID.get(), "Unidentifiable DNA");
-     //   if (!speciesIdString.equals(speciesIdString2) &&
-           //     !speciesIdString.equals(speciesIdString3) &&
-          //      !speciesIdString.equals(speciesIdString4) &&
-          //      !speciesIdString.equals(speciesIdString5) &&
-          //      !speciesIdString.equals(speciesIdString6) &&
-          //      !speciesIdString.equals(speciesIdString7) &&
-           //     !speciesIdString.equals(speciesIdString8)) { //Basic check to prevent Hybrid DNA
-          //  resetProgress();
+        String speciesIdString3 = itemHandler.getStackInSlot(2).getOrDefault(ModDataComponents.DNA_SPECIES_ID.get(), "Unidentifiable DNA");
+        String speciesIdString4 = itemHandler.getStackInSlot(3).getOrDefault(ModDataComponents.DNA_SPECIES_ID.get(), "Unidentifiable DNA");
+        String speciesIdString5 = itemHandler.getStackInSlot(4).getOrDefault(ModDataComponents.DNA_SPECIES_ID.get(), "Unidentifiable DNA");
+        String speciesIdString6 = itemHandler.getStackInSlot(5).getOrDefault(ModDataComponents.DNA_SPECIES_ID.get(), "Unidentifiable DNA");
+        String speciesIdString7 = itemHandler.getStackInSlot(6).getOrDefault(ModDataComponents.DNA_SPECIES_ID.get(), "Unidentifiable DNA");
+        String speciesIdString8 = itemHandler.getStackInSlot(7).getOrDefault(ModDataComponents.DNA_SPECIES_ID.get(), "Unidentifiable DNA");
+        String speciesIdString9 = itemHandler.getStackInSlot(8).getOrDefault(ModDataComponents.DNA_SPECIES_ID.get(), "Unidentifiable DNA");
+        String speciesIdString10 = itemHandler.getStackInSlot(9).getOrDefault(ModDataComponents.DNA_SPECIES_ID.get(), "Unidentifiable DNA");
+
+        String geneCode1 = itemHandler.getStackInSlot(0).getOrDefault(ModDataComponents.DNA_GENE_CODE.get(), "AAAAAAAAAAAAAAAA");
+        String geneCode2 = itemHandler.getStackInSlot(1).getOrDefault(ModDataComponents.DNA_GENE_CODE.get(), "BBBBBBBBBBBBBBBB");
+        String geneCode3 = itemHandler.getStackInSlot(2).getOrDefault(ModDataComponents.DNA_GENE_CODE.get(), "CCCCCCCCCCCCCCCC");
+        String geneCode4 = itemHandler.getStackInSlot(3).getOrDefault(ModDataComponents.DNA_GENE_CODE.get(), "DDDDDDDDDDDDDDDD");
+        String geneCode5 = itemHandler.getStackInSlot(4).getOrDefault(ModDataComponents.DNA_GENE_CODE.get(), "EEEEEEEEEEEEEEEE");
+        String geneCode6 = itemHandler.getStackInSlot(5).getOrDefault(ModDataComponents.DNA_GENE_CODE.get(), "FFFFFFFFFFFFFFFF");
+        String geneCode7 = itemHandler.getStackInSlot(6).getOrDefault(ModDataComponents.DNA_GENE_CODE.get(), "GGGGGGGGGGGGGGGG");
+        String geneCode8 = itemHandler.getStackInSlot(7).getOrDefault(ModDataComponents.DNA_GENE_CODE.get(), "HHHHHHHHHHHHHHHH");
+        String geneCode9 = itemHandler.getStackInSlot(8).getOrDefault(ModDataComponents.DNA_GENE_CODE.get(), "IIIIIIIIIIIIIIII");
+        String geneCode10 = itemHandler.getStackInSlot(9).getOrDefault(ModDataComponents.DNA_GENE_CODE.get(), "JJJJJJJJJJJJJJJJ");
+
+        String fullGeneCode = geneCode1 + geneCode2 + geneCode3 + geneCode4 + geneCode5 + geneCode6 + geneCode7 + geneCode8 + geneCode9 + geneCode10;
+
+
+
+
+
 
             ItemStack genomeOutput = recipe.completedGenome();
             ItemStack completedGenomeOutput = new ItemStack(ModItems.COMPLETED_GENOME.get(), genomeOutput.getCount());
 
 
             completedGenomeOutput.set(ModDataComponents.DNA_SPECIES_ID.get(), speciesIdString);
+            completedGenomeOutput.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_1.get(), speciesIdString);
+            completedGenomeOutput.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_2.get(), speciesIdString2);
+            completedGenomeOutput.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_3.get(), speciesIdString3);
+            completedGenomeOutput.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_4.get(), speciesIdString4);
+            completedGenomeOutput.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_5.get(), speciesIdString5);
+            completedGenomeOutput.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_6.get(), speciesIdString6);
+            completedGenomeOutput.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_7.get(), speciesIdString7);
+            completedGenomeOutput.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_8.get(), speciesIdString8);
+            completedGenomeOutput.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_9.get(), speciesIdString9);
+            completedGenomeOutput.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_10.get(), speciesIdString10);
+            completedGenomeOutput.set(ModDataComponents.DNA_FULL_GENOME_CODE.get(), fullGeneCode);
+
             completedGenomeOutput.set(ModDataComponents.DNA_INTEGRITY_ID.get(), avareageQuality);
             completedGenomeOutput.set(ModDataComponents.CONTAMINATED_SCORE.get(), totalContamination);
 
@@ -249,9 +280,6 @@ public class SplicerBlockEntity extends BlockEntity implements MenuProvider {
             this.itemHandler.extractItem(INPUT_SLOT_10, 1, false);
             this.itemHandler.extractItem(INPUT_SLOT_11, 1, false);
             this.itemHandler.extractItem(INPUT_SLOT_12, 1, false);
-            this.itemHandler.extractItem(INPUT_SLOT_13, 1, false);
-            this.itemHandler.extractItem(INPUT_SLOT_14, 1, false);
-            this.itemHandler.extractItem(INPUT_SLOT_15, 1, false);
             ItemStack existingOutput = this.itemHandler.getStackInSlot(OUTPUT_SLOT);
             if (existingOutput.isEmpty()) {
                 this.itemHandler.setStackInSlot(OUTPUT_SLOT, completedGenomeOutput);
@@ -264,19 +292,23 @@ public class SplicerBlockEntity extends BlockEntity implements MenuProvider {
 
 
 
-    private boolean hasCraftingFinished() {
+    private boolean hasCraftingFinished()
+    {
         return this.progress >= this.maxProgress;
 
     }
 
-    private void increaseCraftingProgress() {
+    private void increaseCraftingProgress()
+    {
         progress++;
     }
 
     // Checks if item is craftable
-    private boolean hasRecipe() {
+    private boolean hasRecipe()
+    {
         Optional<RecipeHolder<DinosaurSplicingRecipe>> recipe = getCurrentRecipe();
-        if (recipe.isEmpty()) {
+        if (recipe.isEmpty())
+        {
             return false;
         }
 
@@ -285,24 +317,23 @@ public class SplicerBlockEntity extends BlockEntity implements MenuProvider {
 
     }
 
-    private Optional<RecipeHolder<DinosaurSplicingRecipe>> getCurrentRecipe(){
+    private Optional<RecipeHolder<DinosaurSplicingRecipe>> getCurrentRecipe()
+    {
         return this.level.getRecipeManager()
                 .getRecipeFor(ModRecipes.DINO_DNA_TYPE.get(),
-                        new DinosaurSplicingRecipeInput(itemHandler.getStackInSlot(INPUT_SLOT_1),
-                        itemHandler.getStackInSlot(INPUT_SLOT_2),
-                                itemHandler.getStackInSlot(INPUT_SLOT_3),
-                                itemHandler.getStackInSlot(INPUT_SLOT_4),
-                        itemHandler.getStackInSlot(INPUT_SLOT_5),itemHandler.
-                                getStackInSlot(INPUT_SLOT_6),itemHandler.
-                                getStackInSlot(INPUT_SLOT_7),
-        itemHandler.getStackInSlot(INPUT_SLOT_8),itemHandler.getStackInSlot(INPUT_SLOT_9),itemHandler.getStackInSlot(INPUT_SLOT_10),
-        itemHandler.getStackInSlot(INPUT_SLOT_11),itemHandler.getStackInSlot(INPUT_SLOT_12),itemHandler.getStackInSlot(INPUT_SLOT_13),
-                        itemHandler.getStackInSlot(INPUT_SLOT_14),itemHandler.getStackInSlot(INPUT_SLOT_15)), level);
+                        new DinosaurSplicingRecipeInput(itemHandler.getStackInSlot(INPUT_SLOT_1), itemHandler.getStackInSlot(INPUT_SLOT_2), itemHandler.getStackInSlot(INPUT_SLOT_3),
+                                itemHandler.getStackInSlot(INPUT_SLOT_4),itemHandler.getStackInSlot(INPUT_SLOT_5),itemHandler.getStackInSlot(INPUT_SLOT_6),
+                                itemHandler.getStackInSlot(INPUT_SLOT_7), itemHandler.getStackInSlot(INPUT_SLOT_8),itemHandler.getStackInSlot(INPUT_SLOT_9),
+                                itemHandler.getStackInSlot(INPUT_SLOT_10), itemHandler.getStackInSlot(INPUT_SLOT_11),itemHandler.getStackInSlot(INPUT_SLOT_12)), level);
     }
-    private boolean canInsertItemIntoOutputSlot(ItemStack output){
+
+    private boolean canInsertItemIntoOutputSlot(ItemStack output)
+    {
         return itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty()  || this.itemHandler.getStackInSlot(OUTPUT_SLOT).getItem() == output.getItem();
     }
-    private boolean canInsertAmountIntoOutputSlot(int count) {
+
+    private boolean canInsertAmountIntoOutputSlot(int count)
+    {
         int maxCount = itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() ? 1 : itemHandler.getStackInSlot(OUTPUT_SLOT).getMaxStackSize();
         int currentCount = itemHandler.getStackInSlot(OUTPUT_SLOT).getCount();
 

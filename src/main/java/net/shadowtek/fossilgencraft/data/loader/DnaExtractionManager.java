@@ -69,11 +69,13 @@ public class DnaExtractionManager extends SimpleJsonResourceReloadListener {
             float integrity = GsonHelper.getAsFloat(componentObject, "fossilgencraft:dna_integrity_id");
             int contamScore = GsonHelper.getAsInt(componentObject, "fossilgencraft:contamination_score");
             String slotBonus = GsonHelper.getAsString(componentObject, "fossilgencraft:dna_slot_bonus");
+            String dnaEraId = GsonHelper.getAsString(componentObject, "fossilgencraft:dna_era_id");
+            String fullGeneCode = GsonHelper.getAsString(componentObject,"fossilgencraft:dna_full_genome_code");
 
             int cooldown = GsonHelper.getAsInt(jsonObject, "cooldown", 0);
 
             DnaExtractionInfo info = new DnaExtractionInfo(
-                    entityRl, sampleItemRl, species, type, integrity, contamScore, slotBonus, cooldown
+                    entityRl, sampleItemRl, species, type, integrity, contamScore, slotBonus, cooldown, dnaEraId, fullGeneCode
             );
             if (newMap.containsKey(entityType)) {
                 FossilGenCraft.LOGGER.warn("Duplicate DNA extraction definition (overwriting previous)");

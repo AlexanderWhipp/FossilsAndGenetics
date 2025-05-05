@@ -1,0 +1,26 @@
+{
+  "chicken": {
+    "fossilgencraft.dna_gene_code": "TTGTGGTGCTTTCCAT",
+    "fossilgencraft.skin_layer_1": "chicken_model",
+    "fossilgencraft.base_behaviours": "chicken"
+  },
+  "cow": {
+    "fossilgencraft.base_Model": "cow_model",
+    "fossilgencraft.base_behaviours": "cow"
+  },
+  "sheep": {
+    "fossilgencraft.base_Model": "sheep_model",
+    "fossilgencraft.base_behaviours": "sheep"
+  },
+  "pig": {
+    "fossilgencraft.base_Model": "pig_model",
+    "fossilgencraft.base_behaviours": "pig"
+
+  },
+  "frog": {
+    "fossilgencraft.base_Model": "frog_model",
+    "fossilgencraft.base_behaviours": "frog"
+
+  }
+
+}

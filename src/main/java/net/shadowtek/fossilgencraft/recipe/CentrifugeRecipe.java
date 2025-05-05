@@ -60,8 +60,9 @@ public record CentrifugeRecipe(Ingredient inputItem1,Ingredient inputItem2, Item
     public RecipeType<?> getType() {
         return ModRecipes.CENTRIFUGE_TYPE.get();
     }
+
     public static class Serializer implements RecipeSerializer<CentrifugeRecipe> {
-        public static final MapCodec<CentrifugeRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
+        public static final MapCodec<CentrifugeRecipe> CODEC = RecordCodecBuilder.mapCodec(inst-> inst.group(
                 Ingredient.CODEC_NONEMPTY.fieldOf("ingredient1").forGetter(CentrifugeRecipe::inputItem1),
                 Ingredient.CODEC_NONEMPTY.fieldOf("ingredient2").forGetter(CentrifugeRecipe::inputItem2),
                 ItemStack.CODEC.fieldOf("result1").forGetter(CentrifugeRecipe::output1),
@@ -84,7 +85,7 @@ public record CentrifugeRecipe(Ingredient inputItem1,Ingredient inputItem2, Item
                             ItemStack out2 = ItemStack.STREAM_CODEC.decode(buf);
                             return new CentrifugeRecipe(ing1,ing2,out1,out2);
                         }
-                );
+                        );
 
         @Override
         public MapCodec<CentrifugeRecipe> codec() {

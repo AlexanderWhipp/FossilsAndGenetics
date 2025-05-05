@@ -35,6 +35,16 @@ public class ModDataComponents {
                             // Optional: .cacheEncoding() for performance reasons
                             .build()
             );
+    public static final RegistryObject<DataComponentType<String>> DNA_ERA_ID =
+            DATA_COMPONENT_TYPES.register("dna_era_id", () ->
+                    DataComponentType.<String>builder()
+                            // Codec for saving/loading (disk)
+                            .persistent(Codec.STRING)
+                            // StreamCodec for networking
+                            .networkSynchronized(ByteBufCodecs.STRING_UTF8)
+                            // Optional: .cacheEncoding() for performance reasons
+                            .build()
+            );
     public static final RegistryObject<DataComponentType<Float>> DNA_INTEGRITY_ID =
             DATA_COMPONENT_TYPES.register("dna_integrity_id", () ->
                     DataComponentType.<Float>builder()
@@ -49,6 +59,8 @@ public class ModDataComponents {
                             .networkSynchronized(ByteBufCodecs.INT)
                             .build()
             );
+
+    @Deprecated //Will be removing - no longer using this system - no longer using this system moving forward
     public static final RegistryObject<DataComponentType<Integer>> DNA_CHAIN_START_POS =
             DATA_COMPONENT_TYPES.register("dna_chain_start_pos", () ->
                     DataComponentType.<Integer>builder()
@@ -56,6 +68,7 @@ public class ModDataComponents {
                             .networkSynchronized(ByteBufCodecs.INT)
                             .build()
             );
+    @Deprecated //Will be removing - no longer using this system moving forward
     public static final RegistryObject<DataComponentType<Integer>> DNA_CHAIN_END_POS =
             DATA_COMPONENT_TYPES.register("dna_chain_end_pos", () ->
                     DataComponentType.<Integer>builder()
@@ -63,11 +76,119 @@ public class ModDataComponents {
                             .networkSynchronized(ByteBufCodecs.INT)
                             .build()
             );
-    public static final RegistryObject<DataComponentType<String>> DNA_SLOT_BONUS =
-            DATA_COMPONENT_TYPES.register("dna_slot_bonus", () ->
+
+
+    //New DNA system
+
+    //Genetic code for smallest fragments - 4 Characters long
+    public static final RegistryObject<DataComponentType<String>> DNA_GENE_CHAIN_CODE =
+            DATA_COMPONENT_TYPES.register("dna_gene_chain_code", () ->
                     DataComponentType.<String>builder()
                             .persistent(Codec.STRING)
                             .networkSynchronized(ByteBufCodecs.STRING_UTF8)
+                            .build()
+            );
+
+    //Genetic code for a full gene - 16 characters long
+    public static final RegistryObject<DataComponentType<String>> DNA_GENE_CODE =
+            DATA_COMPONENT_TYPES.register("dna_gene_code", () ->
+                    DataComponentType.<String>builder()
+                            .persistent(Codec.STRING)
+                            .networkSynchronized(ByteBufCodecs.STRING_UTF8)
+                            .build()
+            );
+
+            public static final RegistryObject<DataComponentType<String>> DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_1 =
+            DATA_COMPONENT_TYPES.register("dna_slot_label_1", () ->
+                    DataComponentType.<String>builder()
+                            .persistent(Codec.STRING)
+                            .networkSynchronized(ByteBufCodecs.STRING_UTF8)
+                            .build()
+            );
+            public static final RegistryObject<DataComponentType<String>> DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_2 =
+            DATA_COMPONENT_TYPES.register("dna_slot_label_2", () ->
+                    DataComponentType.<String>builder()
+                            .persistent(Codec.STRING)
+                            .networkSynchronized(ByteBufCodecs.STRING_UTF8)
+                            .build()
+            );
+            public static final RegistryObject<DataComponentType<String>> DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_3 =
+            DATA_COMPONENT_TYPES.register("dna_slot_label_3", () ->
+                    DataComponentType.<String>builder()
+                            .persistent(Codec.STRING)
+                            .networkSynchronized(ByteBufCodecs.STRING_UTF8)
+                            .build()
+            );
+            public static final RegistryObject<DataComponentType<String>> DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_4 =
+            DATA_COMPONENT_TYPES.register("dna_slot_label_4", () ->
+                    DataComponentType.<String>builder()
+                            .persistent(Codec.STRING)
+                            .networkSynchronized(ByteBufCodecs.STRING_UTF8)
+                            .build()
+            );
+            public static final RegistryObject<DataComponentType<String>> DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_5 =
+            DATA_COMPONENT_TYPES.register("dna_slot_label_5", () ->
+                    DataComponentType.<String>builder()
+                            .persistent(Codec.STRING)
+                            .networkSynchronized(ByteBufCodecs.STRING_UTF8)
+                            .build()
+            );
+            public static final RegistryObject<DataComponentType<String>> DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_6 =
+            DATA_COMPONENT_TYPES.register("dna_slot_label_6", () ->
+                    DataComponentType.<String>builder()
+                            .persistent(Codec.STRING)
+                            .networkSynchronized(ByteBufCodecs.STRING_UTF8)
+                            .build()
+            );
+            public static final RegistryObject<DataComponentType<String>> DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_7 =
+            DATA_COMPONENT_TYPES.register("dna_slot_label_7", () ->
+                    DataComponentType.<String>builder()
+                            .persistent(Codec.STRING)
+                            .networkSynchronized(ByteBufCodecs.STRING_UTF8)
+                            .build()
+            );
+            public static final RegistryObject<DataComponentType<String>> DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_8 =
+            DATA_COMPONENT_TYPES.register("dna_slot_label_8", () ->
+                    DataComponentType.<String>builder()
+                            .persistent(Codec.STRING)
+                            .networkSynchronized(ByteBufCodecs.STRING_UTF8)
+                            .build()
+            );
+            public static final RegistryObject<DataComponentType<String>> DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_9 =
+            DATA_COMPONENT_TYPES.register("dna_slot_label_9", () ->
+                    DataComponentType.<String>builder()
+                            .persistent(Codec.STRING)
+                            .networkSynchronized(ByteBufCodecs.STRING_UTF8)
+                            .build()
+            );
+            public static final RegistryObject<DataComponentType<String>> DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_10 =
+            DATA_COMPONENT_TYPES.register("dna_slot_label_10", () ->
+                    DataComponentType.<String>builder()
+                            .persistent(Codec.STRING)
+                            .networkSynchronized(ByteBufCodecs.STRING_UTF8)
+                            .build()
+            );
+
+    //Full Genetic code for a creature. 320 characters long
+    public static final RegistryObject<DataComponentType<String>> DNA_FULL_GENOME_CODE =
+            DATA_COMPONENT_TYPES.register("dna_full_genome_code", () ->
+                    DataComponentType.<String>builder()
+                            .persistent(Codec.STRING)
+                            .networkSynchronized(ByteBufCodecs.STRING_UTF8)
+                            .build()
+            );
+
+
+
+
+
+
+
+    public static final RegistryObject<DataComponentType<Integer>> DNA_SLOT_NO =
+            DATA_COMPONENT_TYPES.register("dna_slot_no", () ->
+                    DataComponentType.<Integer>builder()
+                            .persistent(Codec.INT)
+                            .networkSynchronized(ByteBufCodecs.INT)
                             .build()
             );
     public static final RegistryObject<DataComponentType<String>> DNA_TYPE_ID =

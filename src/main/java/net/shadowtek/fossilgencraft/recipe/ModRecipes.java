@@ -26,6 +26,15 @@ public class ModRecipes {
                     return "centrifuge";
                 }
             });
+    public static final RegistryObject<DnaSplittingCentrifuge.Serializer> CENTRIFUGE_SPLITTING_SERIALIZER =
+            SERIALIZERS.register("centrifuge_splitting", DnaSplittingCentrifuge.Serializer::new);
+    public static final RegistryObject<RecipeType<DnaSplittingCentrifuge>> CENTRIFUGE_SPLITTING_TYPE =
+            TYPES.register("centrifuge_splitting", () -> new RecipeType<DnaSplittingCentrifuge>() {
+                @Override
+                public String toString(){
+                    return "centrifuge_splitting";
+                }
+            });
 
     public static final RegistryObject<RecipeSerializer<FreezeDryerRecipe>> FREEZEDRYER_SERIALIZER =
             SERIALIZERS.register("freezedryer", FreezeDryerRecipe.Serializer::new);

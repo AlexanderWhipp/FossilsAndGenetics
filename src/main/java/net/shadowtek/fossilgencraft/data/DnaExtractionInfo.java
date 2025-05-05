@@ -1,8 +1,6 @@
 package net.shadowtek.fossilgencraft.data;
 
-import com.google.gson.JsonObject;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
 
 public record DnaExtractionInfo (
     ResourceLocation entityId,
@@ -12,8 +10,9 @@ public record DnaExtractionInfo (
     float dnaIntegrity,
     int dnaContaminationScore,
     String dnaSlotBonus,
-    int cooldown
-) {
+    int cooldown,
+    String dnaEraId,
+    String fullGeneCode) {
 
     }
 

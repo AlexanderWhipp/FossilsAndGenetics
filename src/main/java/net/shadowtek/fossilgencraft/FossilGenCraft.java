@@ -23,6 +23,7 @@ import net.shadowtek.fossilgencraft.core.registries.ModDinosaurSpecies;
 import net.shadowtek.fossilgencraft.core.registries.ModPleistoceneSpecies;
 import net.shadowtek.fossilgencraft.entity.ModEntities;
 import net.shadowtek.fossilgencraft.entity.client.TRex001Renderer;
+import net.shadowtek.fossilgencraft.entity.client.gmoentity.GMORenderer;
 import net.shadowtek.fossilgencraft.event.ModDataComponents;
 import net.shadowtek.fossilgencraft.event.ModLootEvents;
 
@@ -111,6 +112,8 @@ public class FossilGenCraft {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event){
             EntityRenderers.register(ModEntities.TREX001.get(), TRex001Renderer::new);
+
+            EntityRenderers.register(ModEntities.CUSTOM_PLAYER_MOB.get(), GMORenderer::new);
 
             MenuScreens.register(ModMenuTypes.AMBER_EXTRACTOR_MENU.get(), AmberScreen::new);
             MenuScreens.register(ModMenuTypes.CENTRIFUGE_MENU.get(), CentrifugeScreen::new);

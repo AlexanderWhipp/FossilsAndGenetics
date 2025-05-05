@@ -1,0 +1,19 @@
+{
+  "type": "fossilgencraft:dna_sequencer",
+
+  "ingredient1": {
+
+    "item": "fossilgencraft:syringe_filled_blood"
+  },
+  "ingredient2": {
+    "item": "fossilgencraft:sequencing_reagent"
+  },
+  "result1": {
+    "id": "fossilgencraft:completed_genome",
+    "count": 1
+  },
+  "result2": {
+    "id": "fossilgencraft:test_tube_empty",
+    "count": 1
+  }
+}

@@ -27,7 +27,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.NETHER_SULFUR_ORE);
 
         //machines
-        blockWithItem(ModBlocks.CENTRIFUGE);
         blockWithItem(ModBlocks.FREEZEDRYER);
         blockWithItem(ModBlocks.DNA_SEQUENCER);
 

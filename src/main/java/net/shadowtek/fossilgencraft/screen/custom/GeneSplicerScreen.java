@@ -11,7 +11,7 @@ import net.shadowtek.fossilgencraft.FossilGenCraft;
 
 public class GeneSplicerScreen extends AbstractContainerScreen<GeneSplicerMenu> {
     private static final ResourceLocation GUI_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, "textures/gui/genesplicer/gene_splicer_gui.png");
+            ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, "textures/gui/centrifuge/centrifuge_gui.png");
     private static final ResourceLocation ARROW_TEXTURE =
             ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, "textures/gui/arrow_progress.png");
 

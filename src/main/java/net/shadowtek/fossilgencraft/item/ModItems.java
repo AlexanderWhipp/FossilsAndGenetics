@@ -36,7 +36,7 @@ public class ModItems {
            () -> new SyringeItem(new Item.Properties().stacksTo(16)));
     //Syringes--USED
     public static final RegistryObject<Item> SYRINGE_FILLED_BLOOD = ITEMS.register("syringe_filled_blood",
-            () -> new SyringeBloodChickenItem(new Item.Properties().stacksTo(1)));
+            () -> new SyringeFilledBlood(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> SYRINGE_BLOOD_PIG = ITEMS.register("syringe_blood_pig",
             () -> new SyringeFilledBlood(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> SYRINGE_CONTAMINATED = ITEMS.register("syringe_contaminated",
@@ -107,54 +107,23 @@ public class ModItems {
             () ->new Item(new Item.Properties().stacksTo(64)));
     public  static final RegistryObject<Item> EMBRYO = ITEMS.register("embryo",
             () ->new Item(new Item.Properties().stacksTo(1)));
-
+//OLD
     public  static final RegistryObject<Item> SEQUENCED_DNA_BASE_CHAIN = ITEMS.register("sequenced_dna_base_chain",
             () ->new SequencedDnaBaseChainItem(new Item.Properties().stacksTo(1)));
+    //New
+    public  static final RegistryObject<Item> SEQUENCED_DNA_CHAIN = ITEMS.register("sequenced_dna_chain",
+            () ->new GeneChainItem(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> SUPER_COMPUTER_HARD_DRIVE = ITEMS.register("super_computer_hard_drive",
     () -> new SuperComputerHardDrive(new Item.Properties().stacksTo(1)));
 
-
-
-
-
-        //OlD Test Item, may revert back if SEQUENCED_DNA_BASE_CHAIN doesn't pan out
-  /*  public static final RegistryObject<Item> UNIDENTIFIED_DNA_SAMPLE = ITEMS.register("unidentified_dna_sample",
-            () -> new Item(new Item.Properties().durability(100).stacksTo(1)) {
-                @Override
-                public boolean isBarVisible(ItemStack pStack) {
-                    return true; //Always Show Visibility Bar
-
-
-                }
-                @Override
-                public String getDescriptionId(ItemStack stack) {
-                    int damage = stack.getDamageValue();
-                    int maxDamage = stack.getMaxDamage();
-                    float percentage = 1.0f - (float) damage / maxDamage;
-
-                    if (percentage > 0.81f) {
-                        return super.getDescriptionId(stack); //Undentified(as seen in crafting table output)
-                    } else if (percentage > 0.8f) {
-                        return super.getDescriptionId(stack) + ".best";
-                    } else if (percentage > 0.6f) {
-                        return super.getDescriptionId(stack) + ".very_high"; // Override with "Very_High_Quality T.rex Genome" state
-                    } else if (percentage > 0.5f) {
-                        return super.getDescriptionId(stack) + ".high"; // Override with "High_Quality_Late_Cretaceous_Therapod_Genome" state
-                    } else if (percentage > 0.4f) {
-                        return super.getDescriptionId(stack) + ".medium"; //"Medium_Quality_Late_Cretaceous_Genome" state
-                    } else if (percentage > 0.3f) {
-                        return super.getDescriptionId(stack) + ".low"; // Override with "Low_Quality_Cretaceous_Genome" state
-
-                    } else {
-                        return super.getDescriptionId(stack) + ".poor"; // Override with "Unidentified_Dinosaur_DNA" state
-                    }
-                }
-
-            }); */
 //Spawn Eggs
     public static final RegistryObject<Item> TREX_SPAWN_EGG = ITEMS.register("trex_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.TREX001,0x53524b, 0xdac741, new Item.Properties()));
+
+    public static final RegistryObject<Item> CUSTOM_SPAWN_EGG = ITEMS.register("custom_spawn_egg",
+
+            () -> new GeneticallyModifiedSpawnEggItem(ModEntities.CUSTOM_PLAYER_MOB,0x63524b, 0xdac846, new Item.Properties()));
 
 
     public static void register(IEventBus eventBus) {

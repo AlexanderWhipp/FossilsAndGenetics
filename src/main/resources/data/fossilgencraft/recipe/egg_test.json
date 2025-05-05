@@ -1,0 +1,19 @@
+{
+  "type": "fossilgencraft:centrifuge",
+
+  "ingredient1": {
+
+    "item": "fossilgencraft:completed_genome"
+  },
+  "ingredient2": {
+    "item": "minecraft:egg"
+  },
+  "result1": {
+    "id": "fossilgencraft:custom_spawn_egg",
+    "count": 1
+  },
+  "result2": {
+    "id": "fossilgencraft:test_tube_empty",
+    "count": 1
+  }
+}

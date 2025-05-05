@@ -1,0 +1,52 @@
+{
+  "type": "fossilgencraft:centrifuge_splitting",
+
+  "ingredient1": {
+
+    "item": "fossilgencraft:completed_genome"
+  },
+  "ingredient2": {
+    "item": "fossilgencraft:chemical_lysis_buffer"
+  },
+  "gene1": {
+    "id": "fossilgencraft:sequenced_dna_chain",
+    "count": 1
+  },
+  "gene2": {
+    "id": "fossilgencraft:sequenced_dna_chain",
+    "count": 1
+  },
+  "gene3": {
+    "id": "fossilgencraft:sequenced_dna_chain",
+    "count": 1
+  },
+  "gene4": {
+    "id": "fossilgencraft:sequenced_dna_chain",
+    "count": 1
+  },
+    "gene5": {
+    "id": "fossilgencraft:sequenced_dna_chain",
+    "count": 1
+  },
+    "gene6": {
+    "id": "fossilgencraft:sequenced_dna_chain",
+    "count": 1
+  },
+    "gene7": {
+    "id": "fossilgencraft:sequenced_dna_chain",
+    "count": 1
+  },
+      "gene8": {
+    "id": "fossilgencraft:sequenced_dna_chain",
+    "count": 1
+  },
+      "gene9": {
+    "id": "fossilgencraft:sequenced_dna_chain",
+    "count": 1
+  },
+      "gene10": {
+    "id": "fossilgencraft:sequenced_dna_chain",
+    "count": 1
+  }
+
+}

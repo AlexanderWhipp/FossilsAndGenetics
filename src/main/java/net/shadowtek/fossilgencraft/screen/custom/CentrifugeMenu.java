@@ -18,7 +18,7 @@ public class CentrifugeMenu extends AbstractContainerMenu {
     private final ContainerData data;
 
     public CentrifugeMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
+        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(12));
     }
 
     public CentrifugeMenu(int pContainerId, Inventory inv, BlockEntity blockEntity, ContainerData data) {
@@ -30,10 +30,18 @@ public class CentrifugeMenu extends AbstractContainerMenu {
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 0,54,34));
-        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 1,104,34));
-        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler,2,50,50));
-        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 3,60,60));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 0,13,25));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 1,13,44));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler,2,99,35));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 3,117,17));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 4,117,35));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 5,117,53));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 6,135,17));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 7,135,35));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 8,135,53));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 9,153,17));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 10,153,35));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemHandler, 11,153,53));
 
     }
     public boolean isCrafting() {
@@ -63,7 +71,7 @@ public class CentrifugeMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 4;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 12;  // must be the number of slots you have!
     @Override
     public ItemStack quickMoveStack(Player playerIn, int pIndex) {
         Slot sourceSlot = slots.get(pIndex);

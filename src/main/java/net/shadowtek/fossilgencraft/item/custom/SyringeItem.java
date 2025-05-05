@@ -65,10 +65,13 @@ public class SyringeItem extends Item {
                 sampleOutPutStack.set(ModDataComponents.DNA_TYPE_ID.get(), extractionInfo.dnaType());
                 sampleOutPutStack.set(ModDataComponents.DNA_INTEGRITY_ID.get(), extractionInfo.dnaIntegrity());
                 sampleOutPutStack.set(ModDataComponents.CONTAMINATED_SCORE.get(), extractionInfo.dnaContaminationScore());
-                sampleOutPutStack.set(ModDataComponents.DNA_SLOT_BONUS.get(), extractionInfo.dnaSlotBonus());
+                sampleOutPutStack.set(ModDataComponents.DNA_ERA_ID.get(), extractionInfo.dnaEraId());
+                sampleOutPutStack.set(ModDataComponents.DNA_FULL_GENOME_CODE.get(), extractionInfo.fullGeneCode());
+
             } catch (Exception e) {
                 // Catch potential errors if component registration failed, though unlikely now
                 FossilGenCraft.LOGGER.error("Failed to set data components on blood sample!", e);
+                System.err.println("Failed to apply data components");
                 return InteractionResult.FAIL;
             }
             boolean addedToInventory = player.getInventory().add(sampleOutPutStack); // Try adding to main inventory
