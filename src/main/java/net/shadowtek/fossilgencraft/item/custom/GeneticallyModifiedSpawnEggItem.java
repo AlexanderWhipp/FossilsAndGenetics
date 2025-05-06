@@ -5,6 +5,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -85,10 +86,14 @@ public class GeneticallyModifiedSpawnEggItem extends ForgeSpawnEggItem {
                if (geneSpecies3.equals("minecraft:chicken")) {
                    variantID = 0;
                    mob.getEntityData().set(GENE_VARIANT_THREE, variantID);
+                   mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(100);
+                   System.out.println("Applying chicken gene 3");
                }
                if (geneSpecies3.equals("minecraft:frog")) {
                    variantID = 1;
                    mob.getEntityData().set(GENE_VARIANT_THREE, variantID);
+                   mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(10);
+                   System.out.println("Applying frog gene 3");
                }
        }
     }

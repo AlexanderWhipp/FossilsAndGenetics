@@ -166,18 +166,6 @@ public boolean getHealthModifier(){
          this.setVariant(geneTwoVariant);
          this.setVariant(geneThreeVariant);
 
-         if(this.getEntityData().get(GENE_VARIANT_THREE) == 0){
-             this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(100.0);
-             System.out.println("Using chicken data");
-         }
-         if(this.getEntityData().get(GENE_VARIANT_THREE) == 1){
-             this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(10.0);
-             System.out.println("Using Frog data");
-         } else {
-             System.out.println("Using default");
-         }
-
-
         return super.finalizeSpawn(pLevel, pDifficulty, pSpawnType, pSpawnGroupData);
     }
 }
