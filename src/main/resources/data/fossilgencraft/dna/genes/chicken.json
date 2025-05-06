@@ -1,75 +1,35 @@
 {
   "species_id": "minecraft:chicken",
-  "genes_by_id": {
+  "genes_by_id": "fossilgencraft:chicken_genes",
     "data_gene_slot_1": {
       "gene_type": "base",
       "water_check": false,
       "flying_check": false,
       "creature_size": "small",
-      "dna_species_id": "minecraft:chicken",
       "gene_id": 0,
       "base_attribute_values": [
-        {
-          "attribute": "max_health",
-          "attribute_value": 10.0,
-          "value_type": "double"
-        },
-        {
-          "attribute": "walk_speed",
-          "attribute_value": 0.4,
-          "value_type": "double"
-        },
-        {
-          "attribute": "gravity",
-          "attribute_value": 0.2,
-          "value_type": "float"
-        }
-
-      ]
+        {"attribute": "max_health", "attribute_value": 10.0},
+        {"attribute": "walk_speed", "attribute_value": 0.4},
+        {"attribute": "gravity", "attribute_value": 0.2}]
     },
-    "data_gene_slot_2": {
-      "gene_type": "cosmetic",
-      "dna_species_id": "minecraft:chicken",
-      "gene_id": 0
-    },
+    "data_gene_slot_2": {"gene_type": "cosmetic", "dna_species_id": "minecraft:chicken", "gene_id": 0},
 
 
-    "data_gene_slot_3": {
-      "gene_type": "ability",
-      "dna_species_id": "minecraft:chicken",
-      "gene_desc": "chicken_fall_ability",
-      "gene_id": 0,
+    "data_gene_slot_3": {"gene_type": "ability", "dna_species_id": "minecraft:chicken", "gene_desc": "chicken_fall_ability", "gene_id": 0,
       "attribute_modifiers": [
-        {
-          "modifier_id": "gravity_modifier",
-          "mod_value": 0.2,
-          "value_type": "float"
-        },
-        {
-          "modifier_id": "fall_limit_modifier",
-          "mod_value": 1024.0,
-          "value_type": "double"
-        }
-      ]
-    },
+        {"modifier_id": "gravity_modifier", "mod_value": 0.2, "value_type": "float"},
+        {"modifier_id": "fall_limit_modifier", "mod_value": 1024.0, "value_type": "double"}]},
 
-    "data_gene_slot_4": {
-      "gene_type": "behaviour",
-      "dna_species_id": "minecraft:chicken",
-      "gene_desc": "panic_when_hurt",
-      "gene_id": 0,
-      "attribute_modifiers": [
 
-      ],
+
+  "data_gene_slot_4": {"gene_type": "behaviour", "dna_species_id": "minecraft:chicken", "gene_desc": "panic_when_hurt", "gene_id": 0,
+      "attribute_modifiers": [],
       "goals": [
-        {
+        {}]},
 
-        }
 
-      ]
-    },
 
-    "data_gene_slot_5": {
+  "data_gene_slot_5": {
           "gene_type": "cosmetic",
           "dna_species_id": "minecraft:chicken",
           "gene_id": 0
@@ -131,5 +91,5 @@
 
   }
 
-  }
+
 }
