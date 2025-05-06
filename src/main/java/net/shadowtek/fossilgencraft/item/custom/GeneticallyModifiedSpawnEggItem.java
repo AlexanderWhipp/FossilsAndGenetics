@@ -6,11 +6,13 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.shadowtek.fossilgencraft.entity.client.GeneOneVariants;
@@ -94,6 +96,7 @@ public class GeneticallyModifiedSpawnEggItem extends ForgeSpawnEggItem {
                    mob.getEntityData().set(GENE_VARIANT_THREE, variantID);
                    mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(10);
                    System.out.println("Applying frog gene 3");
+
                }
        }
     }

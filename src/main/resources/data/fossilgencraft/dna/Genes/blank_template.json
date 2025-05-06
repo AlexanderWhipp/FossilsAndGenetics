@@ -1,0 +1,131 @@
+{
+  "species_id": "example_mod:example_animal",
+  "genes_by_id": {
+    "data_gene_slot_1": {
+      "gene_type": "base",
+      "water_check": false,
+      "flying_check": false,
+      "creature_size": "example_size",
+      "dna_species_id": "example_mod:example_animal",
+      "gene_id": -1,
+      "base_attribute_values": [
+        {
+          "attribute": "example_attribute_1",
+          "attribute_value": 10.0,
+          "value_type": "double"
+        },
+        {
+          "attribute": "example_attribute_2",
+          "attribute_value": 0.4,
+          "value_type": "double"
+        }
+
+      ]
+    },
+    "data_gene_slot_2": {
+      "gene_type": "cosmetic",
+      "dna_species_id": "example_mod:example_animal",
+      "gene_id": 0
+    },
+
+
+    "data_gene_slot_3": {
+      "gene_type": "ability",
+      "dna_species_id": "example_mod:example_animal",
+      "gene_desc": "example_gene_description",
+      "gene_id": 0,
+      "attribute_modifiers": [
+        {
+          "modifier_id": "example_attribute_modifier_1",
+          "mod_value": 0.2,
+          "value_type": "float"
+        },
+        {
+          "modifier_id": "example_attribute_modifier_2",
+          "mod_value": 1024.0,
+          "value_type": "double"
+        }
+      ]
+    },
+
+    "data_gene_slot_4": {
+      "gene_type": "behaviour",
+      "dna_species_id": "example_mod:example_animal",
+      "gene_desc": "example_gene_description",
+      "gene_id": 0,
+      "attribute_modifiers": [
+
+      ],
+      "goals": [
+        {
+
+        }
+
+      ]
+    },
+
+    "data_gene_slot_5": {
+          "gene_type": "cosmetic",
+          "dna_species_id": "example_mod:example_animal",
+          "gene_id": 0
+    },
+    "data_gene_slot_6": {
+      "gene_type": "cosmetic",
+      "dna_species_id": "example_mod:example_animal",
+      "gene_id": 0
+    },
+    "data_gene_slot_7": {
+      "gene_type": "ability",
+      "dna_species_id": "example_mod:example_animal",
+      "gene_desc": "example_ability_description",
+      "gene_id": 0,
+      "attribute_modifiers": [
+
+      ],
+      "goals": [
+        {
+
+        }
+
+      ]
+    },
+
+    "data_gene_slot_8": {
+      "gene_type": "diet",
+      "dna_species_id": "example_mod:example_animal",
+      "gene_desc": "example_diet",
+      "gene_id": 0,
+      "diet_type": "herbivore, omnivore or carnivore",
+
+      "valid_food_items": [
+        "#forge:example",
+        "fossilgencraft:paleo_king_fern"
+      ]
+  },
+    "data_gene_slot_9": {
+      "gene_type": "social",
+      "dna_species_id": "example_mod:example_animal",
+      "gene_desc": "example_social_mobs",
+      "gene_id": 0,
+      "herd": false,
+      "follow_herd_leader": false,
+      "run_from_predator": false,
+      "can_hunt": false,
+      "solo_hunter": false,
+      "pack_hunter": false,
+      "prefers_live_food": false
+    },
+    "data_gene_slot_10": {
+      "gene_type": "social_behaviour",
+      "dna_species_id": "minecraft:chicken",
+      "gene_desc": "example_social_player",
+      "gene_id": 0,
+      "is_aggressive": false,
+      "is_tamable": false,
+      "is_rideable": false,
+      "attack_owner_attacker": false
+
+  }
+
+  }
+}

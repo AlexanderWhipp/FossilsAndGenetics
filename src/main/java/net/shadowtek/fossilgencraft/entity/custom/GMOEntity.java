@@ -63,8 +63,8 @@ private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCach
     }
     protected <T extends GMOEntity> PlayState predicate(final AnimationState<T> event) {
         if (event.isMoving()) {
-
-            event.getController().setAnimation(RawAnimation.begin().then("chicken.move.walk", Animation.LoopType.LOOP));
+            //Disabling just stop that error loop in the system output
+           // event.getController().setAnimation(RawAnimation.begin().then("chicken.move.walk", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
         return PlayState.STOP;
@@ -76,18 +76,9 @@ private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCach
     }
 
 
-    boolean healthModifier;
-public boolean getHealthModifier(){
-        this.healthModifier = this.entityData.get(HEALTH_MODIFIER);
-        return healthModifier;
-}
-
-
-
-
     public static AttributeSupplier setAttributes(){
         return PathfinderMob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 1000.0)
+                .add(Attributes.MAX_HEALTH, 20.0)
                 .add(Attributes.MOVEMENT_SPEED, 0.4f)
                 .build();
     }
