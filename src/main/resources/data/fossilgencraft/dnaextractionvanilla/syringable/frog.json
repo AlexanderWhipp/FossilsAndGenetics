@@ -7,7 +7,7 @@
     "fossilgencraft:dna_era_id": "modern",
     "fossilgencraft:dna_integrity_id": 100.0,
     "fossilgencraft:contamination_score": 0,
-    "fossilgencraft:dna_slot_bonus":"hunting",
+    "fossilgencraft:dna_slot_bonus":"jump",
     "fossilgencraft:dna_full_genome_code": "GAATTGTTTTGCAATGACAGCTCACTTCTGATTGGGGTAGCTGATTTCTATGCCTCGCTGAACTGCGAACGTCGGGCGCCCCTAGCATTAAGGGCCTGTGAATTCAGGTACGCTATATGCTTTTACGCAACTACGTACTTCAACTGATTGCCTGGATGCG"
   },
   "cooldown": 100

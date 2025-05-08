@@ -1,48 +1,62 @@
 package net.shadowtek.fossilgencraft.entity.custom;
 
-import com.google.common.collect.Maps;
-import com.sun.jna.platform.win32.Variant;
-import net.minecraft.Util;
+
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
-import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.ServerLevelAccessor;
-import net.shadowtek.fossilgencraft.FossilGenCraft;
-import net.shadowtek.fossilgencraft.entity.client.GeneOneVariants;
-import net.shadowtek.fossilgencraft.entity.client.gmoentity.GMOBehaviour;
-import net.shadowtek.fossilgencraft.event.ModDataComponents;
-import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-import java.util.Map;
+
 
 public class GMOEntity extends PathfinderMob implements GeoEntity {
-    public static final EntityDataAccessor<Integer> GENE_VARIANT_ONE =
-            SynchedEntityData.defineId(GMOEntity.class, EntityDataSerializers.INT);
-    public static final EntityDataAccessor<Integer> GENE_VARIANT_TWO =
-            SynchedEntityData.defineId(GMOEntity.class, EntityDataSerializers.INT);
-    public static final EntityDataAccessor<Integer> GENE_VARIANT_THREE =
-            SynchedEntityData.defineId(GMOEntity.class, EntityDataSerializers.INT);
+    public static final EntityDataAccessor<String> GENE_VARIANT_ONE =
+            SynchedEntityData.defineId(GMOEntity.class, EntityDataSerializers.STRING);
+
+    public static final EntityDataAccessor<String> GENE_VARIANT_TWO =
+            SynchedEntityData.defineId(GMOEntity.class, EntityDataSerializers.STRING);
+
+    public static final EntityDataAccessor<String> GENE_VARIANT_THREE =
+            SynchedEntityData.defineId(GMOEntity.class, EntityDataSerializers.STRING);
 
 
-    public static final EntityDataAccessor<Boolean> HEALTH_MODIFIER =
-            SynchedEntityData.defineId(GMOEntity.class, EntityDataSerializers.BOOLEAN);
+    public static final EntityDataAccessor<String> GENE_VARIANT_FOUR =
+            SynchedEntityData.defineId(GMOEntity.class, EntityDataSerializers.STRING);
+
+
+    public static final EntityDataAccessor<String> GENE_VARIANT_FIVE =
+            SynchedEntityData.defineId(GMOEntity.class, EntityDataSerializers.STRING);
+
+
+    public static final EntityDataAccessor<String> GENE_VARIANT_SIX =
+            SynchedEntityData.defineId(GMOEntity.class, EntityDataSerializers.STRING);
+
+
+    public static final EntityDataAccessor<String> GENE_VARIANT_SEVEN =
+            SynchedEntityData.defineId(GMOEntity.class, EntityDataSerializers.STRING);
+
+
+    public static final EntityDataAccessor<String> GENE_VARIANT_EIGHT =
+            SynchedEntityData.defineId(GMOEntity.class, EntityDataSerializers.STRING);
+
+
+    public static final EntityDataAccessor<String> GENE_VARIANT_NINE =
+            SynchedEntityData.defineId(GMOEntity.class, EntityDataSerializers.STRING);
+
+
+    public static final EntityDataAccessor<String> GENE_VARIANT_TEN =
+            SynchedEntityData.defineId(GMOEntity.class, EntityDataSerializers.STRING);
+
 
 
 
@@ -63,8 +77,8 @@ private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCach
     }
     protected <T extends GMOEntity> PlayState predicate(final AnimationState<T> event) {
         if (event.isMoving()) {
-            //Disabling just stop that error loop in the system output
-           // event.getController().setAnimation(RawAnimation.begin().then("chicken.move.walk", Animation.LoopType.LOOP));
+
+            event.getController().setAnimation(RawAnimation.begin().then("chicken.move.walk", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
         return PlayState.STOP;
@@ -98,65 +112,95 @@ private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCach
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder pBuilder) {
         super.defineSynchedData(pBuilder);
-        pBuilder.define(GENE_VARIANT_ONE, 0);
-        pBuilder.define(GENE_VARIANT_TWO, 0);
+        pBuilder.define(GENE_VARIANT_ONE, "minecraft:chicken");
+        pBuilder.define(GENE_VARIANT_TWO, "minecraft:chicken");
+        pBuilder.define(GENE_VARIANT_THREE, "minecraft:chicken");
+        pBuilder.define(GENE_VARIANT_FOUR, "minecraft:chicken");
+        pBuilder.define(GENE_VARIANT_FIVE, "minecraft:chicken");
+        pBuilder.define(GENE_VARIANT_SIX, "minecraft:chicken");
+        pBuilder.define(GENE_VARIANT_SEVEN, "minecraft:chicken");
+        pBuilder.define(GENE_VARIANT_EIGHT, "minecraft:chicken");
+        pBuilder.define(GENE_VARIANT_NINE, "minecraft:chicken");
+        pBuilder.define(GENE_VARIANT_TEN, "minecraft:chicken");
 
-
-        pBuilder.define(GENE_VARIANT_THREE, 0);
-        pBuilder.define(HEALTH_MODIFIER, true);
     }
-    public int getTypeVariant(){
+    public String getTypeVariant(){
         return this.entityData.get(GENE_VARIANT_ONE);
     }
-    public int getGene2VariantType(){
+    public String getGene2VariantType(){
         return this.entityData.get(GENE_VARIANT_TWO);
     }
-     public int getGene3VariantType(){
-        return this.entityData.get(GENE_VARIANT_THREE);
-    }
+    public String getGene3VariantType(){return this.entityData.get(GENE_VARIANT_THREE);}
+    public String getGene4VariantType(){return this.entityData.get(GENE_VARIANT_FOUR);}
+    public String getGene5VariantType(){return this.entityData.get(GENE_VARIANT_FIVE);}
+    public String getGene6VariantType(){return this.entityData.get(GENE_VARIANT_SIX);}
+    public String getGene7VariantType(){return this.entityData.get(GENE_VARIANT_SEVEN);}
+    public String getGene8VariantType(){return this.entityData.get(GENE_VARIANT_EIGHT);}
+    public String getGene9VariantType(){return this.entityData.get(GENE_VARIANT_NINE);}
+    public String getGene10VariantType(){return this.entityData.get(GENE_VARIANT_TEN);}
 
-    public GeneOneVariants getVariant(){
-        return GeneOneVariants.byId(this.getTypeVariant() & 255);
-    }
-    public GeneOneVariants getGeneTwoVariant(){
-        return GeneOneVariants.byId(this.getGene2VariantType() & 255);
-    }
-    public GeneOneVariants getGeneThreeVariant(){
-        return GeneOneVariants.byId(this.getGene3VariantType() & 255);
-    }
 
-    public void setVariant(GeneOneVariants variant){
-    this.entityData.set(GENE_VARIANT_ONE, variant.getId() & 255);
-    this.entityData.set(GENE_VARIANT_TWO, variant.getId() & 255);
-    this.entityData.set(GENE_VARIANT_THREE, variant.getId() & 255);
-    }
+
+
+    public int fuseTimer = 0;
+    public final int maxFuseTime = 30;
+    public boolean isExploding = false;
+
 
     @Override
+    public void tick() {
+        super.tick();
+
+        if (getTypeVariant().equals("minecraft:creeper") || getGene3VariantType().equals("minecraft:creeper")) {
+            if (shouldExplode()) {
+                if (!isExploding) {
+                    isExploding = true;
+                }
+                fuseTimer++;
+                if (fuseTimer >= maxFuseTime) {
+                    explode();
+                }
+                } else {
+                    fuseTimer = 0;
+                    isExploding = false;
+                }
+        }
+    }
+        private boolean shouldExplode(){
+            return this.getTarget() != null && this.distanceTo(this.getTarget()) < 3.0D;
+        }
+        private void explode(){
+            this.level().explode(this, this.getX(), this.getY(), this.getZ(), 3.0F, Level.ExplosionInteraction.MOB);
+            this.discard();
+        }
+
+        @Override
     public void addAdditionalSaveData(CompoundTag pCompound) {
         super.addAdditionalSaveData(pCompound);
-        pCompound.putInt("Gene1", this.getTypeVariant());
-        pCompound.putInt("Gene2", this.getGene2VariantType());
-        pCompound.putInt("Gene3", this.getGene3VariantType());
+        pCompound.putString("Gene1", this.getTypeVariant());
+        pCompound.putString(   "Gene2", this.getGene2VariantType());
+        pCompound.putString("Gene3", this.getGene3VariantType());
+        pCompound.putString("Gene4", this.getGene4VariantType());
+        pCompound.putString("Gene5", this.getGene5VariantType());
+        pCompound.putString("Gene6", this.getGene6VariantType());
+        pCompound.putString("Gene7", this.getGene7VariantType());
+        pCompound.putString("Gene8", this.getGene8VariantType());
+        pCompound.putString("Gene9", this.getGene9VariantType());
+        pCompound.putString("Gene10", this.getGene10VariantType());
     }
 
     @Override
     public void readAdditionalSaveData(CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
-        this.entityData.set(GENE_VARIANT_ONE, pCompound.getInt("Gene1"));
-        this.entityData.set(GENE_VARIANT_TWO, pCompound.getInt("Gene2"));
-        this.entityData.set(GENE_VARIANT_THREE  , pCompound.getInt("Gene3"));
-    }
-
-    @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty,
-                                        MobSpawnType pSpawnType, @Nullable SpawnGroupData pSpawnGroupData) {
-         GeneOneVariants geneOneVariant = GeneOneVariants.byId(this.entityData.get(GENE_VARIANT_ONE));
-         GeneOneVariants geneTwoVariant = GeneOneVariants.byId(this.entityData.get(GENE_VARIANT_TWO));
-         GeneOneVariants geneThreeVariant = GeneOneVariants.byId(this.entityData.get(GENE_VARIANT_THREE));
-         this.setVariant(geneOneVariant);
-         this.setVariant(geneTwoVariant);
-         this.setVariant(geneThreeVariant);
-
-        return super.finalizeSpawn(pLevel, pDifficulty, pSpawnType, pSpawnGroupData);
+        this.entityData.set(GENE_VARIANT_ONE, pCompound.getString("Gene1"));
+        this.entityData.set(GENE_VARIANT_TWO, pCompound.getString("Gene2"));
+        this.entityData.set(GENE_VARIANT_THREE, pCompound.getString("Gene3"));
+        this.entityData.set(GENE_VARIANT_FOUR, pCompound.getString("Gene4"));
+        this.entityData.set(GENE_VARIANT_FIVE, pCompound.getString("Gene5"));
+        this.entityData.set(GENE_VARIANT_SIX, pCompound.getString("Gene6"));
+        this.entityData.set(GENE_VARIANT_SEVEN, pCompound.getString("Gene7"));
+        this.entityData.set(GENE_VARIANT_EIGHT, pCompound.getString("Gene8"));
+        this.entityData.set(GENE_VARIANT_NINE, pCompound.getString("Gene9"));
+        this.entityData.set(GENE_VARIANT_TEN, pCompound.getString("Gene10"));
     }
 }

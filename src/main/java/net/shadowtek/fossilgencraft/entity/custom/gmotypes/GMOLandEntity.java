@@ -15,9 +15,11 @@ public class GMOLandEntity extends GMOEntity {
 
     public static AttributeSupplier setLandAttributes(){
         return PathfinderMob.createMobAttributes()
-                .add(Attributes.JUMP_STRENGTH)
-                .add(Attributes.GRAVITY)
-                .add(Attributes.SAFE_FALL_DISTANCE)
+                .add(Attributes.MAX_HEALTH,20)
+                .add(Attributes.MOVEMENT_SPEED, 0.4)
+                .add(Attributes.JUMP_STRENGTH,0.5)
+                .add(Attributes.GRAVITY, 0.7)
+                .add(Attributes.SAFE_FALL_DISTANCE, 10)
                 .build();
     }
 

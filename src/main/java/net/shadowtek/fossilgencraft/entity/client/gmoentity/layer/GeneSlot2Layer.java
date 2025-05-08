@@ -38,7 +38,7 @@ public class GeneSlot2Layer extends GeoRenderLayer<GMOEntity> {
 
     @Override
     public void render(PoseStack poseStack, GMOEntity animatable, BakedGeoModel bakedModel, @Nullable RenderType renderType, MultiBufferSource bufferSource, @Nullable VertexConsumer buffer, float partialTick, int packedLight, int packedOverlay) {
-        RenderType skinLayerRenderType = RenderType.entityDecal(TEXTURE_LOCATION_BY_VARIANT.get(animatable.getGeneTwoVariant()));
+        RenderType skinLayerRenderType = RenderType.entityDecal(TEXTURE_LOCATION_BY_VARIANT.get(animatable.getGene2VariantType()));
 
         getRenderer().reRender(getDefaultBakedModel(animatable), poseStack, bufferSource, animatable, skinLayerRenderType,
                 bufferSource.getBuffer(skinLayerRenderType), partialTick, packedLight, OverlayTexture.NO_OVERLAY,

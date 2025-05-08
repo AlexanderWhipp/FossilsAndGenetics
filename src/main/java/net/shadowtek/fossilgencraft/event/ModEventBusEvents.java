@@ -11,6 +11,7 @@ import net.shadowtek.fossilgencraft.entity.client.TRex001Model;
 import net.shadowtek.fossilgencraft.entity.client.gmoentity.GMOBehaviour;
 import net.shadowtek.fossilgencraft.entity.custom.GMOEntity;
 import net.shadowtek.fossilgencraft.entity.custom.TRex001Entity;
+import net.shadowtek.fossilgencraft.entity.custom.gmotypes.GMOLandEntity;
 import net.shadowtek.fossilgencraft.network.NetworkHandler;
 import org.checkerframework.checker.units.qual.C;
 
@@ -25,6 +26,7 @@ import org.checkerframework.checker.units.qual.C;
     public static void registerAttributes(EntityAttributeCreationEvent event) {
             event.put(ModEntities.TREX001.get(), TRex001Entity.createAttributes().build());
             event.put(ModEntities.CUSTOM_PLAYER_MOB.get(), GMOEntity.setAttributes());
+            event.put(ModEntities.CUSTOM_PLAYER_MOB_LAND.get(), GMOLandEntity.setLandAttributes());
 
     }
     @SubscribeEvent

@@ -125,6 +125,9 @@ public class ModItems {
 
             () -> new GeneticallyModifiedSpawnEggItem(ModEntities.CUSTOM_PLAYER_MOB,0x63524b, 0xdac846, new Item.Properties()));
 
+    public static final RegistryObject<Item> MODIFIED_LAND_CREATURE = ITEMS.register("modified_land_creature_spawn_egg",
+            () -> new GMOLandEntitySpawnEgg(ModEntities.CUSTOM_PLAYER_MOB_LAND,0x63524b,0xdac846, new Item.Properties()));
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

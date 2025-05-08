@@ -10,6 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.shadowtek.fossilgencraft.FossilGenCraft;
 import net.shadowtek.fossilgencraft.entity.custom.GMOEntity;
 import net.shadowtek.fossilgencraft.entity.custom.TRex001Entity;
+import net.shadowtek.fossilgencraft.entity.custom.gmotypes.GMOLandEntity;
 
 
 public class ModEntities {
@@ -25,6 +26,14 @@ public class ModEntities {
                     ()-> EntityType.Builder.of(GMOEntity::new, MobCategory.CREATURE)
                             .sized(1.5f, 1.75f)
                             .build(ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, "custom_mob").toString()));
+
+
+    public static final RegistryObject<EntityType<GMOLandEntity>> CUSTOM_PLAYER_MOB_LAND =
+            ENTITY_TYPES.register("custom_mob_land",
+                    ()-> EntityType.Builder.of(GMOLandEntity::new, MobCategory.CREATURE)
+                            .sized(1.5f, 1.75f)
+                            .build(ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, "custom_mob_land").toString()));
+
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

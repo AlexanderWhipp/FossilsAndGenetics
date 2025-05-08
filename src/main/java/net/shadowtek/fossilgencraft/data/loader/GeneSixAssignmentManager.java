@@ -1,6 +1,5 @@
 package net.shadowtek.fossilgencraft.data.loader;
 
-import com.google.common.reflect.TypeToken;
 import com.google.gson.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -10,21 +9,23 @@ import net.minecraft.util.GsonHelper;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.entity.EntityType;
 import net.shadowtek.fossilgencraft.FossilGenCraft;
-import net.shadowtek.fossilgencraft.data.geneassignmentinfo.GeneOneAssignmentInfo;
+import net.shadowtek.fossilgencraft.data.geneassignmentinfo.GeneFiveAssignmentInfo;
+import net.shadowtek.fossilgencraft.data.geneassignmentinfo.GeneSixAssignmentInfo;
 
 import javax.annotation.Nullable;
-import java.lang.reflect.Type;
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
-public class GeneOneAssignmentManager extends SimpleJsonResourceReloadListener {
+public class GeneSixAssignmentManager extends SimpleJsonResourceReloadListener {
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
     private static final String FOLDER_PATH = "dna/genes";
 
-    private static Map<String, GeneOneAssignmentInfo> geneOneDataInfoMap = Collections.emptyMap();
+    private static Map<String, GeneSixAssignmentInfo> geneSixAssignmentInfo = Collections.emptyMap();
 
 
-    public GeneOneAssignmentManager() {
+    public GeneSixAssignmentManager() {
         super(GSON, FOLDER_PATH);
         FossilGenCraft.LOGGER.info("Gene One Assignment Manager Initialized, scanning folder '{}' ", FOLDER_PATH );
     }
@@ -32,7 +33,7 @@ public class GeneOneAssignmentManager extends SimpleJsonResourceReloadListener {
     @Override
     protected void apply(Map<ResourceLocation, JsonElement> pObject, ResourceManager pResourceManager, ProfilerFiller pProfiler) {
         FossilGenCraft.LOGGER.info("Applying Gene Assignment data(Processing {} files)...", pObject.size());
-        Map<String, GeneOneAssignmentInfo> newMap = new HashMap<>();
+        Map<String, GeneSixAssignmentInfo> newMap = new HashMap<>();
 
         for(Map.Entry<ResourceLocation, JsonElement> entry: pObject.entrySet()) {
             ResourceLocation fileId = entry.getKey();
@@ -55,34 +56,23 @@ public class GeneOneAssignmentManager extends SimpleJsonResourceReloadListener {
                 String genesByIdString = GsonHelper.getAsString(jsonObject, "genes_by_id");
                 ResourceLocation genesByIdRl = ResourceLocation.parse(genesByIdString);
 
-                JsonObject dataGeneSlot1 = GsonHelper.getAsJsonObject(jsonObject, "data_gene_slot_1");
+                JsonObject dataGeneSlot6 = GsonHelper.getAsJsonObject(jsonObject, "data_gene_slot_6");
 
-                String geneType = GsonHelper.getAsString(dataGeneSlot1, "gene_type");
+                String geneType = GsonHelper.getAsString(dataGeneSlot6, "gene_type");
+                int geneSpeciesIdNumber = GsonHelper.getAsInt(dataGeneSlot6, "gene_id");
+                String layer6textureLocation = GsonHelper.getAsString(dataGeneSlot6, "path_to_texture");
+                ResourceLocation geneFiveRL = ResourceLocation.parse(layer6textureLocation);
 
-                String modelPath = GsonHelper.getAsString(dataGeneSlot1, "model_location");
-                String baseTexturePath = GsonHelper.getAsString(dataGeneSlot1, "base_texture_location");
-                String moveAnimPath = GsonHelper.getAsString(dataGeneSlot1, "walk_animation_location");
 
-                boolean isTerrestrial = GsonHelper.getAsBoolean(dataGeneSlot1, "land_check");
-                boolean isAquatic = GsonHelper.getAsBoolean(dataGeneSlot1, "water_check");
-                boolean canFly = GsonHelper.getAsBoolean(dataGeneSlot1, "flying_check");
 
-                String creatureSize = GsonHelper.getAsString(dataGeneSlot1, "creature_size");
-                int geneSpeciesIdNumber = GsonHelper.getAsInt(dataGeneSlot1, "gene_id");
-
-               // JsonArray attributes = GsonHelper.getAsJsonArray(dataGeneSlot1, "base_attributes");
-                Type listType = new TypeToken<List<GeneOneAssignmentInfo.BaseAttributeValue>>() {}.getType();
-
-               List<GeneOneAssignmentInfo.BaseAttributeValue> attributes = GSON.fromJson(dataGeneSlot1.get("base_attribute_values"), listType);
-
-                GeneOneAssignmentInfo info = new GeneOneAssignmentInfo(
-                  speciesRL, genesByIdRl, geneType,modelPath,baseTexturePath,moveAnimPath,isTerrestrial, isAquatic, canFly, creatureSize, geneSpeciesIdNumber, attributes
+                GeneSixAssignmentInfo info = new GeneSixAssignmentInfo(
+                  speciesRL, genesByIdRl, geneType, geneSpeciesIdNumber, geneFiveRL
                 );
                 if(newMap.containsKey(entityTypeString)){
                     FossilGenCraft.LOGGER.warn("Duplicate Gene Assignment Definition(over-writing previous)");
                 }
                 newMap.put(entityTypeString, info);
-                FossilGenCraft.LOGGER.debug("Loaded Gene 1 Data for entity {} from file {}", speciesIdString, fileId);
+                FossilGenCraft.LOGGER.debug("Loaded Gene 6 Data for entity {} from file {}", speciesIdString, fileId);
 
             } catch (Exception e) {
                 FossilGenCraft.LOGGER.error("Failed to parse Gene Assignment file: {} - Error: {}", fileId, e.getMessage());
@@ -90,12 +80,12 @@ public class GeneOneAssignmentManager extends SimpleJsonResourceReloadListener {
 
 
         }
-        geneOneDataInfoMap = newMap;
-        FossilGenCraft.LOGGER.info("Finished applying Gene 1 Assignment Data. Loaded {} valid entries", geneOneDataInfoMap.size());
+        geneSixAssignmentInfo = newMap;
+        FossilGenCraft.LOGGER.info("Finished applying Gene 6 Assignment Data. Loaded {} valid entries", geneSixAssignmentInfo.size());
 
     }
     @Nullable
-    public static GeneOneAssignmentInfo getGeneInfoForEntity(String entityType) {
-        return geneOneDataInfoMap.get(entityType);
+    public static GeneSixAssignmentInfo getGeneSixInfoForEntity(String entityType) {
+        return geneSixAssignmentInfo.get(entityType);
     }
 }

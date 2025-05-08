@@ -2,30 +2,27 @@ package net.shadowtek.fossilgencraft.entity.client.gmoentity;
 
 
 import com.mojang.blaze3d.vertex.PoseStack;
-
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-
-import net.shadowtek.fossilgencraft.entity.client.gmoentity.layer.GeneSlot2Layer;
-import net.shadowtek.fossilgencraft.entity.custom.GMOEntity;
+import net.shadowtek.fossilgencraft.entity.client.gmoentity.layer.terrestrial.GeneSlot2LayerLandCreature;
+import net.shadowtek.fossilgencraft.entity.custom.gmotypes.GMOLandEntity;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 import java.util.Map;
 
-public class GMORenderer extends GeoEntityRenderer<GMOEntity> {
+public class LandGMORenderer extends GeoEntityRenderer<GMOLandEntity> {
 
-    public GMORenderer(EntityRendererProvider.Context context) {
-        super(context, new GMOModel());
 
-        addRenderLayer(new GeneSlot2Layer(this));
+    public LandGMORenderer(EntityRendererProvider.Context context) {
+        super(context, new LandGMOModel());
+
+    addRenderLayer(new GeneSlot2LayerLandCreature(this));
 
 
     }
 
-
-
     @Override
-    public void render(GMOEntity entity, float entityYaw, float partialTick, PoseStack poseStack,
+    public void render(GMOLandEntity entity, float entityYaw, float partialTick, PoseStack poseStack,
                        MultiBufferSource bufferSource, int packedLight){
 
         poseStack.scale(1f,1f,1f);

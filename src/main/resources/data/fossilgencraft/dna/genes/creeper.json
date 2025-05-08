@@ -1,65 +1,56 @@
 {
-  "species_id": "minecraft:chicken",
-  "genes_by_id": "fossilgencraft:chicken_genes",
+  "species_id": "minecraft:creeper",
+  "genes_by_id": "fossilgencraft:creeper_genes",
     "data_gene_slot_1": {
       "gene_type": "base",
 
-      "model_location": "geo/base/chicken.geo.json",
-      "base_texture_location": "textures/gmoentity/base/chicken.png",
-      "walk_animation_location":"gmoentity/base/chicken_move_walk.json",
+      "model_location": "geo/base/creeper.geo.json",
+      "base_texture_location": "textures/gmoentity/base/creeper.png",
+      "walk_animation_location":"gmoentity/base/creeper_move_walk.json",
 
       "land_check": true,
       "water_check": false,
       "flying_check": false,
-      "creature_size": "small",
-      "gene_id": 0,
+      "creature_size": "medium",
+      "gene_id": 5,
       "base_attribute_values": [
         {"attribute": "max_health", "attribute_value": 10.0},
         {"attribute": "walk_speed", "attribute_value": 0.4},
         {"attribute": "jump_strength", "attribute_value": 0.5},
         {"attribute": "gravity", "attribute_value": 0.2},
-        {"attribute": "safe_fall_distance", "attribute_value": 1024}]
+        {"attribute": "safe_fall_distance", "attribute_value": 1024},
+        {"attribute": "can_explode", "attribute_value": 1}]
     },
 
 
 
-  "data_gene_slot_2": {
-    "gene_type": "cosmetic",
-    "gene_id": 0,
-    "path_to_texture": "textures/gmoentity/genetwo/chicken.png"},
+  "data_gene_slot_2": {"gene_type": "cosmetic", "dna_species_id": "minecraft:chicken", "gene_id": 0},
 
 
-    "data_gene_slot_3": {
-      "gene_type": "ability",
-      "gene_desc": "chicken_fall_ability",
+    "data_gene_slot_3": {"gene_type": "ability", "dna_species_id": "minecraft:chicken", "gene_desc": "chicken_fall_ability", "gene_id": 0,
       "attribute_modifiers": [
-        {"attribute": "max_health","modifier_active": true, "attribute_value":  -0.5},
-        {"attribute": "walk_speed","modifier_active":  true, "attribute_value":  0.1},
-        {"attribute": "jump_strength","modifier_active": false, "attribute_value":  0},
-        {"attribute": "gravity","modifier_active": true, "attribute_value": 0.2},
-        {"attribute": "safe_fall_distance","modifier_active": true, "attribute_value": 1024}
-      ]
-    },
+        {"modifier_id": "gravity_modifier", "mod_value": 0.2, "value_type": "float"},
+        {"modifier_id": "fall_limit_modifier", "mod_value": 1024.0, "value_type": "double"}]},
 
 
 
   "data_gene_slot_4": {"gene_type": "behaviour", "dna_species_id": "minecraft:chicken", "gene_desc": "panic_when_hurt", "gene_id": 0,
       "attribute_modifiers": [],
-      "goals_to_add": [
+      "goals": [
         {}]},
 
 
 
   "data_gene_slot_5": {
           "gene_type": "cosmetic",
-          "gene_id": 0,
-          "path_to_texture": "textures/gmoentity/genefive/chicken.png"
-},
+          "dna_species_id": "minecraft:chicken",
+          "gene_id": 0
+    },
     "data_gene_slot_6": {
       "gene_type": "cosmetic",
-      "gene_id": 0,
-      "path_to_texture": "textures/gmoentity/genesix/chicken.png"
-},
+      "dna_species_id": "minecraft:chicken",
+      "gene_id": 0
+    },
     "data_gene_slot_7": {
       "gene_type": "ability",
       "dna_species_id": "minecraft:chicken",
