@@ -11,6 +11,8 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.level.Level;
+import net.shadowtek.fossilgencraft.data.geneassignmentinfo.GeneNineAssignmentInfo;
+import net.shadowtek.fossilgencraft.data.loader.GeneNineAssignmentManager;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
@@ -139,7 +141,32 @@ private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCach
     public String getGene9VariantType(){return this.entityData.get(GENE_VARIANT_NINE);}
     public String getGene10VariantType(){return this.entityData.get(GENE_VARIANT_TEN);}
 
+    public LivingEntity herdLeader;
+    private boolean isLeader = false;
 
+
+    public boolean canHerd(){
+        GeneNineAssignmentInfo geneNineAssignment = GeneNineAssignmentManager.getGeneNineInfoForEntity(getGene9VariantType());
+
+        if(geneNineAssignment.canHerd()){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void setHerdLeader(LivingEntity leader){
+       this.herdLeader = leader;
+    }
+    public LivingEntity getHerdLeader(){
+        return this.herdLeader;
+    }
+    public boolean isHerdLeader() {
+        return isLeader;
+    }
+    public void setHerdLeaderStatus(boolean leader){
+        this.isLeader = leader;
+    }
 
 
     public int fuseTimer = 0;

@@ -8,8 +8,7 @@ public record GeneNineAssignmentInfo(
 
         String geneType,
 
-        int gene_id,
-        ResourceLocation pathToTextureLocation
+        boolean canHerd
 
 
 

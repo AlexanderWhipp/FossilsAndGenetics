@@ -7,12 +7,18 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.PanicGoal;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
+import net.shadowtek.fossilgencraft.data.geneassignmentinfo.GeneFourAssignmentInfo;
+import net.shadowtek.fossilgencraft.data.geneassignmentinfo.GeneNineAssignmentInfo;
 import net.shadowtek.fossilgencraft.data.geneassignmentinfo.GeneOneAssignmentInfo;
 import net.shadowtek.fossilgencraft.data.geneassignmentinfo.GeneThreeAssignmentInfo;
+import net.shadowtek.fossilgencraft.data.loader.GeneFourAssignementManager;
+import net.shadowtek.fossilgencraft.data.loader.GeneNineAssignmentManager;
 import net.shadowtek.fossilgencraft.data.loader.GeneOneAssignmentManager;
 import net.shadowtek.fossilgencraft.data.loader.GeneThreeAssignmentManager;
+import net.shadowtek.fossilgencraft.entity.client.gmoentity.goals.FollowHerdLeaderGoal;
 import net.shadowtek.fossilgencraft.entity.custom.gmotypes.GMOLandEntity;
 import net.shadowtek.fossilgencraft.event.ModDataComponents;
 import java.util.function.Supplier;
@@ -51,6 +57,8 @@ public class GMOLandEntitySpawnEgg extends GeneticallyModifiedSpawnEggItem{
 
                 GeneOneAssignmentInfo geneOneAssignment = GeneOneAssignmentManager.getGeneInfoForEntity(geneSpecies1);
                 GeneThreeAssignmentInfo geneThreeAssignment = GeneThreeAssignmentManager.getGeneInfoForEntity(geneSpecies3);
+                GeneFourAssignmentInfo geneFourAssignment = GeneFourAssignementManager.getGeneFourInfoForEntity(geneSpecies4);
+                GeneNineAssignmentInfo geneNineAssignment = GeneNineAssignmentManager.getGeneNineInfoForEntity(geneSpecies9);
 
 
                 Double maxHealth = geneOneAssignment.base_attribute_values().get(0).attribute_value();
@@ -167,6 +175,16 @@ public class GMOLandEntitySpawnEgg extends GeneticallyModifiedSpawnEggItem{
                 mob.getEntityData().set(GENE_VARIANT_EIGHT, geneSpecies8);
                 mob.getEntityData().set(GENE_VARIANT_NINE, geneSpecies9);
                 mob.getEntityData().set(GENE_VARIANT_TEN, geneSpecies10);
+
+
+                if(geneFourAssignment.goalsToAdd().get(0).is_active()){
+                    mob.goalSelector.addGoal(4, new PanicGoal(mob, 0.4));
+                }
+
+                if(geneNineAssignment.canHerd()){
+                    mob.goalSelector.addGoal(5, new FollowHerdLeaderGoal(mob, maxMoveSpeed, 2.0D, 10.0D, geneSpecies1));
+                }
+
 
             }
         }
