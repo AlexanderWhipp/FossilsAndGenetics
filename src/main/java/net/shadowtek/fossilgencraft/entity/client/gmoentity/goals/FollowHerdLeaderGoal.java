@@ -26,10 +26,8 @@ public class FollowHerdLeaderGoal extends Goal {
 
     @Override
     public boolean canUse() {
-        if(!(mob instanceof GMOEntity gmoEntity) || !(mob instanceof GMOLandEntity landEntity)) {
-            return false;
-        }
-        if(mob instanceof GMOEntity && gmoEntity.canHerd()) {
+
+        if(mob instanceof GMOEntity gmoEntity && gmoEntity.canHerd()) {
             if (gmoEntity.getHerdLeader() == null || !gmoEntity.getHerdLeader().isAlive()) {
                 List<GMOEntity> nearby = mob.level().getEntitiesOfClass(GMOEntity.class, mob.getBoundingBox().inflate(8),
                         e -> e != mob && e.canHerd() && e.isHerdLeader() && e.getTypeVariant().equals(geneOne));
@@ -43,7 +41,7 @@ public class FollowHerdLeaderGoal extends Goal {
             leader = gmoEntity.getHerdLeader();
             return leader != null && mob.distanceTo(leader) > minDistance;
         }
-        if(mob instanceof GMOLandEntity && gmoEntity.canHerd()) {
+        if(mob instanceof GMOLandEntity landEntity && landEntity.canHerd()) {
             if (landEntity.getHerdLeader() == null || !landEntity.getHerdLeader().isAlive()) {
                 List<GMOLandEntity> nearby = mob.level().getEntitiesOfClass(GMOLandEntity.class, mob.getBoundingBox().inflate(8),
                         e -> e != mob && e.canHerd() && e.isHerdLeader() && e.getTypeVariant().equals(geneOne));

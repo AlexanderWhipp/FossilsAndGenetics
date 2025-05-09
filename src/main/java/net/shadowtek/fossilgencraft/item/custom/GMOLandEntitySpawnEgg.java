@@ -177,7 +177,7 @@ public class GMOLandEntitySpawnEgg extends GeneticallyModifiedSpawnEggItem{
                 mob.getEntityData().set(GENE_VARIANT_TEN, geneSpecies10);
 
 
-                if(geneFourAssignment.goalsToAdd().get(0).is_active()){
+                if(geneFourAssignment.goalsToAdd().stream().anyMatch(goal -> goal.goal().equals("panic"))){
                     mob.goalSelector.addGoal(4, new PanicGoal(mob, 0.4));
                 }
 

@@ -6,9 +6,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.shadowtek.fossilgencraft.FossilGenCraft;
-import net.shadowtek.fossilgencraft.data.loader.DnaExtractionManager;
-import net.shadowtek.fossilgencraft.data.loader.GeneOneAssignmentManager;
-import net.shadowtek.fossilgencraft.data.loader.GeneTwoAssignmentManager;
+import net.shadowtek.fossilgencraft.data.loader.*;
 import net.shadowtek.fossilgencraft.network.NetworkHandler;
 
 @Mod.EventBusSubscriber(modid = FossilGenCraft.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
@@ -21,6 +19,13 @@ public class ForgeEventHandlers {
         event.addListener(new DnaExtractionManager());
         event.addListener(new GeneOneAssignmentManager());
         event.addListener(new GeneTwoAssignmentManager());
+        event.addListener(new GeneThreeAssignmentManager());
+        event.addListener(new GeneFourAssignementManager());
+        event.addListener(new GeneFiveAssignmentManager());
+        event.addListener(new GeneSixAssignmentManager());
+        event.addListener(new GeneSevenAssignmentManager());
+        event.addListener(new GeneNineAssignmentManager());
+
         FossilGenCraft.LOGGER.info("Registered DnaExtractionManager to reload listeners.");
         FossilGenCraft.LOGGER.info("Registered GeneOneAssignmentManager to reload listeners.");
         FossilGenCraft.LOGGER.info("Registered GeneTwoAssignmentManager to reload listeners");

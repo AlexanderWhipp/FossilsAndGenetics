@@ -12,7 +12,11 @@ import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.level.Level;
 import net.shadowtek.fossilgencraft.data.geneassignmentinfo.GeneNineAssignmentInfo;
+import net.shadowtek.fossilgencraft.data.geneassignmentinfo.GeneSevenAssignmentInfo;
 import net.shadowtek.fossilgencraft.data.loader.GeneNineAssignmentManager;
+import net.shadowtek.fossilgencraft.data.loader.GeneSevenAssignmentManager;
+import net.shadowtek.fossilgencraft.entity.client.gmoentity.goals.FollowHerdLeaderGoal;
+import net.shadowtek.fossilgencraft.entity.client.gmoentity.goals.LayEggGoal;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
@@ -105,6 +109,11 @@ private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCach
         this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this,1.00));
 
 
+        //FossilGenCraft Custom Goals, only active if genes are present!
+        this.goalSelector.addGoal(5, new FollowHerdLeaderGoal(this,1,1.0,10,getTypeVariant()));
+        this.goalSelector.addGoal(6, new LayEggGoal(this));
+
+
 
 
     }
@@ -153,6 +162,17 @@ private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCach
         } else {
             return false;
         }
+    }
+    public boolean canLayEggs(){
+        GeneSevenAssignmentInfo geneSevenAssignment = GeneSevenAssignmentManager.getGeneSevenInfoForEntity(getGene7VariantType());
+
+        if(geneSevenAssignment.geneSevenGoals().stream().anyMatch(goal -> goal.goal().equals("lays_eggs"))){
+            return true;
+        } else {
+            return false;
+        }
+
+
     }
 
     public void setHerdLeader(LivingEntity leader){

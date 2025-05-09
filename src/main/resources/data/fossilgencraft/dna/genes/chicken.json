@@ -63,9 +63,9 @@
 },
     "data_gene_slot_7": {
       "gene_type": "ability",
-      "dna_species_id": "minecraft:chicken",
-      "gene_desc": "chicken_lay_egg"
-
+      "goals": [
+        {"goal": "lays_eggs"}
+      ]
     },
 
     "data_gene_slot_8": {
