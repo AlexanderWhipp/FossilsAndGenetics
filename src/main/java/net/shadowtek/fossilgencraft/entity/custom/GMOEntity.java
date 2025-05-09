@@ -1,31 +1,50 @@
 package net.shadowtek.fossilgencraft.entity.custom;
 
 
+import com.google.gson.JsonElement;
+import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
+import net.minecraft.world.entity.ai.goal.FollowOwnerGoal;
+import net.minecraft.world.entity.ai.goal.SitWhenOrderedToGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.shadowtek.fossilgencraft.data.geneassignmentinfo.GeneEightAssignmentInfo;
 import net.shadowtek.fossilgencraft.data.geneassignmentinfo.GeneNineAssignmentInfo;
 import net.shadowtek.fossilgencraft.data.geneassignmentinfo.GeneSevenAssignmentInfo;
-import net.shadowtek.fossilgencraft.data.loader.GeneNineAssignmentManager;
-import net.shadowtek.fossilgencraft.data.loader.GeneSevenAssignmentManager;
-import net.shadowtek.fossilgencraft.entity.client.gmoentity.goals.FollowHerdLeaderGoal;
-import net.shadowtek.fossilgencraft.entity.client.gmoentity.goals.LayEggGoal;
+import net.shadowtek.fossilgencraft.data.geneassignmentinfo.GeneTenAssignmentInfo;
+import net.shadowtek.fossilgencraft.data.loader.*;
+import net.shadowtek.fossilgencraft.entity.client.gmoentity.goals.*;
+import org.apache.http.config.Registry;
+import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import java.util.List;
+import java.util.stream.Collectors;
 
 
-public class GMOEntity extends PathfinderMob implements GeoEntity {
+public class GMOEntity extends TamableAnimal implements GeoEntity {
     public static final EntityDataAccessor<String> GENE_VARIANT_ONE =
             SynchedEntityData.defineId(GMOEntity.class, EntityDataSerializers.STRING);
 
@@ -71,7 +90,7 @@ protected static final RawAnimation WALK_ANIM = RawAnimation.begin().thenLoop("c
 
 private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
 
-    public GMOEntity(EntityType<? extends PathfinderMob> pEntityType, Level pLevel) {
+    public GMOEntity(EntityType<? extends TamableAnimal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
@@ -97,7 +116,7 @@ private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCach
 
 
     public static AttributeSupplier setAttributes(){
-        return PathfinderMob.createMobAttributes()
+        return TamableAnimal.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 20.0)
                 .add(Attributes.MOVEMENT_SPEED, 0.4f)
                 .build();
@@ -106,12 +125,17 @@ private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCach
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this,1.00));
+        this.goalSelector.addGoal(2, new GmoAttackGoal(this,1.0,true));
+        this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this,1.00));
 
+        this.targetSelector.addGoal(3, new GMOFindAttackTargetGoal<>(this, Player.class, true));
+        this.goalSelector.addGoal(4, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F));
+        this.goalSelector.addGoal(5, new SitWhenOrderedToGoal(this));
 
         //FossilGenCraft Custom Goals, only active if genes are present!
-        this.goalSelector.addGoal(5, new FollowHerdLeaderGoal(this,1,1.0,10,getTypeVariant()));
-        this.goalSelector.addGoal(6, new LayEggGoal(this));
+        this.goalSelector.addGoal(6, new FollowHerdLeaderGoal(this,1,1.0,10,getTypeVariant()));
+        this.goalSelector.addGoal(7, new LayEggGoal(this));
+        this.goalSelector.addGoal(8, new GmoHurtByTargetGoal(this));
 
 
 
@@ -119,6 +143,10 @@ private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCach
     }
 
 
+    @Override
+    public @Nullable AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
+        return null;
+    }
 
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder pBuilder) {
@@ -156,23 +184,23 @@ private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCach
 
     public boolean canHerd(){
         GeneNineAssignmentInfo geneNineAssignment = GeneNineAssignmentManager.getGeneNineInfoForEntity(getGene9VariantType());
-
-        if(geneNineAssignment.canHerd()){
-            return true;
-        } else {
-            return false;
-        }
+        return geneNineAssignment.canHerd();
     }
     public boolean canLayEggs(){
         GeneSevenAssignmentInfo geneSevenAssignment = GeneSevenAssignmentManager.getGeneSevenInfoForEntity(getGene7VariantType());
-
-        if(geneSevenAssignment.geneSevenGoals().stream().anyMatch(goal -> goal.goal().equals("lays_eggs"))){
-            return true;
-        } else {
-            return false;
-        }
-
-
+        return geneSevenAssignment.geneSevenGoals().stream().anyMatch(goal -> goal.goal().equals("lays_eggs"));
+    }
+    public boolean isAggressive(){
+        GeneTenAssignmentInfo geneTenAssignment = GeneTenAssignmentManager.getGeneTenInfoForEntity(getGene10VariantType());
+        return geneTenAssignment.aggressiveToPlayer();
+    }
+    public boolean isRideable(){
+        GeneTenAssignmentInfo geneTenAssignment = GeneTenAssignmentManager.getGeneTenInfoForEntity(getGene10VariantType());
+        return geneTenAssignment.rideable();
+    }
+    public boolean defendOwner(){
+        GeneTenAssignmentInfo geneTenAssignment = GeneTenAssignmentManager.getGeneTenInfoForEntity(getGene10VariantType());
+        return geneTenAssignment.defendOwner();
     }
 
     public void setHerdLeader(LivingEntity leader){
@@ -221,7 +249,37 @@ private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCach
             this.discard();
         }
 
-        @Override
+        public boolean isTamable(){
+            GeneTenAssignmentInfo geneTenAssignment = GeneTenAssignmentManager.getGeneTenInfoForEntity(getGene10VariantType());
+            return geneTenAssignment.tamable();
+        }
+
+
+    @Override
+    public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
+        ItemStack itemStack = pPlayer.getItemInHand(pHand);
+
+
+        if(this.isTamable()){
+            if(!this.isTame() && itemStack.is(Items.STICK)){
+                if(!pPlayer.getAbilities().instabuild){
+                    itemStack.shrink(1);
+                }
+                this.tame(pPlayer);
+                this.setPersistenceRequired();
+                this.level().broadcastEntityEvent(this,(byte)7);
+                return InteractionResult.SUCCESS;
+            }
+            if(this.isTame() && this.isOwnedBy(pPlayer)){
+                this.setOrderedToSit(!this.isOrderedToSit());
+                return InteractionResult.SUCCESS;
+            }
+        }
+
+        return super.mobInteract(pPlayer, pHand);
+    }
+
+    @Override
     public void addAdditionalSaveData(CompoundTag pCompound) {
         super.addAdditionalSaveData(pCompound);
         pCompound.putString("Gene1", this.getTypeVariant());
@@ -249,5 +307,18 @@ private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCach
         this.entityData.set(GENE_VARIANT_EIGHT, pCompound.getString("Gene8"));
         this.entityData.set(GENE_VARIANT_NINE, pCompound.getString("Gene9"));
         this.entityData.set(GENE_VARIANT_TEN, pCompound.getString("Gene10"));
+    }
+
+
+
+    @Override
+    public boolean isFood(ItemStack pStack) {
+        GeneEightAssignmentInfo geneEightAssignment = GeneEightAssignmentManager.getGeneEightInfoForEntity(getGene8VariantType());
+        String item = pStack.getDescriptionId();
+        if (geneEightAssignment.foodItems().stream().anyMatch(food -> food.equals(item))) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -70,9 +70,8 @@
 
     "data_gene_slot_8": {
       "gene_type": "diet",
-      "gene_desc": "chicken_diet",
       "valid_food_items": [
-        "#forge:seeds"
+        "minecraft:wheat_seeds"
       ]
   },
     "data_gene_slot_9": {
@@ -81,11 +80,8 @@
     },
     "data_gene_slot_10": {
       "gene_type": "social_behaviour",
-      "dna_species_id": "minecraft:chicken",
-      "gene_desc": "chicken_social_player",
-      "gene_id": 0,
       "is_aggressive": false,
-      "is_tamable": false,
+      "is_tameable": false,
       "is_rideable": false,
       "attack_owner_attacker": false
 

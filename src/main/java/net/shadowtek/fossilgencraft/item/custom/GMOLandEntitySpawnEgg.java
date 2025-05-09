@@ -181,9 +181,6 @@ public class GMOLandEntitySpawnEgg extends GeneticallyModifiedSpawnEggItem{
                     mob.goalSelector.addGoal(4, new PanicGoal(mob, 0.4));
                 }
 
-                if(geneNineAssignment.canHerd()){
-                    mob.goalSelector.addGoal(5, new FollowHerdLeaderGoal(mob, maxMoveSpeed, 2.0D, 10.0D, geneSpecies1));
-                }
 
 
             }

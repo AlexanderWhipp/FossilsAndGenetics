@@ -24,7 +24,9 @@ public class ForgeEventHandlers {
         event.addListener(new GeneFiveAssignmentManager());
         event.addListener(new GeneSixAssignmentManager());
         event.addListener(new GeneSevenAssignmentManager());
+        event.addListener(new GeneEightAssignmentManager());
         event.addListener(new GeneNineAssignmentManager());
+        event.addListener(new GeneTenAssignmentManager());
 
         FossilGenCraft.LOGGER.info("Registered DnaExtractionManager to reload listeners.");
         FossilGenCraft.LOGGER.info("Registered GeneOneAssignmentManager to reload listeners.");

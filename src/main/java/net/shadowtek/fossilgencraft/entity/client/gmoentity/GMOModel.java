@@ -43,16 +43,16 @@ public class GMOModel extends GeoModel<GMOEntity> {
 
     @Override
     public ResourceLocation getModelResource(GMOEntity animatable) {
-        return MODEL_LOCATION_BY_VARIANT.get(animatable.getVariant());
+        return MODEL_LOCATION_BY_VARIANT.get(animatable.getTypeVariant());
     }
 
     @Override
     public ResourceLocation getTextureResource(GMOEntity animatable) {
-        return SKIN_LOCATION_BY_VARIANT.get(animatable.getVariant());
+        return SKIN_LOCATION_BY_VARIANT.get(animatable.getTypeVariant());
     }
 
     @Override
     public ResourceLocation getAnimationResource(GMOEntity animatable) {
-        return ANIMATIONS_LOCATION_BY_VARIANT.get(animatable.getVariant());
+        return ANIMATIONS_LOCATION_BY_VARIANT.get(animatable.getTypeVariant());
     }
 }

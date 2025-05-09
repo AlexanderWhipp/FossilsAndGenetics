@@ -25,7 +25,7 @@ public class LandGMOModel extends GeoModel<GMOLandEntity> {
             });
     @Override
     public ResourceLocation getModelResource(GMOLandEntity animatable) {
-        String entityId = GET_VARIANT_FOR_ASSIGNMENT.get(animatable.getVariant());
+        String entityId = GET_VARIANT_FOR_ASSIGNMENT.get(animatable.getTypeVariant());
 
         GeneOneAssignmentInfo geneOneAssignment = GeneOneAssignmentManager.getGeneInfoForEntity(entityId);
         String fileLocation = geneOneAssignment.modelLocation();
@@ -35,7 +35,7 @@ public class LandGMOModel extends GeoModel<GMOLandEntity> {
 
     @Override
     public ResourceLocation getTextureResource(GMOLandEntity animatable) {
-        String entityId = GET_VARIANT_FOR_ASSIGNMENT.get(animatable.getVariant());
+        String entityId = GET_VARIANT_FOR_ASSIGNMENT.get(animatable.getTypeVariant());
 
         GeneOneAssignmentInfo geneOneAssignment = GeneOneAssignmentManager.getGeneInfoForEntity(entityId);
         String fileLocation = geneOneAssignment.baseTextureLocation();
@@ -45,7 +45,7 @@ public class LandGMOModel extends GeoModel<GMOLandEntity> {
 
     @Override
     public ResourceLocation getAnimationResource(GMOLandEntity animatable) {
-        String entityId = GET_VARIANT_FOR_ASSIGNMENT.get(animatable.getVariant());
+        String entityId = GET_VARIANT_FOR_ASSIGNMENT.get(animatable.getTypeVariant());
 
         GeneOneAssignmentInfo geneOneAssignment = GeneOneAssignmentManager.getGeneInfoForEntity(entityId);
         String fileLocation = geneOneAssignment.walkAnimationLocation();

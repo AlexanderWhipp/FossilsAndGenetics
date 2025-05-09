@@ -1,6 +1,7 @@
 package net.shadowtek.fossilgencraft.entity.client.gmoentity.goals;
 
 import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
@@ -9,12 +10,12 @@ import net.shadowtek.fossilgencraft.entity.custom.GMOEntity;
 import net.shadowtek.fossilgencraft.entity.custom.gmotypes.GMOLandEntity;
 
 public class LayEggGoal extends Goal {
-    private final PathfinderMob mob;
+    private final TamableAnimal mob;
 
 
     private int eggCooldown = 0;
 
-    public LayEggGoal(PathfinderMob mob){
+    public LayEggGoal(TamableAnimal mob){
         this.mob = mob;
     }
     @Override

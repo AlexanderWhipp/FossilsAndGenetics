@@ -2,19 +2,19 @@ package net.shadowtek.fossilgencraft.data.geneassignmentinfo;
 
 import net.minecraft.resources.ResourceLocation;
 
-public record GeneTenAssignmentInfo(
+import java.util.List;
+
+public record GeneEightAssignmentInfo(
         ResourceLocation speciesId,
         ResourceLocation genesById,
 
         String geneType,
+        List<ValidFoodItems> foodItems
 
-        boolean aggressiveToPlayer,
-        boolean tamable,
-        boolean rideable,
-        boolean defendOwner
+
 
 
 
 ) {
-
+public record ValidFoodItems(String item){}
 }

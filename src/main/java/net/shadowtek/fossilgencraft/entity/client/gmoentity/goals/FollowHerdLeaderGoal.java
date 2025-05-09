@@ -2,6 +2,7 @@ package net.shadowtek.fossilgencraft.entity.client.gmoentity.goals;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.shadowtek.fossilgencraft.entity.custom.GMOEntity;
 import net.shadowtek.fossilgencraft.entity.custom.gmotypes.GMOLandEntity;
@@ -9,14 +10,14 @@ import net.shadowtek.fossilgencraft.entity.custom.gmotypes.GMOLandEntity;
 import java.util.List;
 
 public class FollowHerdLeaderGoal extends Goal {
-    private final PathfinderMob mob;
+    private final TamableAnimal mob;
     private LivingEntity leader;
     private final double speed;
     private final double minDistance;
     private final double maxDistance;
     private final String geneOne;
 
-    public FollowHerdLeaderGoal(PathfinderMob mob, double speed, double minDistance, double maxDistance, String geneOne){
+    public FollowHerdLeaderGoal(TamableAnimal mob, double speed, double minDistance, double maxDistance, String geneOne){
         this.mob = mob;
         this.speed = speed;
         this.minDistance = minDistance;
