@@ -65,11 +65,12 @@ public class GeneTwoAssignmentManager extends SimpleJsonResourceReloadListener {
                 int geneSpeciesIdNumber = GsonHelper.getAsInt(dataGeneSlot2, "gene_id");
                 String layer2textureLocation = GsonHelper.getAsString(dataGeneSlot2, "path_to_texture");
                 ResourceLocation geneTwoRL = ResourceLocation.parse(layer2textureLocation);
-
+                String layer2modelLocation = GsonHelper.getAsString(dataGeneSlot2, "path_to_model");
+                ResourceLocation headRl = ResourceLocation.parse(layer2modelLocation);
 
 
                 GeneTwoAssignmentInfo info = new GeneTwoAssignmentInfo(
-                  speciesRL, genesByIdRl, geneType, geneSpeciesIdNumber, geneTwoRL
+                  speciesRL, genesByIdRl, geneType, geneSpeciesIdNumber, geneTwoRL, headRl
                 );
                 if(newMap.containsKey(entityTypeString)){
                     FossilGenCraft.LOGGER.warn("Duplicate Gene Assignment Definition(over-writing previous)");

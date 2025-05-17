@@ -20,6 +20,6 @@ public class GMOFindAttackTargetGoal<T extends LivingEntity> extends NearestAtta
 
     @Override
     public boolean canUse() {
-        return (mob instanceof GMOEntity gmoEntity && (gmoEntity.isAggressive()) || mob instanceof GMOLandEntity gmoLandEntity && (gmoLandEntity.isAggressive()));
+        return (mob instanceof GMOEntity gmoEntity && gmoEntity.isAggressive() || mob instanceof GMOLandEntity gmoLandEntity && (gmoLandEntity.isAggressive()));
     }
 }

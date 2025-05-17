@@ -141,7 +141,7 @@ public class SplicerBlockEntity extends BlockEntity implements MenuProvider {
     @Override
     protected void loadAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
         super.loadAdditional(pTag, pRegistries);
-        itemHandler.deserializeNBT(pRegistries, pTag.getCompound("inventory"));
+        itemHandler.deserializeNBT(pRegistries, pTag.getCompound("inventory").get());
         // progress = pTag.getInt("dna_splicer.progress");
         // maxProgress = pTag.getInt("dna_splicer.max_progress");
 
@@ -319,7 +319,7 @@ public class SplicerBlockEntity extends BlockEntity implements MenuProvider {
 
     private Optional<RecipeHolder<DinosaurSplicingRecipe>> getCurrentRecipe()
     {
-        return this.level.getRecipeManager()
+        return this.getLevel().getServer().getRecipeManager()
                 .getRecipeFor(ModRecipes.DINO_DNA_TYPE.get(),
                         new DinosaurSplicingRecipeInput(itemHandler.getStackInSlot(INPUT_SLOT_1), itemHandler.getStackInSlot(INPUT_SLOT_2), itemHandler.getStackInSlot(INPUT_SLOT_3),
                                 itemHandler.getStackInSlot(INPUT_SLOT_4),itemHandler.getStackInSlot(INPUT_SLOT_5),itemHandler.getStackInSlot(INPUT_SLOT_6),

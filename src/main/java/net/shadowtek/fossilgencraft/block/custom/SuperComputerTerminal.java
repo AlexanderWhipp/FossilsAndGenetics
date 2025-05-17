@@ -3,6 +3,7 @@ package net.shadowtek.fossilgencraft.block.custom;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
@@ -28,34 +29,42 @@ public class SuperComputerTerminal extends BaseEntityBlock {
         super(properties);
     }
 
+    @SuppressWarnings("NullableProblems")
     @Override
     protected MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
     }
 
+    @SuppressWarnings("NullableProblems")
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
         return new SuperComputerTerminalBlockEntity(pPos, pState);
     }
 
+    @SuppressWarnings({"NullableProblems", "RedundantMethodOverride"})
     @Override
     protected RenderShape getRenderShape(BlockState pState) {
         return RenderShape.MODEL;
     }
 
+    @SuppressWarnings("NullableProblems")
     @Override
-    protected void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        if (pState.getBlock() != pNewState.getBlock()){
-            BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof SuperComputerTerminalBlockEntity superComputerTerminalBlockEntity) {
-                superComputerTerminalBlockEntity.drops();
-            }
+    protected void affectNeighborsAfterRemoval(BlockState pState, ServerLevel pLevel, BlockPos pPos,
+                                               boolean pMovedByPiston) {
+        if(pLevel.getBlockEntity(pPos) instanceof SuperComputerTerminalBlockEntity superComputerTerminalBlockEntity){
+            superComputerTerminalBlockEntity.drops();
+            pLevel.updateNeighbourForOutputSignal(pPos, this);
         }
-        super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+
+
+
+        super.affectNeighborsAfterRemoval(pState, pLevel, pPos, pMovedByPiston);
     }
 
+
+    @SuppressWarnings("NullableProblems")
     @Override
-    protected InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {
+    protected  InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
             if(entity instanceof SuperComputerTerminalBlockEntity SuperComputerTerminalBlockEntity) {
@@ -65,15 +74,13 @@ public class SuperComputerTerminal extends BaseEntityBlock {
             }
         }
 
-        return InteractionResult.sidedSuccess(pLevel.isClientSide());
+        return InteractionResult.SUCCESS;
     }
+    @SuppressWarnings("NullableProblems")
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
         // Ticking logic runs server-side for this block
-        if (pLevel.isClientSide()) {
-            return null; // No client-side tick needed for research logic
-        }
         return null;
     }
 

@@ -2,10 +2,7 @@ package net.shadowtek.fossilgencraft.item.custom;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.PanicGoal;
 import net.minecraft.world.item.ItemStack;
@@ -27,7 +24,7 @@ import static net.shadowtek.fossilgencraft.entity.custom.GMOEntity.*;
 
 public class GMOLandEntitySpawnEgg extends GeneticallyModifiedSpawnEggItem{
 
-    public GMOLandEntitySpawnEgg(Supplier<? extends EntityType<? extends PathfinderMob>> type, int backgroundColor, int highlightColor, Properties props) {
+    public GMOLandEntitySpawnEgg(Supplier<? extends EntityType<? extends TamableAnimal>> type, int backgroundColor, int highlightColor, Properties props) {
         super(type, backgroundColor, highlightColor, props);
     }
 
@@ -43,16 +40,17 @@ public class GMOLandEntitySpawnEgg extends GeneticallyModifiedSpawnEggItem{
 
 
             if (entity instanceof GMOLandEntity mob) {
-                String geneSpecies1 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_1.get());
-                String geneSpecies2 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_2.get());
-                String geneSpecies3 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_3.get());
-                String geneSpecies4 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_4.get());
-                String geneSpecies5 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_5.get());
-                String geneSpecies6 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_6.get());
-                String geneSpecies7 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_7.get());
-                String geneSpecies8 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_8.get());
-                String geneSpecies9 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_9.get());
-                String geneSpecies10 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_10.get());
+                String geneSpecies1 = stack.getOrDefault(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_1.get(), "fossilgencraft:meatcubland");
+                String geneSpecies2 = stack.getOrDefault(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_2.get(), "fossilgencraft:meatcubland");
+                String geneSpecies3 = stack.getOrDefault(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_3.get(), "fossilgencraft:meatcubeland");
+                String geneSpecies4 = stack.getOrDefault(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_4.get(), "fossilgencraft:meatcubeland");
+                String geneSpecies5 = stack.getOrDefault(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_5.get(), "fossilgencraft:meatcubeland");
+                String geneSpecies6 = stack.getOrDefault(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_6.get(), "fossilgencraft:meatcubeland");
+                String geneSpecies7 = stack.getOrDefault(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_7.get(), "fossilgencraft:meatcubeland");
+                String geneSpecies8 = stack.getOrDefault(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_8.get(), "fossilgencraft:meatcubeland");
+                String geneSpecies9 = stack.getOrDefault(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_9.get(), "fossilgencraft:meatcubeland");
+                String geneSpecies10 = stack.getOrDefault(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_10.get(), "fossilgencraft:meatcubeland");
+
 
 
                 GeneOneAssignmentInfo geneOneAssignment = GeneOneAssignmentManager.getGeneInfoForEntity(geneSpecies1);

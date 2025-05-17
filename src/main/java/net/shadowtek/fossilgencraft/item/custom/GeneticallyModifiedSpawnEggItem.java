@@ -9,7 +9,9 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Explosion;
@@ -27,7 +29,7 @@ import java.util.function.Supplier;
 
 import static net.shadowtek.fossilgencraft.entity.custom.GMOEntity.*;
 
-public class GeneticallyModifiedSpawnEggItem extends ForgeSpawnEggItem {
+public class GeneticallyModifiedSpawnEggItem extends SpawnEggItem {
 
 
     public GeneticallyModifiedSpawnEggItem(Supplier<? extends EntityType<? extends PathfinderMob>> type, int backgroundColor, int highlightColor, Properties props) {
@@ -35,10 +37,17 @@ public class GeneticallyModifiedSpawnEggItem extends ForgeSpawnEggItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
+    public void appendHoverText(ItemStack pStack, Item.TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
         String geneLabel1 = pStack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_1.get());
         String geneLabel2 = pStack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_2.get());
         String geneLabel3 = pStack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_3.get());
+        String geneLabel4 = pStack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_4.get());
+        String geneLabel5 = pStack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_5.get());
+        String geneLabel6 = pStack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_6.get());
+        String geneLabel7 = pStack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_7.get());
+        String geneLabel8 = pStack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_8.get());
+        String geneLabel9 = pStack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_9.get());
+        String geneLabel10 = pStack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_10.get());
 
 
         if (geneLabel1 != null && !geneLabel1.isEmpty()){
@@ -74,6 +83,13 @@ public class GeneticallyModifiedSpawnEggItem extends ForgeSpawnEggItem {
                String geneSpecies1 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_1.get());
                String geneSpecies2 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_2.get());
                String geneSpecies3 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_3.get());
+               String geneSpecies4 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_4.get());
+               String geneSpecies5 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_5.get());
+               String geneSpecies6 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_6.get());
+               String geneSpecies7 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_7.get());
+               String geneSpecies8 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_8.get());
+               String geneSpecies9 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_9.get());
+               String geneSpecies10 = stack.get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_10.get());
                int variantID;
                if (geneSpecies1.equals("minecraft:chicken")) {
                    variantID = 0;

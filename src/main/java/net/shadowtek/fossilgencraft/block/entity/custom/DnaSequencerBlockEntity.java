@@ -144,9 +144,9 @@ Feature is W.I.P facing many technical challenges implementing at the moment, th
     protected void loadAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
         super.loadAdditional(pTag, pRegistries);
 
-        itemHandler.deserializeNBT(pRegistries, pTag.getCompound("inventory"));
-        progress = pTag.getInt("dna_sequencer.progress");
-        maxProgress = pTag.getInt("dna_sequencer.max_progress");
+        itemHandler.deserializeNBT(pRegistries, pTag.getCompound("inventory").get());
+        progress = pTag.getInt("dna_sequencer.progress").get();
+        maxProgress = pTag.getInt("dna_sequencer.max_progress").get();
 
     }
 
@@ -325,7 +325,7 @@ Feature is W.I.P facing many technical challenges implementing at the moment, th
         return canInsertItemIntoOutputSlot(output1, output2) && canInsertAmountIntoOutputSlot(output1.getCount(),output2.getCount());
     }
     private Optional<RecipeHolder<DnaSequencerRecipe>> getCurrentRecipe() {
-        return this.level.getRecipeManager()
+        return this.getLevel().getServer().getRecipeManager()
                 .getRecipeFor(ModRecipes.DNA_SEQUENCER_TYPE.get(), new DnaSequencerRecipeInput(itemHandler.getStackInSlot(INPUT_SLOT1),itemHandler.getStackInSlot(INPUT_SLOT2)), level);
     }
     private boolean canInsertItemIntoOutputSlot(ItemStack output1, ItemStack output2) {

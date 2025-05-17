@@ -11,7 +11,8 @@ public record GeneTwoAssignmentInfo(
         String geneType,
 
         int gene_id,
-        ResourceLocation pathToTextureLocation
+        ResourceLocation pathToTextureLocation,
+        ResourceLocation pathToModelLocation
 
 
 

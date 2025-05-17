@@ -2,6 +2,7 @@ package net.shadowtek.fossilgencraft.item;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -119,7 +120,7 @@ public class ModItems {
 
 //Spawn Eggs
     public static final RegistryObject<Item> TREX_SPAWN_EGG = ITEMS.register("trex_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntities.TREX001,0x53524b, 0xdac741, new Item.Properties()));
+            () -> new SpawnEggItem(ModEntities.TREX001.get(),  new Item.Properties()));
 
     public static final RegistryObject<Item> CUSTOM_SPAWN_EGG = ITEMS.register("custom_spawn_egg",
 

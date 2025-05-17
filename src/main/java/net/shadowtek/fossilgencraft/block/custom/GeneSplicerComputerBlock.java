@@ -3,9 +3,11 @@ package net.shadowtek.fossilgencraft.block.custom;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
+
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -22,6 +24,7 @@ import net.minecraft.world.phys.BlockHitResult;
 
 
 import net.shadowtek.fossilgencraft.block.entity.ModBlockEntities;
+import net.shadowtek.fossilgencraft.block.entity.custom.AmberExtractorBlockEntity;
 import net.shadowtek.fossilgencraft.block.entity.custom.SplicerBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
@@ -52,19 +55,21 @@ public class GeneSplicerComputerBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        if (pState.getBlock() != pNewState.getBlock()){
-            BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof SplicerBlockEntity geneSplicerComputerBlockEntity) {
-                geneSplicerComputerBlockEntity.drops();
-            }
+    protected void affectNeighborsAfterRemoval(BlockState pState, ServerLevel pLevel, BlockPos pPos,
+                                               boolean pMovedByPiston) {
+        if(pLevel.getBlockEntity(pPos) instanceof SplicerBlockEntity splicerBlockEntity){
+            splicerBlockEntity.drops();
+            pLevel.updateNeighbourForOutputSignal(pPos, this);
         }
-        super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+
+
+
+        super.affectNeighborsAfterRemoval(pState, pLevel, pPos, pMovedByPiston);
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel,
-                                              BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHitResult) {
+    protected InteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel,
+                                          BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHitResult) {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
             if(entity instanceof SplicerBlockEntity SplicerBlockEntity) {
@@ -74,18 +79,8 @@ public class GeneSplicerComputerBlock extends BaseEntityBlock {
             }
         }
 
-        return ItemInteractionResult.sidedSuccess(pLevel.isClientSide());
+        return InteractionResult.SUCCESS;
     }
-//Crafting logic Disabled for Menu Screen Tests
-  //  @Override
- //   public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-   //     if (pLevel.isClientSide()){
-    //        return null;
-     //   }
-     //   return createTickerHelper(pBlockEntityType, ModBlockEntities.GENE_SPLICER_COMPUTER_BE.get(),
-       //         (level, blockpos, blockstate, geneSplicerBlockEntity) -> GeneSplicerComputerBlockEntity.tick(level, blockpos, blockstate));
-
-   // }
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {

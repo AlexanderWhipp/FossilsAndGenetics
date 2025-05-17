@@ -3,6 +3,7 @@ package net.shadowtek.fossilgencraft.block.custom;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
@@ -20,10 +21,11 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.packets.OpenContainer;
 import net.shadowtek.fossilgencraft.block.entity.ModBlockEntities;
+import net.shadowtek.fossilgencraft.block.entity.custom.AmberExtractorBlockEntity;
 import net.shadowtek.fossilgencraft.block.entity.custom.CentrifugeBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
-import java.awt.*;
+
 
 public class CentrifugeBlock extends BaseEntityBlock {
     public static final MapCodec<CentrifugeBlock> CODEC = simpleCodec(CentrifugeBlock::new);
@@ -51,18 +53,20 @@ public class CentrifugeBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        if (pState.getBlock() != pNewState.getBlock()){
-            BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-                if (blockEntity instanceof CentrifugeBlockEntity centrifugeBlockEntity) {
-                    centrifugeBlockEntity.drops();
-                }
-            }
-        super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+    protected void affectNeighborsAfterRemoval(BlockState pState, ServerLevel pLevel, BlockPos pPos,
+                                               boolean pMovedByPiston) {
+        if(pLevel.getBlockEntity(pPos) instanceof CentrifugeBlockEntity centrifugeBlockEntity){
+            centrifugeBlockEntity.drops();
+            pLevel.updateNeighbourForOutputSignal(pPos, this);
+        }
+
+
+
+        super.affectNeighborsAfterRemoval(pState, pLevel, pPos, pMovedByPiston);
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel,
+    protected InteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel,
                                               BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHitResult) {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
@@ -73,7 +77,7 @@ public class CentrifugeBlock extends BaseEntityBlock {
             }
         }
 
-        return ItemInteractionResult.sidedSuccess(pLevel.isClientSide());
+        return InteractionResult.SUCCESS;
     }
 
     @Override

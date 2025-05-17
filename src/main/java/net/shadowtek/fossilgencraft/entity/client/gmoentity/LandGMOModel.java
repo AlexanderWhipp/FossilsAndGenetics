@@ -17,39 +17,46 @@ import java.util.Map;
 
 public class LandGMOModel extends GeoModel<GMOLandEntity> {
 
-    private static final Map<GeneOneVariants, String> GET_VARIANT_FOR_ASSIGNMENT =
-            Util.make(Maps.newEnumMap(GeneOneVariants.class), map -> {
-                map.put(GeneOneVariants.CHICKEN, "minecraft:chicken");
-                map.put(GeneOneVariants.FROG, "minecraft:frog");
 
-            });
     @Override
     public ResourceLocation getModelResource(GMOLandEntity animatable) {
-        String entityId = GET_VARIANT_FOR_ASSIGNMENT.get(animatable.getTypeVariant());
+       String entityId = animatable.getTypeVariant();
 
-        GeneOneAssignmentInfo geneOneAssignment = GeneOneAssignmentManager.getGeneInfoForEntity(entityId);
-        String fileLocation = geneOneAssignment.modelLocation();
+        String geneOneAssignment = animatable.gene1SpeciesModelLocation();
+        if(geneOneAssignment != null) {
+            return ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, geneOneAssignment);
+        } else {
+            String fileLocation = "geo/gmoentity/base/meat.geo.json";
+            return ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, fileLocation);
+        }
 
-        return ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, fileLocation);
     }
 
     @Override
     public ResourceLocation getTextureResource(GMOLandEntity animatable) {
-        String entityId = GET_VARIANT_FOR_ASSIGNMENT.get(animatable.getTypeVariant());
 
-        GeneOneAssignmentInfo geneOneAssignment = GeneOneAssignmentManager.getGeneInfoForEntity(entityId);
-        String fileLocation = geneOneAssignment.baseTextureLocation();
+        if(animatable.gene1SpeciesTextureLocation() != null) {
+            String fileLocation = animatable.gene1SpeciesTextureLocation();
+            return ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, fileLocation);
+        }else{
+            String fileLocation = "textures/gmoentity/base/meat.png";
+            return ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, fileLocation);
+        }
 
-        return ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, fileLocation);
     }
 
     @Override
     public ResourceLocation getAnimationResource(GMOLandEntity animatable) {
-        String entityId = GET_VARIANT_FOR_ASSIGNMENT.get(animatable.getTypeVariant());
+        String entityId = animatable.getTypeVariant();
 
-        GeneOneAssignmentInfo geneOneAssignment = GeneOneAssignmentManager.getGeneInfoForEntity(entityId);
-        String fileLocation = geneOneAssignment.walkAnimationLocation();
+        String geneOneAssignment = animatable.gene1SpeciesAnimationLocation();
+        if(geneOneAssignment != null) {
+            String fileLocation = geneOneAssignment;
+            return ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, fileLocation);
+        } else {
+            String fileLocation = "animations/meatcube.walk.json";
+            return ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, fileLocation);
+        }
 
-        return ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, fileLocation);
     }
 }

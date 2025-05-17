@@ -15,40 +15,22 @@ import net.shadowtek.fossilgencraft.entity.custom.gmotypes.GMOLandEntity;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoRenderer;
+import software.bernie.geckolib.renderer.layer.FastBoneFilterGeoLayer;
 import software.bernie.geckolib.renderer.layer.GeoRenderLayer;
 import software.bernie.geckolib.util.Color;
 
-public class GeneSlot5LayerLandCreature extends GeoRenderLayer<GMOLandEntity> {
+import java.util.List;
 
-    public GeneSlot5LayerLandCreature(GeoRenderer<GMOLandEntity> entityRendererIn) {
-        super(entityRendererIn);
+public class GeneSlot5LayerLandCreature extends FastBoneFilterGeoLayer<GMOLandEntity> {
+
+    public GeneSlot5LayerLandCreature(GeoRenderer<GMOLandEntity> renderer) {
+        super(renderer);
+        getAffectedBones().add("body");
+        getAffectedBones().add("head");
     }
 
     @Override
-    public void render(PoseStack poseStack, GMOLandEntity animatable, BakedGeoModel bakedModel, @Nullable RenderType renderType, MultiBufferSource bufferSource, @Nullable VertexConsumer buffer, float partialTick, int packedLight, int packedOverlay) {
-        String geneOneSpecies = animatable.getTypeVariant();
-        String geneFiveSpecies = animatable.getGene5VariantType();
-
-        GeneFiveAssignmentInfo geneFiveAssignmentInfo = GeneFiveAssignmentManager.getGeneFiveInfoForEntity(geneFiveSpecies);
-
-        ResourceLocation textureFilePath = ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, geneFiveAssignmentInfo.pathToTextureLocation().toString());
-        ResourceLocation defaultPath = ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, "textures/gmoentity/empty_gene.jpg");
-        ResourceLocation activePath;
-
-
-        if (geneOneSpecies.equals(geneFiveSpecies)) {
-            activePath = defaultPath;
-
-        } else {
-            activePath = textureFilePath;
-        }
-
-
-            RenderType skinLayerRenderType = RenderType.entityDecal(activePath);
-
-            getRenderer().reRender(getDefaultBakedModel(animatable), poseStack, bufferSource, animatable, skinLayerRenderType,
-                    bufferSource.getBuffer(skinLayerRenderType), partialTick, packedLight, OverlayTexture.NO_OVERLAY,
-                    Color.WHITE.argbInt());
-        }
-
+    public void preRender(PoseStack poseStack, GMOLandEntity animatable, BakedGeoModel bakedModel, @Nullable RenderType renderType, MultiBufferSource bufferSource, @Nullable VertexConsumer buffer, float partialTick, int packedLight, int packedOverlay) {
+        super.preRender(poseStack, animatable, bakedModel, renderType, bufferSource, buffer, partialTick, packedLight, packedOverlay);
+    }
 }

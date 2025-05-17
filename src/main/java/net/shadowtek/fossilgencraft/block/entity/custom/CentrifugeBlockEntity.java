@@ -135,9 +135,9 @@ public class CentrifugeBlockEntity extends BlockEntity implements MenuProvider {
     protected void loadAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
         super.loadAdditional(pTag, pRegistries);
 
-            itemHandler.deserializeNBT(pRegistries, pTag.getCompound("inventory"));
-            progress = pTag.getInt("centrifuge.progress");
-            maxProgress = pTag.getInt("centrifuge.max_progress");
+            itemHandler.deserializeNBT(pRegistries, pTag.getCompound("inventory").get());
+            progress = pTag.getInt("centrifuge.progress").get();
+            maxProgress = pTag.getInt("centrifuge.max_progress").get();
 
     }
 
@@ -183,7 +183,14 @@ public class CentrifugeBlockEntity extends BlockEntity implements MenuProvider {
         String geneSetterId = itemHandler.getStackInSlot(INPUT_SLOT1).get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_1.get());
         String gene2SetterId = itemHandler.getStackInSlot(INPUT_SLOT1).get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_2.get());
         String gene3SetterId = itemHandler.getStackInSlot(INPUT_SLOT1).get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_3.get());
-        ItemStack egg = new ItemStack(ModItems.CUSTOM_SPAWN_EGG.get(), output1.getCount());
+        String gene4SetterId = itemHandler.getStackInSlot(INPUT_SLOT1).get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_4.get());
+        String gene5SetterId = itemHandler.getStackInSlot(INPUT_SLOT1).get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_5.get());
+        String gene6SetterId = itemHandler.getStackInSlot(INPUT_SLOT1).get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_6.get());
+        String gene7SetterId = itemHandler.getStackInSlot(INPUT_SLOT1).get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_7.get());
+        String gene8SetterId = itemHandler.getStackInSlot(INPUT_SLOT1).get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_8.get());
+        String gene9SetterId = itemHandler.getStackInSlot(INPUT_SLOT1).get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_9.get());
+        String gene10SetterId = itemHandler.getStackInSlot(INPUT_SLOT1).get(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_10.get());
+        ItemStack egg = new ItemStack(ModItems.MODIFIED_LAND_CREATURE.get(), output1.getCount());
 
         itemHandler.extractItem(INPUT_SLOT1, 1, false);
         itemHandler.extractItem(INPUT_SLOT2,1,false);
@@ -191,6 +198,13 @@ public class CentrifugeBlockEntity extends BlockEntity implements MenuProvider {
         egg.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_1.get(),geneSetterId);
         egg.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_2.get(),gene2SetterId);
         egg.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_3.get(),gene3SetterId);
+        egg.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_4.get(),gene4SetterId);
+        egg.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_5.get(),gene5SetterId);
+        egg.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_6.get(),gene6SetterId);
+        egg.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_7.get(),gene7SetterId);
+        egg.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_8.get(),gene8SetterId);
+        egg.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_9.get(),gene9SetterId);
+        egg.set(ModDataComponents.DNA_COMPLETED_GENOME_GENE_LABEL_SLOT_10.get(),gene10SetterId);
 
 
         ItemStack existingOutput1 = this.itemHandler.getStackInSlot(OUTPUT_SLOT1);
@@ -475,11 +489,11 @@ public class CentrifugeBlockEntity extends BlockEntity implements MenuProvider {
                                                   output6.getCount(),output7.getCount(),output8.getCount(),output9.getCount(),output10.getCount());
         }
     private Optional<RecipeHolder<CentrifugeRecipe>> getCurrentRecipe() {
-        return this.level.getRecipeManager()
+        return this.getLevel().getServer().getRecipeManager()
                 .getRecipeFor(ModRecipes.CENTRIFUGE_TYPE.get(), new CentrifugeRecipeInput(itemHandler.getStackInSlot(INPUT_SLOT1),itemHandler.getStackInSlot(INPUT_SLOT2)), level);
         }
     private Optional<RecipeHolder<DnaSplittingCentrifuge>> getGeneRecipe(){
-        return this.level.getRecipeManager()
+        return this.getLevel().getServer().getRecipeManager()
                 .getRecipeFor(ModRecipes.CENTRIFUGE_SPLITTING_TYPE.get(), new CentrifugeRecipeInput(itemHandler.getStackInSlot(INPUT_SLOT1),itemHandler.getStackInSlot(INPUT_SLOT2)), level);
         }
     private boolean canInsertItemIntoOutputSlot(ItemStack output1, ItemStack output2) {

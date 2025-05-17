@@ -1,7 +1,10 @@
 package net.shadowtek.fossilgencraft.data.loader;
 
 import com.google.gson.*;
+import com.mojang.serialization.Codec;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
@@ -19,15 +22,28 @@ import java.util.Map;
 
 public class DnaExtractionManager extends SimpleJsonResourceReloadListener {
 
-   private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
+   private static final Gson GSON = new GsonBuilder() .setPrettyPrinting().disableHtmlEscaping().create();
+
+
+
+
    private static final String FOLDER_NAME = "dnaextractionvanilla/syringable";
 
    private static Map<EntityType<?>, DnaExtractionInfo> extractionDataMap = Collections.emptyMap();
 
+    protected DnaExtractionManager() {
+        super(GSON, FOLDER_NAME);
+    }
 
-    public DnaExtractionManager(){
-    super(GSON, FOLDER_NAME);
-        FossilGenCraft.LOGGER.info("DNA Extraction Manager Initialized, scanning folder '{}'", FOLDER_NAME);
+    /*
+        public DnaExtractionManager(){
+        super(GSON, FOLDER_NAME);
+            FossilGenCraft.LOGGER.info("DNA Extraction Manager Initialized, scanning folder '{}'", FOLDER_NAME);
+        }
+    */
+    @Override
+    protected void apply(Object pObject, ResourceManager pResourceManager, ProfilerFiller pProfiler) {
+
     }
 
 
@@ -36,7 +52,7 @@ public class DnaExtractionManager extends SimpleJsonResourceReloadListener {
 
 
 
-
+/*
     @Override
     protected void apply(Map<ResourceLocation, JsonElement> loadedResources, ResourceManager pResourceManager, ProfilerFiller pProfiler) {
         FossilGenCraft.LOGGER.info("Applying DNA extraction data (Processing {} files)...", loadedResources.size());
@@ -96,5 +112,8 @@ public class DnaExtractionManager extends SimpleJsonResourceReloadListener {
     public static DnaExtractionInfo getInfoForEntity(EntityType<?> entityType) {
         return extractionDataMap.get(entityType);
     }
+
+
+ */
 
 }

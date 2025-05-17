@@ -56,12 +56,12 @@ public class GeneTenAssignmentManager extends SimpleJsonResourceReloadListener {
                 String genesByIdString = GsonHelper.getAsString(jsonObject, "genes_by_id");
                 ResourceLocation genesByIdRl = ResourceLocation.parse(genesByIdString);
 
-                JsonObject dataGeneSlot10 = GsonHelper.getAsJsonObject(jsonObject, "data_gene_slot_9");
+                JsonObject dataGeneSlot10 = GsonHelper.getAsJsonObject(jsonObject, "data_gene_slot_10");
 
                 String geneType = GsonHelper.getAsString(dataGeneSlot10, "gene_type");
                 boolean isAgressive = GsonHelper.getAsBoolean(dataGeneSlot10, "is_aggressive");
                 boolean isTameable = GsonHelper.getAsBoolean(dataGeneSlot10, "is_tameable");
-                boolean isRideable = GsonHelper.getAsBoolean(dataGeneSlot10, "is_ridable");
+                boolean isRideable = GsonHelper.getAsBoolean(dataGeneSlot10, "is_rideable");
                 boolean defendOwner = GsonHelper.getAsBoolean(dataGeneSlot10, "attack_owner_attacker");
 
 

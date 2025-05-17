@@ -5,24 +5,21 @@ import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-
 import net.shadowtek.fossilgencraft.entity.client.gmoentity.layer.GeneSlot2Layer;
 import net.shadowtek.fossilgencraft.entity.custom.GMOEntity;
-import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import software.bernie.geckolib.renderer.specialty.DynamicGeoEntityRenderer;
 
-import java.util.Map;
 
-public class GMORenderer extends GeoEntityRenderer<GMOEntity> {
+public class GMORenderer extends DynamicGeoEntityRenderer<GMOEntity> {
 
     public GMORenderer(EntityRendererProvider.Context context) {
         super(context, new GMOModel());
 
-        addRenderLayer(new GeneSlot2Layer(this));
+       // addRenderLayer(new GeneSlot2Layer(this));
+
 
 
     }
-
-
 
     @Override
     public void render(GMOEntity entity, float entityYaw, float partialTick, PoseStack poseStack,

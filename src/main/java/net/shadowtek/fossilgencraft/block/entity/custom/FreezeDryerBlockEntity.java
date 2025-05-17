@@ -113,9 +113,9 @@ public class FreezeDryerBlockEntity extends BlockEntity implements MenuProvider 
     protected void loadAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
         super.loadAdditional(pTag, pRegistries);
 
-        itemHandler.deserializeNBT(pRegistries, pTag.getCompound("inventory"));
-        progress = pTag.getInt("freezedryer.progress");
-        maxProgress = pTag.getInt("freezedryer.max_progress");
+        itemHandler.deserializeNBT(pRegistries, pTag.getCompound("inventory").get());
+        progress = pTag.getInt("freezedryer.progress").get();
+        maxProgress = pTag.getInt("freezedryer.max_progress").get();
 
     }
 
@@ -168,7 +168,7 @@ public class FreezeDryerBlockEntity extends BlockEntity implements MenuProvider 
         return canInsertItemIntoOutputSlot(output) && canInsertAmountIntoOutputSlot(output.getCount());
     }
     private Optional<RecipeHolder<FreezeDryerRecipe>> getCurrentRecipe() {
-        return this.level.getRecipeManager()
+        return this.getLevel().getServer().getRecipeManager()
                 .getRecipeFor(ModRecipes.FREEZEDRYER_TYPE.get(), new FreezeDryerRecipeInput(itemHandler.getStackInSlot(INPUT_SLOT)), level);
     }
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {

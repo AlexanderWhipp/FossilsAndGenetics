@@ -34,6 +34,12 @@ public class ModEntities {
                             .sized(1.5f, 1.75f)
                             .build(ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, "custom_mob_land").toString()));
 
+    public static final RegistryObject<EntityType<GMOLandEntity>> MEATCUBE_LAND =
+            ENTITY_TYPES.register("meatcubeland",
+                    ()-> EntityType.Builder.of(GMOLandEntity::new, MobCategory.CREATURE)
+                            .sized(1.5f, 1.75f)
+                            .build(ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, "meatcubeland").toString()));
+
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

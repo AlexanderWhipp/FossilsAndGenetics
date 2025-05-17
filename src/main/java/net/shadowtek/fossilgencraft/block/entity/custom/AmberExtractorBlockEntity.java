@@ -38,7 +38,7 @@ import net.shadowtek.fossilgencraft.screen.custom.AmberExtractorMenu;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import javax.swing.plaf.basic.BasicComboBoxUI;
+
 import java.util.Optional;
 
 public class AmberExtractorBlockEntity extends BlockEntity implements MenuProvider {
@@ -150,9 +150,9 @@ public class AmberExtractorBlockEntity extends BlockEntity implements MenuProvid
     @Override
     protected void loadAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
         super.loadAdditional(pTag, pRegistries);
-        inventory.deserializeNBT(pRegistries, pTag.getCompound("inventory"));
-        pTag.getInt("amber_extractor.progress");
-        pTag.getInt("amber_extractor.max_progress");//loads saved inventory on re-login
+        inventory.deserializeNBT(pRegistries, pTag.getCompound("inventory").get());
+        pTag.getInt("amber_extractor.progress").orElse(0);
+        pTag.getInt("amber_extractor.max_progress").orElse(72);//loads saved inventory on re-login
     }
     @Override
     public Component getDisplayName() {
@@ -267,7 +267,7 @@ public class AmberExtractorBlockEntity extends BlockEntity implements MenuProvid
 
     }
     private Optional <RecipeHolder<AmberExtractorRecipe>> getCurrentRecipe(){
-        return this.level.getRecipeManager()
+        return this.getLevel().getServer().getRecipeManager()
                 .getRecipeFor(ModRecipes.AMBER_EXTRACTOR_TYPE.get(), new AmberExtractorRecipeInput(inventory.getStackInSlot(INPUT_SLOT_1),
                         inventory.getStackInSlot(INPUT_SLOT_2),inventory.getStackInSlot(INPUT_SLOT_3),inventory.getStackInSlot(INPUT_SLOT_4)), level);
     }

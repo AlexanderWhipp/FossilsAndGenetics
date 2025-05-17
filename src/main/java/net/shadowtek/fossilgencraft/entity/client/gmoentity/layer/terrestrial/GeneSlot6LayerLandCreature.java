@@ -19,6 +19,7 @@ import software.bernie.geckolib.renderer.layer.GeoRenderLayer;
 import software.bernie.geckolib.util.Color;
 
 public class GeneSlot6LayerLandCreature extends GeoRenderLayer<GMOLandEntity> {
+    ResourceLocation textureFilePath;
 
     public GeneSlot6LayerLandCreature(GeoRenderer<GMOLandEntity> entityRendererIn) {
         super(entityRendererIn);
@@ -29,14 +30,15 @@ public class GeneSlot6LayerLandCreature extends GeoRenderLayer<GMOLandEntity> {
         String geneOneSpecies = animatable.getTypeVariant();
         String geneSixSpecies = animatable.getGene6VariantType();
 
-        GeneSixAssignmentInfo geneSixAssignmentInfo = GeneSixAssignmentManager.getGeneSixInfoForEntity(geneSixSpecies);
-
-        ResourceLocation textureFilePath = ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, geneSixAssignmentInfo.pathToTextureLocation().toString());
-        ResourceLocation defaultPath = ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, "textures/gmoentity/empty_gene.jpg");
+        String geneSixAssignmentInfo = animatable.gene6SpeciesTextureLocation();
+if (geneSixAssignmentInfo != null) {
+    textureFilePath = ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, geneSixAssignmentInfo);
+}
+        ResourceLocation defaultPath = ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, "textures/gmoentity/emptygene.png");
         ResourceLocation activePath;
 
 
-        if (geneOneSpecies.equals(geneSixSpecies)) {
+        if (geneOneSpecies.equals(geneSixSpecies)|| geneSixAssignmentInfo == null) {
             activePath = defaultPath;
 
         } else {

@@ -116,6 +116,7 @@ public class FossilGenCraft {
 
             EntityRenderers.register(ModEntities.CUSTOM_PLAYER_MOB.get(), GMORenderer::new);
             EntityRenderers.register(ModEntities.CUSTOM_PLAYER_MOB_LAND.get(), LandGMORenderer::new);
+            EntityRenderers.register(ModEntities.MEATCUBE_LAND.get(), LandGMORenderer::new);
 
             MenuScreens.register(ModMenuTypes.AMBER_EXTRACTOR_MENU.get(), AmberScreen::new);
             MenuScreens.register(ModMenuTypes.CENTRIFUGE_MENU.get(), CentrifugeScreen::new);

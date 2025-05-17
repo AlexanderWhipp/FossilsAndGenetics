@@ -1,0 +1,91 @@
+{
+  "species_id": "fossilgencraft:meatcubeland",
+  "genes_by_id": "fossilgencraft:meatcube_genes",
+    "data_gene_slot_1": {
+      "gene_type": "base",
+
+      "model_location": "geo/gmoentity/base/meat.geo.json",
+      "base_texture_location": "textures/gmoentity/base/meat.png",
+      "walk_animation_location":"animations/meatcube.walk.json",
+
+      "land_check": true,
+      "water_check": false,
+      "flying_check": false,
+      "creature_size": "small",
+      "gene_id": 0,
+      "base_attribute_values": [
+        {"attribute": "max_health", "attribute_value": 1},
+        {"attribute": "walk_speed", "attribute_value": 0.1},
+        {"attribute": "jump_strength", "attribute_value": 0.1},
+        {"attribute": "gravity", "attribute_value": 0.7},
+        {"attribute": "safe_fall_distance", "attribute_value": 5}]
+    },
+
+
+
+  "data_gene_slot_2": {
+    "gene_type": "cosmetic",
+    "gene_id": 0,
+    "path_to_texture": "textures/gmoentity/genetwo/meat.png"},
+
+
+    "data_gene_slot_3": {
+      "gene_type": "ability",
+      "gene_desc": "chicken_fall_ability",
+      "attribute_modifiers": [
+        {"attribute": "max_health","modifier_active": false, "attribute_value":  0},
+        {"attribute": "walk_speed","modifier_active":  false, "attribute_value":  0},
+        {"attribute": "jump_strength","modifier_active": false, "attribute_value":  0},
+        {"attribute": "gravity","modifier_active": false, "attribute_value": 0},
+        {"attribute": "safe_fall_distance","modifier_active": false, "attribute_value": 0}
+      ]
+    },
+
+
+
+  "data_gene_slot_4": {
+    "gene_type": "behaviour",
+    "gene_desc": "goals_to_add",
+      "goals_to_add": [
+        {"goal": "panic", "is_active": false}
+      ]
+  },
+
+  "data_gene_slot_5": {
+          "gene_type": "cosmetic",
+          "gene_id": 0,
+          "path_to_texture": "textures/gmoentity/genefive/meat.png"
+},
+    "data_gene_slot_6": {
+      "gene_type": "cosmetic",
+      "gene_id": 0,
+      "path_to_texture": "textures/gmoentity/genesix/meat.png"
+},
+    "data_gene_slot_7": {
+      "gene_type": "ability",
+      "goals": [
+        {"goal": "make_player_sad"}
+      ]
+    },
+
+    "data_gene_slot_8": {
+      "gene_type": "diet",
+      "valid_food_items": [
+        "fossilgencraft:sequenced_dna_chain"
+      ]
+  },
+    "data_gene_slot_9": {
+      "gene_type": "social",
+      "herd": false
+    },
+    "data_gene_slot_10": {
+      "gene_type": "social_behaviour",
+      "is_aggressive": false,
+      "is_tameable": false,
+      "is_rideable": false,
+      "attack_owner_attacker": false
+
+  }
+
+
+}

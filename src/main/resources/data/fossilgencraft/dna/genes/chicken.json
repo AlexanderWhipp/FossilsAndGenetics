@@ -4,9 +4,9 @@
     "data_gene_slot_1": {
       "gene_type": "base",
 
-      "model_location": "geo/base/chicken.geo.json",
+      "model_location": "geo/gmoentity/base/chicken.geo.json",
       "base_texture_location": "textures/gmoentity/base/chicken.png",
-      "walk_animation_location":"gmoentity/base/chicken_move_walk.json",
+      "walk_animation_location":"animations/chicken.move.walk.json",
 
       "land_check": true,
       "water_check": false,
@@ -24,9 +24,10 @@
 
 
   "data_gene_slot_2": {
-    "gene_type": "cosmetic",
+    "gene_type": "cosmetic_head",
     "gene_id": 0,
-    "path_to_texture": "textures/gmoentity/genetwo/chicken.png"},
+    "path_to_texture": "fossilgencraft:textures/gmoentity/genetwo/chicken_head.png"},
+    "path_to_model": "fossilgencraft:geo/gmoentity/genetwo/chicken_head.geo.json",
 
 
     "data_gene_slot_3": {

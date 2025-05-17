@@ -9,7 +9,10 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.*;
@@ -19,18 +22,19 @@ import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.FollowOwnerGoal;
 import net.minecraft.world.entity.ai.goal.SitWhenOrderedToGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
+import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.shadowtek.fossilgencraft.data.geneassignmentinfo.GeneEightAssignmentInfo;
-import net.shadowtek.fossilgencraft.data.geneassignmentinfo.GeneNineAssignmentInfo;
-import net.shadowtek.fossilgencraft.data.geneassignmentinfo.GeneSevenAssignmentInfo;
-import net.shadowtek.fossilgencraft.data.geneassignmentinfo.GeneTenAssignmentInfo;
+import net.shadowtek.fossilgencraft.FossilGenCraft;
+import net.shadowtek.fossilgencraft.data.geneassignmentinfo.*;
 import net.shadowtek.fossilgencraft.data.loader.*;
+import net.shadowtek.fossilgencraft.entity.client.GeneOneVariants;
 import net.shadowtek.fossilgencraft.entity.client.gmoentity.goals.*;
 import org.apache.http.config.Registry;
 import org.jetbrains.annotations.Nullable;
@@ -44,7 +48,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-public class GMOEntity extends TamableAnimal implements GeoEntity {
+public class GMOEntity extends TamableAnimal implements GeoEntity,ItemSteerable,Saddleable {
     public static final EntityDataAccessor<String> GENE_VARIANT_ONE =
             SynchedEntityData.defineId(GMOEntity.class, EntityDataSerializers.STRING);
 
@@ -82,11 +86,15 @@ public class GMOEntity extends TamableAnimal implements GeoEntity {
     public static final EntityDataAccessor<String> GENE_VARIANT_TEN =
             SynchedEntityData.defineId(GMOEntity.class, EntityDataSerializers.STRING);
 
+    public static final EntityDataAccessor<Boolean> DATA_SADDLE_ID = SynchedEntityData.defineId(GMOEntity.class, EntityDataSerializers.BOOLEAN);
+    public static final EntityDataAccessor<Integer> DATA_BOOST_TIME = SynchedEntityData.defineId(GMOEntity.class, EntityDataSerializers.INT);
+
+    private final ItemBasedSteering steering = new ItemBasedSteering(this.entityData, DATA_BOOST_TIME, DATA_SADDLE_ID);
 
 
 
 
-protected static final RawAnimation WALK_ANIM = RawAnimation.begin().thenLoop("chicken.move.walk");
+
 
 private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
 
@@ -103,7 +111,7 @@ private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCach
     protected <T extends GMOEntity> PlayState predicate(final AnimationState<T> event) {
         if (event.isMoving()) {
 
-            event.getController().setAnimation(RawAnimation.begin().then("chicken.move.walk", Animation.LoopType.LOOP));
+            event.getController().setAnimation(RawAnimation.begin().then(this.gene1SpeciesAnimationLocation(), Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
         return PlayState.STOP;
@@ -114,6 +122,81 @@ private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCach
         return this.geoCache;
     }
 
+
+    @Override
+    public void onSyncedDataUpdated(EntityDataAccessor<?> key) {
+        if(DATA_BOOST_TIME.equals(key) && this.level().isClientSide){
+            this.steering.onSynced();
+        }
+        super.onSyncedDataUpdated(key);
+    }
+
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(GENE_VARIANT_ONE, "fossilgencraft:meatcubeland");
+        pBuilder.define(GENE_VARIANT_TWO, "fossilgencraft:meatcubeland");
+        pBuilder.define(GENE_VARIANT_THREE, "fossilgencraft:meatcubeland");
+        pBuilder.define(GENE_VARIANT_FOUR, "fossilgencraft:meatcubeland");
+        pBuilder.define(GENE_VARIANT_FIVE, "fossilgencraft:meatcubeland");
+        pBuilder.define(GENE_VARIANT_SIX, "fossilgencraft:meatcubeland");
+        pBuilder.define(GENE_VARIANT_SEVEN, "fossilgencraft:meatcubeland");
+        pBuilder.define(GENE_VARIANT_EIGHT, "fossilgencraft:meatcubeland");
+        pBuilder.define(GENE_VARIANT_NINE, "fossilgencraft:meatcubeland");
+        pBuilder.define(GENE_VARIANT_TEN, "fossilgencraft:meatcubeland");
+        pBuilder.define(DATA_SADDLE_ID, false);
+        pBuilder.define(DATA_BOOST_TIME, 0);
+
+    }
+    public String getTypeVariant(){
+        return this.entityData.get(GENE_VARIANT_ONE);
+    }
+    public String getGene2VariantType(){
+        return this.entityData.get(GENE_VARIANT_TWO);
+    }
+    public String getGene3VariantType(){return this.entityData.get(GENE_VARIANT_THREE);}
+    public String getGene4VariantType(){return this.entityData.get(GENE_VARIANT_FOUR);}
+    public String getGene5VariantType(){return this.entityData.get(GENE_VARIANT_FIVE);}
+    public String getGene6VariantType(){return this.entityData.get(GENE_VARIANT_SIX);}
+    public String getGene7VariantType(){return this.entityData.get(GENE_VARIANT_SEVEN);}
+    public String getGene8VariantType(){return this.entityData.get(GENE_VARIANT_EIGHT);}
+    public String getGene9VariantType(){return this.entityData.get(GENE_VARIANT_NINE);}
+    public String getGene10VariantType(){return this.entityData.get(GENE_VARIANT_TEN);}
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag pCompound) {
+        super.addAdditionalSaveData(pCompound);
+        pCompound.putString("Gene1", this.getTypeVariant());
+        pCompound.putString(   "Gene2", this.getGene2VariantType());
+        pCompound.putString("Gene3", this.getGene3VariantType());
+        pCompound.putString("Gene4", this.getGene4VariantType());
+        pCompound.putString("Gene5", this.getGene5VariantType());
+        pCompound.putString("Gene6", this.getGene6VariantType());
+        pCompound.putString("Gene7", this.getGene7VariantType());
+        pCompound.putString("Gene8", this.getGene8VariantType());
+        pCompound.putString("Gene9", this.getGene9VariantType());
+        pCompound.putString("Gene10", this.getGene10VariantType());
+        this.steering.addAdditionalSaveData(pCompound);
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag pCompound) {
+        super.readAdditionalSaveData(pCompound);
+        this.entityData.set(GENE_VARIANT_ONE, pCompound.getString("Gene1"));
+        this.entityData.set(GENE_VARIANT_TWO, pCompound.getString("Gene2"));
+        this.entityData.set(GENE_VARIANT_THREE, pCompound.getString("Gene3"));
+        this.entityData.set(GENE_VARIANT_FOUR, pCompound.getString("Gene4"));
+        this.entityData.set(GENE_VARIANT_FIVE, pCompound.getString("Gene5"));
+        this.entityData.set(GENE_VARIANT_SIX, pCompound.getString("Gene6"));
+        this.entityData.set(GENE_VARIANT_SEVEN, pCompound.getString("Gene7"));
+        this.entityData.set(GENE_VARIANT_EIGHT, pCompound.getString("Gene8"));
+        this.entityData.set(GENE_VARIANT_NINE, pCompound.getString("Gene9"));
+        this.entityData.set(GENE_VARIANT_TEN, pCompound.getString("Gene10"));
+        this.steering.readAdditionalSaveData(pCompound);
+    }
+
+    public LivingEntity herdLeader;
+    private boolean isLeader = false;
 
     public static AttributeSupplier setAttributes(){
         return TamableAnimal.createMobAttributes()
@@ -148,59 +231,39 @@ private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCach
         return null;
     }
 
-    @Override
-    protected void defineSynchedData(SynchedEntityData.Builder pBuilder) {
-        super.defineSynchedData(pBuilder);
-        pBuilder.define(GENE_VARIANT_ONE, "minecraft:chicken");
-        pBuilder.define(GENE_VARIANT_TWO, "minecraft:chicken");
-        pBuilder.define(GENE_VARIANT_THREE, "minecraft:chicken");
-        pBuilder.define(GENE_VARIANT_FOUR, "minecraft:chicken");
-        pBuilder.define(GENE_VARIANT_FIVE, "minecraft:chicken");
-        pBuilder.define(GENE_VARIANT_SIX, "minecraft:chicken");
-        pBuilder.define(GENE_VARIANT_SEVEN, "minecraft:chicken");
-        pBuilder.define(GENE_VARIANT_EIGHT, "minecraft:chicken");
-        pBuilder.define(GENE_VARIANT_NINE, "minecraft:chicken");
-        pBuilder.define(GENE_VARIANT_TEN, "minecraft:chicken");
-
-    }
-    public String getTypeVariant(){
-        return this.entityData.get(GENE_VARIANT_ONE);
-    }
-    public String getGene2VariantType(){
-        return this.entityData.get(GENE_VARIANT_TWO);
-    }
-    public String getGene3VariantType(){return this.entityData.get(GENE_VARIANT_THREE);}
-    public String getGene4VariantType(){return this.entityData.get(GENE_VARIANT_FOUR);}
-    public String getGene5VariantType(){return this.entityData.get(GENE_VARIANT_FIVE);}
-    public String getGene6VariantType(){return this.entityData.get(GENE_VARIANT_SIX);}
-    public String getGene7VariantType(){return this.entityData.get(GENE_VARIANT_SEVEN);}
-    public String getGene8VariantType(){return this.entityData.get(GENE_VARIANT_EIGHT);}
-    public String getGene9VariantType(){return this.entityData.get(GENE_VARIANT_NINE);}
-    public String getGene10VariantType(){return this.entityData.get(GENE_VARIANT_TEN);}
-
-    public LivingEntity herdLeader;
-    private boolean isLeader = false;
-
-
     public boolean canHerd(){
         GeneNineAssignmentInfo geneNineAssignment = GeneNineAssignmentManager.getGeneNineInfoForEntity(getGene9VariantType());
-        return geneNineAssignment.canHerd();
+        if(geneNineAssignment != null) {
+            return geneNineAssignment.canHerd();
+        } else return false;
     }
     public boolean canLayEggs(){
         GeneSevenAssignmentInfo geneSevenAssignment = GeneSevenAssignmentManager.getGeneSevenInfoForEntity(getGene7VariantType());
-        return geneSevenAssignment.geneSevenGoals().stream().anyMatch(goal -> goal.goal().equals("lays_eggs"));
+       if(geneSevenAssignment != null) {
+           return geneSevenAssignment.geneSevenGoals().stream().anyMatch(goal -> goal.goal().equals("lays_eggs"));
+       } else return false;
     }
-    public boolean isAggressive(){
+
+    @Override
+    public boolean isAggressive() {
         GeneTenAssignmentInfo geneTenAssignment = GeneTenAssignmentManager.getGeneTenInfoForEntity(getGene10VariantType());
-        return geneTenAssignment.aggressiveToPlayer();
+        if(geneTenAssignment!=null){
+            return geneTenAssignment.aggressiveToPlayer();
+        } else return false;
     }
+
+
     public boolean isRideable(){
         GeneTenAssignmentInfo geneTenAssignment = GeneTenAssignmentManager.getGeneTenInfoForEntity(getGene10VariantType());
-        return geneTenAssignment.rideable();
+       if(geneTenAssignment != null) {
+           return geneTenAssignment.rideable();
+       } else return false;
     }
     public boolean defendOwner(){
         GeneTenAssignmentInfo geneTenAssignment = GeneTenAssignmentManager.getGeneTenInfoForEntity(getGene10VariantType());
-        return geneTenAssignment.defendOwner();
+        if(geneTenAssignment != null) {
+            return geneTenAssignment.defendOwner();
+        } else return false;
     }
 
     public void setHerdLeader(LivingEntity leader){
@@ -215,6 +278,49 @@ private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCach
     public void setHerdLeaderStatus(boolean leader){
         this.isLeader = leader;
     }
+    public String gene1SpeciesTextureLocation(){
+        GeneOneAssignmentInfo geneOneAssignment = GeneOneAssignmentManager.getGeneInfoForEntity(getTypeVariant());
+        if(geneOneAssignment!=null){
+            return geneOneAssignment.baseTextureLocation();
+        } else return "textures/gmoentity/base/meat.png";
+    }
+    public String gene1SpeciesModelLocation(){
+        GeneOneAssignmentInfo geneOneAssignment = GeneOneAssignmentManager.getGeneInfoForEntity(getTypeVariant());
+        if(geneOneAssignment!=null){
+            return geneOneAssignment.modelLocation();
+        } else return "geo/gmoentity/base/meat.geo.json";
+    }
+    public String gene1SpeciesAnimationLocation(){
+        GeneOneAssignmentInfo geneOneAssignment = GeneOneAssignmentManager.getGeneInfoForEntity(getTypeVariant());
+        if(geneOneAssignment!=null){
+            return geneOneAssignment.walkAnimationLocation();
+        } else return "animations/meatcube.walk.json";
+    }
+    public ResourceLocation gene2SpeciesHeadModelLocation(){
+        GeneTwoAssignmentInfo geneTwoAssignment = GeneTwoAssignmentManager.getGeneTwoInfoForEntity(getGene2VariantType());
+        if(geneTwoAssignment!=null){
+            return geneTwoAssignment.pathToModelLocation();
+        } else return ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, "geo/gmoentity/genetwo/meatcube.geo.json");
+    }
+    public ResourceLocation gene2SpeciesHeadTextureLocation(){
+        GeneTwoAssignmentInfo geneTwoAssignment = GeneTwoAssignmentManager.getGeneTwoInfoForEntity(getGene2VariantType());
+        if(geneTwoAssignment!=null){
+            return geneTwoAssignment.pathToTextureLocation();
+        } else return ResourceLocation.fromNamespaceAndPath(FossilGenCraft.MOD_ID, "textures/gmoentity/genetwo/meatcube.geo.json");
+    }
+
+ public String gene5SpeciesTextureLocation(){
+        GeneFiveAssignmentInfo geneFiveAssignment = GeneFiveAssignmentManager.getGeneFiveInfoForEntity(getGene5VariantType());
+        if(geneFiveAssignment!=null){
+            return geneFiveAssignment.pathToTextureLocation().toString();
+        } else return "textures/gmoentity/genefive/meat.png";
+    }
+ public String gene6SpeciesTextureLocation(){
+        GeneSixAssignmentInfo geneSixAssignment = GeneSixAssignmentManager.getGeneSixInfoForEntity(getGene6VariantType());
+        if(geneSixAssignment!=null){
+            return geneSixAssignment.pathToTextureLocation().toString();
+        } else return "textures/gmoentity/genesix/meat.png";
+    }
 
 
     public int fuseTimer = 0;
@@ -223,90 +329,11 @@ private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCach
 
 
     @Override
-    public void tick() {
-        super.tick();
-
-        if (getTypeVariant().equals("minecraft:creeper") || getGene3VariantType().equals("minecraft:creeper")) {
-            if (shouldExplode()) {
-                if (!isExploding) {
-                    isExploding = true;
-                }
-                fuseTimer++;
-                if (fuseTimer >= maxFuseTime) {
-                    explode();
-                }
-                } else {
-                    fuseTimer = 0;
-                    isExploding = false;
-                }
-        }
-    }
-        private boolean shouldExplode(){
-            return this.getTarget() != null && this.distanceTo(this.getTarget()) < 3.0D;
-        }
-        private void explode(){
-            this.level().explode(this, this.getX(), this.getY(), this.getZ(), 3.0F, Level.ExplosionInteraction.MOB);
-            this.discard();
-        }
-
-        public boolean isTamable(){
-            GeneTenAssignmentInfo geneTenAssignment = GeneTenAssignmentManager.getGeneTenInfoForEntity(getGene10VariantType());
-            return geneTenAssignment.tamable();
-        }
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty,
+                                        MobSpawnType pSpawnType, @Nullable SpawnGroupData pSpawnGroupData) {
 
 
-    @Override
-    public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
-        ItemStack itemStack = pPlayer.getItemInHand(pHand);
-
-
-        if(this.isTamable()){
-            if(!this.isTame() && itemStack.is(Items.STICK)){
-                if(!pPlayer.getAbilities().instabuild){
-                    itemStack.shrink(1);
-                }
-                this.tame(pPlayer);
-                this.setPersistenceRequired();
-                this.level().broadcastEntityEvent(this,(byte)7);
-                return InteractionResult.SUCCESS;
-            }
-            if(this.isTame() && this.isOwnedBy(pPlayer)){
-                this.setOrderedToSit(!this.isOrderedToSit());
-                return InteractionResult.SUCCESS;
-            }
-        }
-
-        return super.mobInteract(pPlayer, pHand);
-    }
-
-    @Override
-    public void addAdditionalSaveData(CompoundTag pCompound) {
-        super.addAdditionalSaveData(pCompound);
-        pCompound.putString("Gene1", this.getTypeVariant());
-        pCompound.putString(   "Gene2", this.getGene2VariantType());
-        pCompound.putString("Gene3", this.getGene3VariantType());
-        pCompound.putString("Gene4", this.getGene4VariantType());
-        pCompound.putString("Gene5", this.getGene5VariantType());
-        pCompound.putString("Gene6", this.getGene6VariantType());
-        pCompound.putString("Gene7", this.getGene7VariantType());
-        pCompound.putString("Gene8", this.getGene8VariantType());
-        pCompound.putString("Gene9", this.getGene9VariantType());
-        pCompound.putString("Gene10", this.getGene10VariantType());
-    }
-
-    @Override
-    public void readAdditionalSaveData(CompoundTag pCompound) {
-        super.readAdditionalSaveData(pCompound);
-        this.entityData.set(GENE_VARIANT_ONE, pCompound.getString("Gene1"));
-        this.entityData.set(GENE_VARIANT_TWO, pCompound.getString("Gene2"));
-        this.entityData.set(GENE_VARIANT_THREE, pCompound.getString("Gene3"));
-        this.entityData.set(GENE_VARIANT_FOUR, pCompound.getString("Gene4"));
-        this.entityData.set(GENE_VARIANT_FIVE, pCompound.getString("Gene5"));
-        this.entityData.set(GENE_VARIANT_SIX, pCompound.getString("Gene6"));
-        this.entityData.set(GENE_VARIANT_SEVEN, pCompound.getString("Gene7"));
-        this.entityData.set(GENE_VARIANT_EIGHT, pCompound.getString("Gene8"));
-        this.entityData.set(GENE_VARIANT_NINE, pCompound.getString("Gene9"));
-        this.entityData.set(GENE_VARIANT_TEN, pCompound.getString("Gene10"));
+        return super.finalizeSpawn(pLevel, pDifficulty, pSpawnType, pSpawnGroupData);
     }
 
 
@@ -315,10 +342,48 @@ private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCach
     public boolean isFood(ItemStack pStack) {
         GeneEightAssignmentInfo geneEightAssignment = GeneEightAssignmentManager.getGeneEightInfoForEntity(getGene8VariantType());
         String item = pStack.getDescriptionId();
-        if (geneEightAssignment.foodItems().stream().anyMatch(food -> food.equals(item))) {
-            return true;
+        if(geneEightAssignment != null){
+            if (geneEightAssignment.foodItems().stream().anyMatch(food -> food.equals(item))) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
+    }
+
+    @Override
+    public boolean isSaddleable() {
+        return(this.isAlive() && !this.isBaby() && !this.isRideable());
+    }
+
+    @Override
+    protected void dropEquipment() {
+        super.dropEquipment();
+        if(this.isSaddled()){
+            this.spawnAtLocation(Items.SADDLE);
+        }
+    }
+    @Override
+    public boolean isSaddled() {
+        return this.steering.hasSaddle();
+    }
+
+    @Override
+    public void equipSaddle(ItemStack pStack, @Nullable SoundSource pSoundSource) {
+        this.steering.setSaddle(true);
+        if(pSoundSource != null){
+            this.level().playSound(null, this, SoundEvents.PIG_SADDLE, pSoundSource, 0.5F, 1.0F);
+        }
+    }
+
+
+
+
+
+    @Override
+    public boolean boost() {
+        return this.steering.boost(this.getRandom());
     }
 }

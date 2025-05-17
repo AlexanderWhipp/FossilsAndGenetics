@@ -130,9 +130,9 @@ public class SuperComputerTerminalBlockEntity extends BlockEntity implements Men
     @Override
     protected void loadAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
         super.loadAdditional(pTag, pRegistries);
-        this.progress = pTag.getInt("research.progress");
-        this.maxProgress = pTag.getInt("research.maxProgress");
-        itemHandler.deserializeNBT(pRegistries, pTag.getCompound("inventory")); // Load inventory
+        this.progress = pTag.getInt("research.progress").orElse(0);
+        this.maxProgress = pTag.getInt("research.maxProgress").orElse(72);
+        itemHandler.deserializeNBT(pRegistries, pTag.getCompound("inventory").get()); // Load inventory
         // Load energy if needed
     }
 

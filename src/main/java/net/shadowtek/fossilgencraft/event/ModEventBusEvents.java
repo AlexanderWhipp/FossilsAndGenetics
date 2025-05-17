@@ -27,6 +27,7 @@ import org.checkerframework.checker.units.qual.C;
             event.put(ModEntities.TREX001.get(), TRex001Entity.createAttributes().build());
             event.put(ModEntities.CUSTOM_PLAYER_MOB.get(), GMOEntity.setAttributes());
             event.put(ModEntities.CUSTOM_PLAYER_MOB_LAND.get(), GMOLandEntity.setLandAttributes());
+            event.put(ModEntities.MEATCUBE_LAND.get(), GMOLandEntity.setLandAttributes());
 
     }
     @SubscribeEvent
